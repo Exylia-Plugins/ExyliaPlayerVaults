@@ -1,0 +1,124 @@
+# Kasaların ve bir rütbe ya da satın alımın ekleyeceği kasalar. /pv
+#
+# Stilini değiştirebilirsin: düzenlemelerin güncellemelerde korunur.
+# Düzeni değiştirmesi gereken bir sürüm aşağıdaki menu-version değerini artırır;
+# dosya o zaman değiştirilir ve öncekisi yanında saklanır.
+#
+# Yetkililer aynı ekranı birinin kasalarına /pvadmin list ile açar.
+#
+# Değerler: %owner_name% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Her kasa: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
+#           %vault_free% %vault_owner% ve satıştaki kasada %vault_price%
+
+menu-version: 1
+
+title: "{primary}&lKASALAR {letters_black}» {highlight}%owner_name% {muted}%current_page%/%total_pages%"
+size: 54
+type: PAGINATION
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+  pagination:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: "{muted}Başka kasa yok"
+    lore:
+      - ""
+      - " {letters_black}▎ {letters}Daha yüksek bir rütbe daha fazlasını açar."
+      - ""
+    hide_tooltip: false
+
+pagination:
+  slots: '0-35'
+
+  item_template:
+    material: "%vault_icon%"
+    name: "{primary}&lKASA {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - ""
+      - "{secondary}Durum:"
+      - " {letters_black}▎ {letters}Dolu {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - " {letters_black}▎ {letters}Boş {letters_black}» {success}%vault_free%"
+      - ""
+      - "{warning}➥ Sol tık {letters_black}» {letters}aç"
+      - "{warning}➥ Sağ tık {letters_black}» {letters}yeniden adlandır"
+      - "{warning}➥ Shift + sağ tık {letters_black}» {letters}simgeyi değiştir"
+      - ""
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  buy_template:
+    material: GOLD_INGOT
+    name: "{success}&lKASA SATIN AL {highlight}#%vault_number%"
+    lore:
+      - ""
+      - "{secondary}Bilgi:"
+      - " {letters_black}▎ {letters}Bir kasa daha, kalıcı olarak senin."
+      - ""
+      - "{secondary}Durum:"
+      - " {letters_black}▎ {letters}Fiyat {letters_black}» {highlight}%vault_price%"
+      - ""
+      - "{warning}➥ Satın almak için tıkla"
+      - ""
+    actions:
+      - "left: exyliaplayervaults:buy"
+
+  locked_template:
+    material: GRAY_DYE
+    name: "{muted}&lKASA #%vault_number%"
+    lore:
+      - ""
+      - " {letters_black}▎ {letters_black}Kilitli."
+      - " {letters_black}▎ {letters_black}Daha yüksek bir rütbe bunu açar."
+      - ""
+
+  navigation:
+    previous:
+      slot: 48
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+      name: "{error}&l← ÖNCEKİ SAYFA"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Sayfa {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "previous_page"
+    next:
+      slot: 50
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+      name: "{success}&lSONRAKİ SAYFA →"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Sayfa {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "next_page"
+
+items:
+  header:
+    slot: 49
+    material: "playerhead-%owner_name%"
+    name: "{primary}&l%owner_name%"
+    lore:
+      - ""
+      - "{secondary}Bilgi:"
+      - " {letters_black}▎ {letters}Bir kasa aynı anda tek bir yerde açılır"
+      - " {letters_black}▎ {letters}ve kapattığın anda kaydedilir."
+      - ""
+      - "{secondary}Durum:"
+      - " {letters_black}▎ {letters}Açık {letters_black}» {info}%vaults_unlocked%{letters_black}/{info}%vaults_max%"
+      - " {letters_black}▎ {letters}Satın alınan {letters_black}» {info}%vaults_bought%"
+      - " {letters_black}▎ {letters}Satır {letters_black}» {info}%vaults_rows%"
+      - ""

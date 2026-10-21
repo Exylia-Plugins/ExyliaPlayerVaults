@@ -1,0 +1,124 @@
+# Your vaults, and the ones a rank or a purchase would add. /pv
+#
+# Yours to restyle: edits are kept across updates. A release that has to
+# change the layout raises menu-version below; the file is then replaced
+# and your previous one is kept next to it.
+#
+# Staff open the same screen onto somebody's vaults with /pvadmin list.
+#
+# Values: %owner_name% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Each vault: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
+#             %vault_free% %vault_owner% and, on the one for sale, %vault_price%
+
+menu-version: 1
+
+title: "{primary}&lVAULTS {letters_black}» {highlight}%owner_name% {muted}%current_page%/%total_pages%"
+size: 54
+type: PAGINATION
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+  pagination:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: "{muted}No more vaults"
+    lore:
+      - ""
+      - " {letters_black}▎ {letters}A higher rank unlocks more."
+      - ""
+    hide_tooltip: false
+
+pagination:
+  slots: '0-35'
+
+  item_template:
+    material: "%vault_icon%"
+    name: "{primary}&lVAULT {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - ""
+      - "{secondary}Status:"
+      - " {letters_black}▎ {letters}Used {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - " {letters_black}▎ {letters}Free {letters_black}» {success}%vault_free%"
+      - ""
+      - "{warning}➥ Left-click {letters_black}» {letters}open"
+      - "{warning}➥ Right-click {letters_black}» {letters}rename"
+      - "{warning}➥ Shift-right-click {letters_black}» {letters}change icon"
+      - ""
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  buy_template:
+    material: GOLD_INGOT
+    name: "{success}&lBUY VAULT {highlight}#%vault_number%"
+    lore:
+      - ""
+      - "{secondary}Information:"
+      - " {letters_black}▎ {letters}One more vault, yours for good."
+      - ""
+      - "{secondary}Status:"
+      - " {letters_black}▎ {letters}Price {letters_black}» {highlight}%vault_price%"
+      - ""
+      - "{warning}➥ Click to buy"
+      - ""
+    actions:
+      - "left: exyliaplayervaults:buy"
+
+  locked_template:
+    material: GRAY_DYE
+    name: "{muted}&lVAULT #%vault_number%"
+    lore:
+      - ""
+      - " {letters_black}▎ {letters_black}Locked."
+      - " {letters_black}▎ {letters_black}A higher rank unlocks it."
+      - ""
+
+  navigation:
+    previous:
+      slot: 48
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+      name: "{error}&l← PREVIOUS PAGE"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Page {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "previous_page"
+    next:
+      slot: 50
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+      name: "{success}&lNEXT PAGE →"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Page {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "next_page"
+
+items:
+  header:
+    slot: 49
+    material: "playerhead-%owner_name%"
+    name: "{primary}&l%owner_name%"
+    lore:
+      - ""
+      - "{secondary}Information:"
+      - " {letters_black}▎ {letters}A vault is open in one place at a time,"
+      - " {letters_black}▎ {letters}and is saved the moment you close it."
+      - ""
+      - "{secondary}Status:"
+      - " {letters_black}▎ {letters}Unlocked {letters_black}» {info}%vaults_unlocked%{letters_black}/{info}%vaults_max%"
+      - " {letters_black}▎ {letters}Bought {letters_black}» {info}%vaults_bought%"
+      - " {letters_black}▎ {letters}Rows {letters_black}» {info}%vaults_rows%"
+      - ""

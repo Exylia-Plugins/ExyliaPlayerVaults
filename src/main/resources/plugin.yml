@@ -1,0 +1,108 @@
+name: ExyliaPlayerVaults
+version: '${version}'
+main: net.exylia.exyliaPlayerVaults.ExyliaPlayerVaultsPlugin
+api-version: '1.21'
+authors: [ DiGround ]
+website: https://github.com/Exylia-Plugins/ExyliaPlayerVaults
+description: Personal vaults kept in the database, open in one place at a time across a whole network.
+
+# Kept up to date by ExyliaLib from this repository's GitHub releases.
+exylia-updates: Exylia-Plugins/ExyliaPlayerVaults
+# The oldest ExyliaLib this build runs on; ExyliaLib holds back an update that needs a newer one.
+exylia-lib: '${exyliaLibVersion}'
+
+folia-supported: true
+
+softdepend:
+  # Required, but soft so this plugin still starts without it: it then downloads ExyliaLib
+  # and asks for a restart.
+  - ExyliaLib
+  - PlaceholderAPI
+  # Buying vaults charges the economy ExyliaLib is set to, so this plugin enables after them.
+  - ExyliaEconomy
+  - Vault
+
+permissions:
+  exyliaplayervaults.use:
+    description: Open your vaults with /pv and the vault list.
+    default: true
+  exyliaplayervaults.search:
+    description: Find which of your vaults holds an item with /pv search.
+    default: true
+  exyliaplayervaults.buy:
+    description: Buy more vaults from the vault list, when purchases are on.
+    default: true
+  exyliaplayervaults.customize.name:
+    description: Rename your vaults from the vault list.
+    default: true
+  exyliaplayervaults.customize.icon:
+    description: Choose the icon each of your vaults is drawn with.
+    default: true
+  exyliaplayervaults.bypass.cooldown:
+    description: Open vaults without waiting for the open cooldown.
+    default: op
+  exyliaplayervaults.bypass.restrictions:
+    description: Open vaults in disabled worlds and game modes, and while in combat.
+    default: op
+  exyliaplayervaults.bypass.blocked:
+    description: Put blocked items into a vault.
+    default: false
+  exyliaplayervaults.admin.view:
+    description: Look at anybody's vaults, read only, with /pvadmin view and /pvadmin list.
+    default: op
+  exyliaplayervaults.admin.edit:
+    description: Change anybody's vaults with /pvadmin edit, closing them where they are open.
+    default: op
+    children:
+      exyliaplayervaults.admin.view: true
+  exyliaplayervaults.admin.history:
+    description: Browse earlier copies of a vault with /pvadmin history. Putting one back also needs admin.edit.
+    default: op
+    children:
+      exyliaplayervaults.admin.view: true
+  exyliaplayervaults.admin.clear:
+    description: Empty a vault with /pvadmin clear. The contents go to the vault's history first.
+    default: op
+  exyliaplayervaults.admin.reload:
+    description: Reload the configuration, messages and menus with /pvadmin reload.
+    default: op
+  exyliaplayervaults.admin:
+    description: Every admin command.
+    default: op
+    children:
+      exyliaplayervaults.admin.view: true
+      exyliaplayervaults.admin.edit: true
+      exyliaplayervaults.admin.history: true
+      exyliaplayervaults.admin.clear: true
+      exyliaplayervaults.admin.reload: true
+  exyliaplayervaults.*:
+    description: Every ExyliaPlayerVaults permission except bypass.blocked.
+    default: op
+    children:
+      exyliaplayervaults.use: true
+      exyliaplayervaults.search: true
+      exyliaplayervaults.buy: true
+      exyliaplayervaults.customize.name: true
+      exyliaplayervaults.customize.icon: true
+      exyliaplayervaults.bypass.cooldown: true
+      exyliaplayervaults.bypass.restrictions: true
+      exyliaplayervaults.admin: true
+
+libraries:
+  # The same list ExyliaLib declares, in the same order and the same versions.
+  # The server's library loader fetches each one once and shares it, so a plugin
+  # naming a driver it never opens itself costs nothing, while a plugin missing
+  # one that ExyliaLib later needs is a server that starts and then cannot write.
+  # Aligned on purpose: two lists that drift are how a MariaDB server ended up
+  # being sent MySQL 8 syntax.
+  - 'io.github.revxrsal:lamp.common:4.0.0-rc.17'
+  - 'io.github.revxrsal:lamp.bukkit:4.0.0-rc.17'
+  - 'com.github.ben-manes.caffeine:caffeine:3.2.4'
+  - 'com.zaxxer:HikariCP:5.1.0'
+  - 'com.h2database:h2:2.2.224'
+  - 'com.mysql:mysql-connector-j:8.4.0'
+  - 'org.mariadb.jdbc:mariadb-java-client:3.4.1'
+  - 'org.postgresql:postgresql:42.7.4'
+  - 'org.mongodb:mongodb-driver-sync:4.11.1'
+  - 'redis.clients:jedis:5.1.0'
+  - 'org.apache.commons:commons-pool2:2.12.0'
