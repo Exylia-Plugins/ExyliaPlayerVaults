@@ -27,12 +27,12 @@ Built so a vault can never duplicate an item: not with two windows, not across a
 ## Requirements
 
 - Paper or Folia 1.21+, Java 21
-- [ExyliaLib](https://github.com/DiGround-s/ExyliaLib/releases). If it is missing, the plugin downloads the latest release on first start and asks for a restart.
+- [ExyliaLib](https://modrinth.com/plugin/exylialib) ([GitHub releases](https://github.com/DiGround-s/ExyliaLib/releases)). Install it first; without it the plugin stays off and says where to get it.
 - For a network: every server on the same database (MySQL, MariaDB, PostgreSQL or MongoDB) in `plugins/ExyliaPlayerVaults/database.yml`, ideally with Redis enabled there too so staff can close a vault open on another server.
 
 ## Updates
 
-ExyliaLib keeps both itself and this plugin up to date from their GitHub releases: a new version is downloaded in the background and applied on the next restart. A new major version waits for you to install it by hand, and a release that needs a newer ExyliaLib waits until the library has updated. Turn it off or tune it under `plugin-updates` in `plugins/ExyliaLib/config.yml`; `/exylialib updates` shows what is pending.
+ExyliaLib checks this plugin's GitHub releases and announces a new version in the console and to admins. Nothing is downloaded on its own: run `/exylialib plugins` to download the update, which is applied on the next restart. A new major version waits for you to install it by hand, and a release that needs a newer ExyliaLib waits until the library has updated. Tune it under `plugin-updates` in `plugins/ExyliaLib/config.yml`.
 
 ## Commands
 
