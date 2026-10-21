@@ -1,0 +1,83 @@
+# NO EDITAR — SE REGENERA EN CADA INICIO.
+#
+# Todos los conectados a este servidor; cada uno abre sus baúles. /pvadmin
+#
+# Cada jugador: %player_name% %player_id%
+
+title: "{primary}&lBAÚLES DE JUGADORES {muted}%current_page%/%total_pages%"
+size: 54
+type: PAGINATION
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+  pagination:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: "{muted}No hay más jugadores"
+    lore:
+      - ""
+      - " {letters_black}▎ {letters}Aquí aparecen los jugadores conectados."
+      - ""
+    hide_tooltip: false
+
+pagination:
+  slots: '0-35'
+
+  item_template:
+    material: "playerhead-%player_name%"
+    name: "{primary}&l%player_name%"
+    lore:
+      - ""
+      - "{secondary}Información:"
+      - " {letters_black}▎ {letters}Mira, edita, vacía o restaura"
+      - " {letters_black}▎ {letters}cualquiera de sus baúles."
+      - ""
+      - "{warning}➥ Clic para abrir"
+      - ""
+    actions:
+      - "exyliaplayervaults:list %player_id%"
+
+  navigation:
+    previous:
+      slot: 48
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+      name: "{error}&l← PÁGINA ANTERIOR"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Página {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "previous_page"
+    next:
+      slot: 50
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+      name: "{success}&lPÁGINA SIGUIENTE →"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Página {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "next_page"
+
+items:
+  info:
+    slot: 49
+    material: COMPASS
+    name: "{primary}&lOTROS JUGADORES"
+    lore:
+      - ""
+      - "{secondary}Información:"
+      - " {letters_black}▎ {letters}¿Desconectado o en otro servidor?"
+      - " {letters_black}▎ {letters}Abre los baúles de cualquiera con:"
+      - " {letters_black}▎ {highlight}/pvadmin list <player>"
+      - ""

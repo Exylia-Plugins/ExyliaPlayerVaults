@@ -31,8 +31,7 @@ buy-too-poor: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Il te faut {hig
 buy-limit: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Tu ne peux plus acheter de coffres.'
 buy-disabled: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Les coffres ne peuvent pas être achetés sur ce serveur.'
 buy-failed: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}L''achat n''a pas abouti et tu n''as pas été débité. Réessaie.'
-search-header: '%prefix% {letters}Trouvé {highlight}%amount% {letters}de {highlight}%query% {letters}dans tes coffres :'
-search-line: ' {letters_black}▎ {letters}%name% {letters_black}» {info}%amount%'
+search-prompt: '{primary}Cherche un objet dans les coffres'
 search-none: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Aucun de tes coffres ne contient {highlight}%query%{error}.'
 admin-usage:
   - '%prefix% {letters}Utilisation{letters_black}:'

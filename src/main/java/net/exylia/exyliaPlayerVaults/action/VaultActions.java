@@ -8,6 +8,7 @@ import net.exylia.exyliaPlayerVaults.database.VaultSnapshot;
 import net.exylia.exyliaPlayerVaults.manager.ReadOnlyHolder;
 import net.exylia.exyliaPlayerVaults.manager.VaultHistory;
 import net.exylia.exyliaPlayerVaults.menu.HistoryMenu;
+import net.exylia.exyliaPlayerVaults.menu.SearchMenu;
 import net.exylia.exyliaPlayerVaults.menu.VaultListMenu;
 import net.exylia.lib.action.ActionArguments;
 import net.exylia.lib.action.ActionResult;
@@ -16,6 +17,7 @@ import net.exylia.lib.format.Formats;
 import net.exylia.lib.text.Values;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -66,6 +68,31 @@ public final class VaultActions {
         actions.registerSync("buy", (ctx, args) -> {
             Player player = ctx.player();
             core.getAccess().buy(player, () -> VaultListMenu.open(player));
+            return ActionResult.success();
+        });
+        actions.registerSync("list", (ctx, args) -> {
+            target(args).ifPresent(owner -> {
+                Player player = ctx.player();
+                if (owner.equals(player.getUniqueId())) VaultListMenu.open(player);
+                else if (player.hasPermission(Permissions.ADMIN_VIEW)) VaultListMenu.open(player, owner, name(owner));
+            });
+            return ActionResult.success();
+        });
+        actions.registerSync("search", (ctx, args) -> {
+            target(args).ifPresent(owner -> search(ctx.player(), owner));
+            return ActionResult.success();
+        });
+        actions.registerSync("history", Permissions.ADMIN_HISTORY, (ctx, args) -> {
+            target(args).ifPresent(owner -> HistoryMenu.open(ctx.player(), owner, name(owner), args.integer(1, 0)));
+            return ActionResult.success();
+        });
+        actions.registerSync("clear", Permissions.ADMIN_CLEAR, (ctx, args) -> {
+            target(args).ifPresent(owner -> {
+                Player player = ctx.player();
+                String ownerName = name(owner);
+                core.getMenus().close(player);
+                clear(player, owner, ownerName, args.integer(1, 0), () -> VaultListMenu.open(player, owner, ownerName));
+            });
             return ActionResult.success();
         });
         actions.registerSync("snapshot_view", Permissions.ADMIN_HISTORY, (ctx, args) -> {
@@ -163,6 +190,56 @@ public final class VaultActions {
                 () -> reopen(player, owner));
     }
 
+    private void search(Player player, UUID owner) {
+        boolean own = owner.equals(player.getUniqueId());
+        if (!player.hasPermission(own ? Permissions.SEARCH : Permissions.ADMIN_VIEW)) {
+            core.getMessages().send(player, VaultMessages.get().noPermission());
+            return;
+        }
+        String ownerName = name(owner);
+        core.getMenus().close(player);
+        core.getInputs().answered(player, core.getInputs().text(player, VaultMessages.get().searchPrompt()).open(),
+                typed -> {
+                    String query = typed.trim();
+                    if (query.isEmpty()) {
+                        reopen(player, owner);
+                        return;
+                    }
+                    SearchMenu.open(player, owner, ownerName, query, () -> reopen(player, owner));
+                },
+                () -> reopen(player, owner));
+    }
+
+    /**
+     * Empties a vault after a confirmation; what it held goes to its history and can be put back.
+     *
+     * @param after runs on the admin's thread once it is answered, done or not
+     */
+    public void clear(Player admin, UUID owner, String ownerName, int number, Runnable after) {
+        Values values = Values.of().put("number", number).put("player", ownerName);
+        core.getInputs().answered(admin, core.getInputs().confirm(admin, values.apply(VaultMessages.get().clearPrompt()))
+                        .dangerous().open(),
+                yes -> {
+                    if (!Boolean.TRUE.equals(yes)) {
+                        after.run();
+                        return;
+                    }
+                    core.getVaults().replace(owner, number, new ItemStack[0], VaultHistory.CLEARED, admin.getName())
+                            .thenAccept(result -> core.getTasks().runAtEntity(admin, () -> {
+                                switch (result) {
+                                    case DONE -> {
+                                        core.getMessages().send(admin, VaultMessages.get().cleared(), values);
+                                        core.getLogs().record("vault-clear", admin, owner, ownerName, "vault #" + number);
+                                    }
+                                    case IN_USE -> core.getMessages().send(admin, VaultMessages.get().takingOver(), values);
+                                    case FAILED -> core.getMessages().send(admin, VaultMessages.get().unreadable(), values);
+                                }
+                                after.run();
+                            }));
+                },
+                after);
+    }
+
     private void reopen(Player player, UUID owner) {
         if (owner.equals(player.getUniqueId())) VaultListMenu.open(player);
         else VaultListMenu.open(player, owner, name(owner));
@@ -173,7 +250,7 @@ public final class VaultActions {
             VaultKey key = VaultKey.of(copy.vault());
             Values values = Values.of().put("number", key.number()).put("player", name(key.owner()));
             ReadOnlyHolder.open(player, core.getMessages().text(VaultMessages.get().snapshotTitle(), values)
-                    .forPlayer(player).build(), copy.contents() == null ? new org.bukkit.inventory.ItemStack[0] : copy.contents());
+                    .forPlayer(player).build(), copy.contents() == null ? new ItemStack[0] : copy.contents());
         });
     }
 

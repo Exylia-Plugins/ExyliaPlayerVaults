@@ -1,0 +1,83 @@
+# NE PAS MODIFIER — RÉGÉNÉRÉ À CHAQUE DÉMARRAGE.
+#
+# Tous les joueurs connectés à ce serveur ; chacun ouvre ses coffres. /pvadmin
+#
+# Chaque joueur : %player_name% %player_id%
+
+title: "{primary}&lCOFFRES DES JOUEURS {muted}%current_page%/%total_pages%"
+size: 54
+type: PAGINATION
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+  pagination:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: "{muted}Plus de joueurs"
+    lore:
+      - ""
+      - " {letters_black}▎ {letters}Les joueurs connectés ici apparaissent ici."
+      - ""
+    hide_tooltip: false
+
+pagination:
+  slots: '0-35'
+
+  item_template:
+    material: "playerhead-%player_name%"
+    name: "{primary}&l%player_name%"
+    lore:
+      - ""
+      - "{secondary}Informations :"
+      - " {letters_black}▎ {letters}Regarde, modifie, vide ou restaure"
+      - " {letters_black}▎ {letters}n'importe lequel de ses coffres."
+      - ""
+      - "{warning}➥ Clique pour ouvrir"
+      - ""
+    actions:
+      - "exyliaplayervaults:list %player_id%"
+
+  navigation:
+    previous:
+      slot: 48
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+      name: "{error}&l← PAGE PRÉCÉDENTE"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Page {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "previous_page"
+    next:
+      slot: 50
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+      name: "{success}&lPAGE SUIVANTE →"
+      lore:
+        - ""
+        - " {letters_black}▎ {letters}Page {info}%current_page%{letters_black}/{info}%total_pages%"
+        - ""
+      actions:
+        - "next_page"
+
+items:
+  info:
+    slot: 49
+    material: COMPASS
+    name: "{primary}&lAUTRES JOUEURS"
+    lore:
+      - ""
+      - "{secondary}Informations :"
+      - " {letters_black}▎ {letters}Hors ligne ou sur un autre serveur ?"
+      - " {letters_black}▎ {letters}Ouvre les coffres de n'importe qui avec :"
+      - " {letters_black}▎ {highlight}/pvadmin list <player>"
+      - ""

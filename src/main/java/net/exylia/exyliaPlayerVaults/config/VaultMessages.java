@@ -68,9 +68,8 @@ public record VaultMessages(
         String buyFailed,
 
         @Comment("")
-        @Comment("/pv search <item>. %query% is what was searched, %amount% how many were found.")
-        String searchHeader,
-        String searchLine,
+        @Comment("/pv search <item>, and the search button. %query% is what was searched.")
+        String searchPrompt,
         String searchNone,
 
         @Comment("")
@@ -118,8 +117,7 @@ public record VaultMessages(
                 "[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}You cannot buy any more vaults.",
                 "[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Vaults cannot be bought on this server.",
                 "[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}The purchase did not go through and you were not charged. Try again.",
-                "%prefix% {letters}Found {highlight}%amount% {letters}of {highlight}%query% {letters}in your vaults:",
-                " {letters_black}▎ {letters}%name% {letters_black}» {info}%amount%",
+                "{primary}Search the vaults for an item",
                 "[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}None of your vaults holds {highlight}%query%{error}.",
                 List.of("%prefix% {letters}Usage{letters_black}:",
                         " {letters_black}▎ {highlight}/pvadmin list <player>",

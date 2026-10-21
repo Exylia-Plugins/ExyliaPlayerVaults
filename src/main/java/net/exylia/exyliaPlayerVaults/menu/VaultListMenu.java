@@ -74,7 +74,7 @@ public final class VaultListMenu {
         for (int number = 1; number <= ceiling; number++) {
             int used = Math.min(size, read.used().getOrDefault(number, 0));
             VaultLook look = read.looks().get(number);
-            String template = number <= unlocked ? null
+            String template = number <= unlocked ? (own ? null : "admin")
                     : number == unlocked + 1 && price != null ? "buy" : "locked";
             UiEntry.Builder row = UiEntry.of(number)
                     .template(template)
@@ -92,6 +92,7 @@ public final class VaultListMenu {
 
         Values context = Values.of()
                 .put("owner_name", ownerName)
+                .put("owner_id", owner.toString())
                 .put("vaults_unlocked", unlocked)
                 .put("vaults_max", ceiling)
                 .put("vaults_bought", access.purchased(owner))

@@ -31,8 +31,7 @@ buy-too-poor: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Нужно {hig
 buy-limit: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Ты больше не можешь покупать хранилища.'
 buy-disabled: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}На этом сервере хранилища не продаются.'
 buy-failed: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Покупка не прошла, деньги не списаны. Попробуй ещё раз.'
-search-header: '%prefix% {letters}Найдено {highlight}%query%{letters}: {highlight}%amount% {letters}в твоих хранилищах:'
-search-line: ' {letters_black}▎ {letters}%name% {letters_black}» {info}%amount%'
+search-prompt: '{primary}Найди предмет в хранилищах'
 search-none: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Ни в одном из твоих хранилищ нет {highlight}%query%{error}.'
 admin-usage:
   - '%prefix% {letters}Использование{letters_black}:'

@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Supplier;
 
 /**
  * This plugin's screens: read once from the jar, opened cheaply.
@@ -26,7 +27,7 @@ import java.util.Optional;
  */
 public final class VaultMenus {
 
-    private static final List<String> IDS = List.of(VaultListMenu.ID, HistoryMenu.ID);
+    private static final List<String> IDS = List.of(VaultListMenu.ID, HistoryMenu.ID, SearchMenu.ID, PlayersMenu.ID);
 
     private final ExyliaPlayerVaults core;
     private final PluginMenus menus;
@@ -88,6 +89,11 @@ public final class VaultMenus {
             return;
         }
         core.getTasks().runAtEntity(player, () -> menus.openNow(player, definition.get(), context, sections));
+    }
+
+    /** Opens a menu whose list is read again on every redraw, so it follows what changes. */
+    public void open(Player player, String id, Map<String, Object> context, Supplier<List<UiEntry>> rows) {
+        menus.open(player, id, context, rows);
     }
 
     /** Closes whatever menu of this plugin the player has open. */

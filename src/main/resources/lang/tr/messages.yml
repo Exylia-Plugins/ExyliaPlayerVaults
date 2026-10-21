@@ -31,8 +31,7 @@ buy-too-poor: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Bu kasayı alma
 buy-limit: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Daha fazla kasa satın alamazsın.'
 buy-disabled: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Bu sunucuda kasa satın alınamaz.'
 buy-failed: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Satın alma gerçekleşmedi ve ücret alınmadı. Tekrar dene.'
-search-header: '%prefix% {letters}Kasalarında {highlight}%amount% {letters}adet {highlight}%query% {letters}bulundu:'
-search-line: ' {letters_black}▎ {letters}%name% {letters_black}» {info}%amount%'
+search-prompt: '{primary}Kasalarda bir eşya ara'
 search-none: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Kasalarının hiçbirinde {highlight}%query% {error}yok.'
 admin-usage:
   - '%prefix% {letters}Kullanım{letters_black}:'

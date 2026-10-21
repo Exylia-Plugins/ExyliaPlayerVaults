@@ -6,7 +6,7 @@
 #
 # Администрация открывает этот же экран с чужими хранилищами через /pvadmin list.
 #
-# Значения: %owner_name% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Значения: %owner_name% %owner_id% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
 # Каждое хранилище: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #                   %vault_free% %vault_owner% и, у продаваемого, %vault_price%
 
@@ -56,6 +56,30 @@ pagination:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
       - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  # Администрация смотрит чужие хранилища: каждое сохранённое хранилище, с инструментами администрации.
+  admin_template:
+    material: "%vault_icon%"
+    name: "{primary}&lХРАНИЛИЩЕ {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - ""
+      - "{secondary}Состояние:"
+      - " {letters_black}▎ {letters}Занято {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - " {letters_black}▎ {letters}Свободно {letters_black}» {success}%vault_free%"
+      - ""
+      - "{warning}➥ ЛКМ {letters_black}» {letters}открыть"
+      - "{warning}➥ ПКМ {letters_black}» {letters}переименовать"
+      - "{warning}➥ Выбросить (Q) {letters_black}» {letters}сменить значок"
+      - "{warning}➥ Shift+ЛКМ {letters_black}» {letters}история"
+      - "{error}➥ Shift+ПКМ {letters_black}» {letters}очистить"
+      - " {letters_black}Потребуется подтверждение."
+      - ""
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "drop: exyliaplayervaults:icon %vault_owner% %vault_number%"
+      - "shift_left: exyliaplayervaults:history %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:clear %vault_owner% %vault_number%"
 
   buy_template:
     material: GOLD_INGOT
@@ -107,6 +131,22 @@ pagination:
         - "next_page"
 
 items:
+  search:
+    slot: 45
+    material: SPYGLASS
+    name: "{primary}&lПОИСК"
+    lore:
+      - ""
+      - "{secondary}Информация:"
+      - " {letters_black}▎ {letters}Найди, в каком хранилище лежит"
+      - " {letters_black}▎ {letters}предмет, по названию или материалу,"
+      - " {letters_black}▎ {letters}включая шалкеры и мешки."
+      - ""
+      - "{warning}➥ Нажми, чтобы искать"
+      - ""
+    actions:
+      - "exyliaplayervaults:search %owner_id%"
+
   header:
     slot: 49
     material: "playerhead-%owner_name%"

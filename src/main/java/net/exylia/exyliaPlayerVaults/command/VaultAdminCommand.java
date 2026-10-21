@@ -3,14 +3,12 @@ package net.exylia.exyliaPlayerVaults.command;
 import net.exylia.exyliaPlayerVaults.ExyliaPlayerVaults;
 import net.exylia.exyliaPlayerVaults.Permissions;
 import net.exylia.exyliaPlayerVaults.config.VaultMessages;
-import net.exylia.exyliaPlayerVaults.manager.VaultHistory;
 import net.exylia.exyliaPlayerVaults.menu.HistoryMenu;
+import net.exylia.exyliaPlayerVaults.menu.PlayersMenu;
 import net.exylia.exyliaPlayerVaults.menu.VaultListMenu;
 import net.exylia.lib.player.ExyliaPlayer;
-import net.exylia.lib.text.Values;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import revxrsal.commands.annotation.Command;
 import revxrsal.commands.annotation.CommandPlaceholder;
 import revxrsal.commands.annotation.Range;
@@ -31,6 +29,10 @@ public class VaultAdminCommand {
     @CommandPlaceholder
     @CommandPermission(Permissions.ADMIN_VIEW)
     public void usage(CommandSender sender) {
+        if (sender instanceof Player admin) {
+            PlayersMenu.open(admin);
+            return;
+        }
         ExyliaPlayerVaults.get().getMessages().send(sender, VaultMessages.get().adminUsage(), null);
     }
 
@@ -70,25 +72,8 @@ public class VaultAdminCommand {
     @Subcommand("clear")
     @CommandPermission(Permissions.ADMIN_CLEAR)
     public void clear(Player admin, ExyliaPlayer target, @Range(min = 1) int number) {
-        ExyliaPlayerVaults core = ExyliaPlayerVaults.get();
-        Values values = Values.of().put("number", number).put("player", target.name());
-        core.getInputs().answered(admin, core.getInputs().confirm(admin, values.apply(VaultMessages.get().clearPrompt()))
-                        .dangerous().open(),
-                yes -> {
-                    if (!Boolean.TRUE.equals(yes)) return;
-                    core.getVaults().replace(target.id(), number, new ItemStack[0], VaultHistory.CLEARED, admin.getName())
-                            .thenAccept(result -> core.getTasks().runAtEntity(admin, () -> {
-                                switch (result) {
-                                    case DONE -> {
-                                        core.getMessages().send(admin, VaultMessages.get().cleared(), values);
-                                        core.getLogs().record("vault-clear", admin, target, "vault #" + number);
-                                    }
-                                    case IN_USE -> core.getMessages().send(admin, VaultMessages.get().takingOver(), values);
-                                    case FAILED -> core.getMessages().send(admin, VaultMessages.get().unreadable(), values);
-                                }
-                            }));
-                },
-                null);
+        ExyliaPlayerVaults.get().getVaultActions().clear(admin, target.id(), target.name(), number, () -> {
+        });
     }
 
     @Subcommand("reload")

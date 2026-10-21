@@ -31,8 +31,7 @@ buy-too-poor: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Você precisa d
 buy-limit: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Você não pode comprar mais baús.'
 buy-disabled: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Não é possível comprar baús neste servidor.'
 buy-failed: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}A compra não foi concluída e você não foi cobrado. Tente de novo.'
-search-header: '%prefix% {letters}Encontrado {highlight}%amount% {letters}de {highlight}%query% {letters}nos seus baús:'
-search-line: ' {letters_black}▎ {letters}%name% {letters_black}» {info}%amount%'
+search-prompt: '{primary}Procure um item nos baús'
 search-none: '[sound:ENTITY_VILLAGER_NO|1.0|1.0]%prefix% {error}Nenhum dos seus baús tem {highlight}%query%{error}.'
 admin-usage:
   - '%prefix% {letters}Uso{letters_black}:'

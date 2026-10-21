@@ -6,7 +6,7 @@
 #
 # Staff open the same screen onto somebody's vaults with /pvadmin list.
 #
-# Values: %owner_name% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Values: %owner_name% %owner_id% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
 # Each vault: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #             %vault_free% %vault_owner% and, on the one for sale, %vault_price%
 
@@ -56,6 +56,30 @@ pagination:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
       - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  # Staff looking at somebody else's vaults: every stored vault, with the staff tools.
+  admin_template:
+    material: "%vault_icon%"
+    name: "{primary}&lVAULT {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - ""
+      - "{secondary}Status:"
+      - " {letters_black}▎ {letters}Used {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - " {letters_black}▎ {letters}Free {letters_black}» {success}%vault_free%"
+      - ""
+      - "{warning}➥ Left-click {letters_black}» {letters}open"
+      - "{warning}➥ Right-click {letters_black}» {letters}rename"
+      - "{warning}➥ Drop (Q) {letters_black}» {letters}change icon"
+      - "{warning}➥ Shift-left-click {letters_black}» {letters}history"
+      - "{error}➥ Shift-right-click {letters_black}» {letters}empty"
+      - " {letters_black}You will be asked to confirm."
+      - ""
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "drop: exyliaplayervaults:icon %vault_owner% %vault_number%"
+      - "shift_left: exyliaplayervaults:history %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:clear %vault_owner% %vault_number%"
 
   buy_template:
     material: GOLD_INGOT
@@ -107,6 +131,22 @@ pagination:
         - "next_page"
 
 items:
+  search:
+    slot: 45
+    material: SPYGLASS
+    name: "{primary}&lSEARCH"
+    lore:
+      - ""
+      - "{secondary}Information:"
+      - " {letters_black}▎ {letters}Find which vault holds an item,"
+      - " {letters_black}▎ {letters}by name or material, shulker"
+      - " {letters_black}▎ {letters}boxes and bundles included."
+      - ""
+      - "{warning}➥ Click to search"
+      - ""
+    actions:
+      - "exyliaplayervaults:search %owner_id%"
+
   header:
     slot: 49
     material: "playerhead-%owner_name%"

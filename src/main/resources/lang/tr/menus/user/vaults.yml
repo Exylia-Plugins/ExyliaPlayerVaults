@@ -6,7 +6,7 @@
 #
 # Yetkililer aynı ekranı birinin kasalarına /pvadmin list ile açar.
 #
-# Değerler: %owner_name% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Değerler: %owner_name% %owner_id% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
 # Her kasa: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #           %vault_free% %vault_owner% ve satıştaki kasada %vault_price%
 
@@ -56,6 +56,30 @@ pagination:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
       - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  # Yetkili başkasının kasalarına bakarken: kayıtlı her kasa, yetkili araçlarıyla.
+  admin_template:
+    material: "%vault_icon%"
+    name: "{primary}&lKASA {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - ""
+      - "{secondary}Durum:"
+      - " {letters_black}▎ {letters}Dolu {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - " {letters_black}▎ {letters}Boş {letters_black}» {success}%vault_free%"
+      - ""
+      - "{warning}➥ Sol tık {letters_black}» {letters}aç"
+      - "{warning}➥ Sağ tık {letters_black}» {letters}yeniden adlandır"
+      - "{warning}➥ Bırak (Q) {letters_black}» {letters}simgeyi değiştir"
+      - "{warning}➥ Shift + sol tık {letters_black}» {letters}geçmiş"
+      - "{error}➥ Shift + sağ tık {letters_black}» {letters}boşalt"
+      - " {letters_black}Onaylaman istenecek."
+      - ""
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "drop: exyliaplayervaults:icon %vault_owner% %vault_number%"
+      - "shift_left: exyliaplayervaults:history %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:clear %vault_owner% %vault_number%"
 
   buy_template:
     material: GOLD_INGOT
@@ -107,6 +131,22 @@ pagination:
         - "next_page"
 
 items:
+  search:
+    slot: 45
+    material: SPYGLASS
+    name: "{primary}&lARA"
+    lore:
+      - ""
+      - "{secondary}Bilgi:"
+      - " {letters_black}▎ {letters}Bir eşyanın hangi kasada olduğunu"
+      - " {letters_black}▎ {letters}isim ya da malzemeyle bul; shulker"
+      - " {letters_black}▎ {letters}kutuları ve keseler dahil."
+      - ""
+      - "{warning}➥ Aramak için tıkla"
+      - ""
+    actions:
+      - "exyliaplayervaults:search %owner_id%"
+
   header:
     slot: 49
     material: "playerhead-%owner_name%"

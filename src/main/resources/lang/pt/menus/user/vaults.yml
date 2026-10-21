@@ -6,7 +6,7 @@
 #
 # A staff abre esta mesma tela nos baús de alguém com /pvadmin list.
 #
-# Valores: %owner_name% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Valores: %owner_name% %owner_id% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
 # Cada baú: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #           %vault_free% %vault_owner% e, no que está à venda, %vault_price%
 
@@ -56,6 +56,30 @@ pagination:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
       - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  # A staff vendo os baús de outra pessoa: cada baú guardado, com as ferramentas da staff.
+  admin_template:
+    material: "%vault_icon%"
+    name: "{primary}&lBAÚ {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - ""
+      - "{secondary}Status:"
+      - " {letters_black}▎ {letters}Usado {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - " {letters_black}▎ {letters}Livre {letters_black}» {success}%vault_free%"
+      - ""
+      - "{warning}➥ Clique esquerdo {letters_black}» {letters}abrir"
+      - "{warning}➥ Clique direito {letters_black}» {letters}renomear"
+      - "{warning}➥ Soltar (Q) {letters_black}» {letters}mudar ícone"
+      - "{warning}➥ Shift + clique esquerdo {letters_black}» {letters}histórico"
+      - "{error}➥ Shift + clique direito {letters_black}» {letters}esvaziar"
+      - " {letters_black}Será pedida uma confirmação."
+      - ""
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "drop: exyliaplayervaults:icon %vault_owner% %vault_number%"
+      - "shift_left: exyliaplayervaults:history %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:clear %vault_owner% %vault_number%"
 
   buy_template:
     material: GOLD_INGOT
@@ -107,6 +131,22 @@ pagination:
         - "next_page"
 
 items:
+  search:
+    slot: 45
+    material: SPYGLASS
+    name: "{primary}&lPROCURAR"
+    lore:
+      - ""
+      - "{secondary}Informação:"
+      - " {letters_black}▎ {letters}Descubra qual baú guarda um item,"
+      - " {letters_black}▎ {letters}por nome ou material, com caixas"
+      - " {letters_black}▎ {letters}de shulker e sacolas incluídas."
+      - ""
+      - "{warning}➥ Clique para procurar"
+      - ""
+    actions:
+      - "exyliaplayervaults:search %owner_id%"
+
   header:
     slot: 49
     material: "playerhead-%owner_name%"
