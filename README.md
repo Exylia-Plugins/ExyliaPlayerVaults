@@ -26,7 +26,7 @@ Built so a vault can never duplicate an item: not with two windows, not across a
 
 ## Requirements
 
-- Paper or Folia 1.21+, Java 21
+- Paper or Folia 1.21.4 or newer, Java 21
 - [ExyliaLib](https://modrinth.com/plugin/exylialib) ([GitHub releases](https://github.com/DiGround-s/ExyliaLib/releases)). Install it first; without it the plugin stays off and says where to get it.
 - For a network: every server on the same database (MySQL, MariaDB, PostgreSQL or MongoDB) in `plugins/ExyliaPlayerVaults/database.yml`, ideally with Redis enabled there too so staff can close a vault open on another server.
 
