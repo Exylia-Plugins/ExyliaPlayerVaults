@@ -92,6 +92,7 @@ public record VaultSettings(
     /** The {@code restrictions} section. */
     public record Restrictions(
             @Comment("How long a player waits between opening two vaults. 0 turns it off.")
+            @Comment("exyliaplayervaults.cooldown.<seconds> shortens it for a rank; the smallest number a player holds wins.")
             Duration openCooldown,
 
             @Comment("Refuses to open a vault while the player is in combat (any combat plugin ExyliaLib knows).")
@@ -151,6 +152,7 @@ public record VaultSettings(
     public record Customization(
             @Comment("The longest name a player may give a vault. Names hold letters, digits, spaces")
             @Comment("and - _ ' . ! ? # ( ) only, so a name can never carry colours or placeholders.")
+            @Comment("exyliaplayervaults.namelength.<n> sets it per rank; the largest number a player holds wins.")
             int nameMaxLength,
 
             @Comment("What a vault is drawn as in the list until its owner picks an icon: a menu material,")

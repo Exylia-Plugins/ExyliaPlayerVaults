@@ -14,6 +14,12 @@ public final class Permissions {
     /** How many rows each of their vaults has: {@code exyliaplayervaults.rows.<1-6>}, the largest wins. */
     public static final String ROWS_PREFIX = "exyliaplayervaults.rows.";
 
+    /** Seconds between opening two vaults: {@code exyliaplayervaults.cooldown.<seconds>}, the smallest wins. */
+    public static final String COOLDOWN_PREFIX = "exyliaplayervaults.cooldown.";
+
+    /** The longest vault name they may write: {@code exyliaplayervaults.namelength.<n>}, the largest wins. */
+    public static final String NAME_LENGTH_PREFIX = "exyliaplayervaults.namelength.";
+
     /** Find which vault holds an item. */
     public static final String SEARCH = "exyliaplayervaults.search";
 

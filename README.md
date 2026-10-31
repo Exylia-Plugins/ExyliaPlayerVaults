@@ -54,6 +54,8 @@ Aliases: `/playervault`, `/playervaults`, `/vault`, `/vaults`, `/playervaultsadm
 
 - `exyliaplayervaults.amount.<n>`: how many vaults (largest wins; `vaults.default-amount` without one).
 - `exyliaplayervaults.rows.<1-6>`: rows per vault (largest wins; `vaults.default-rows` without one).
+- `exyliaplayervaults.cooldown.<seconds>`: wait between opening two vaults (smallest wins; `restrictions.open-cooldown` without one).
+- `exyliaplayervaults.namelength.<n>`: longest vault name (largest wins; `customization.name-max-length` without one).
 - `exyliaplayervaults.buy`, `exyliaplayervaults.customize.name`, `exyliaplayervaults.customize.icon`: on by default.
 - `exyliaplayervaults.bypass.cooldown`, `exyliaplayervaults.bypass.restrictions`: operators by default.
 - `exyliaplayervaults.bypass.blocked`: nobody by default, not even `*`.

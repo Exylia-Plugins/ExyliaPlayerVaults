@@ -15,6 +15,7 @@ import net.exylia.lib.action.ActionResult;
 import net.exylia.lib.action.PluginActions;
 import net.exylia.lib.format.Formats;
 import net.exylia.lib.text.Values;
+import net.exylia.lib.util.PermissionNumbers;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -151,7 +152,8 @@ public final class VaultActions {
         core.getMenus().close(player);
         core.getLooks().name(owner, number).whenComplete((current, failure) -> core.getTasks().runAtEntity(player, () ->
                 core.getInputs().answered(player, core.getInputs().text(player, values.apply(text.renamePrompt()))
-                                .maxLength(Math.max(1, VaultSettings.get().customization().nameMaxLength()))
+                                .maxLength(Math.max(1, PermissionNumbers.highest(player, Permissions.NAME_LENGTH_PREFIX,
+                                        VaultSettings.get().customization().nameMaxLength())))
                                 .defaultValue(current)
                                 .validate(typed -> typed.trim().equals("-") || VaultSettings.Customization.allowed(typed.trim()),
                                         text.nameInvalid())

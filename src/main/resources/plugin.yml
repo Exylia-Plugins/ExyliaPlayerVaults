@@ -87,6 +87,11 @@ permissions:
       exyliaplayervaults.bypass.cooldown: true
       exyliaplayervaults.bypass.restrictions: true
       exyliaplayervaults.admin: true
+  # Numbers, granted as plain nodes (nothing to declare):
+  #   exyliaplayervaults.amount.<n>              vaults a player has, largest wins (default: vaults.default-amount)
+  #   exyliaplayervaults.rows.<1-6>              rows per vault, largest wins (default: vaults.default-rows)
+  #   exyliaplayervaults.cooldown.<seconds>      wait between opening two vaults, smallest wins (default: restrictions.open-cooldown)
+  #   exyliaplayervaults.namelength.<n>          longest vault name, largest wins (default: customization.name-max-length)
 
 libraries:
   # The same list ExyliaLib declares, in the same order and the same versions.

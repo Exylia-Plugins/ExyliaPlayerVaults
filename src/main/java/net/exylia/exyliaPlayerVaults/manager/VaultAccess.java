@@ -83,7 +83,8 @@ public final class VaultAccess {
             }
         }
         if (!player.hasPermission(Permissions.BYPASS_COOLDOWN)) {
-            long cooldown = rules.openCooldown().toMillis();
+            long cooldown = Math.min(rules.openCooldown().toMillis(),
+                    PermissionNumbers.lowest(player, Permissions.COOLDOWN_PREFIX, Integer.MAX_VALUE) * 1000L);
             long now = System.currentTimeMillis();
             Long last = lastOpen.get(player.getUniqueId());
             if (cooldown > 0 && last != null && now - last < cooldown) {
