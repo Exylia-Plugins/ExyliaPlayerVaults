@@ -1,6 +1,8 @@
 package net.exylia.exyliaPlayerVaults.database;
 
 import net.exylia.lib.database.Column;
+import net.exylia.lib.database.DataKind;
+import net.exylia.lib.database.Owner;
 import net.exylia.lib.database.Id;
 import net.exylia.lib.database.Table;
 
@@ -10,8 +12,8 @@ import net.exylia.lib.database.Table;
  * <p>Changed only by a compare-and-set on {@code purchased}, so two purchases
  * racing on two servers cannot both count the same slot.
  */
-@Table("playervaults_buyers")
+@Table(value = "playervaults_buyers", data = DataKind.ACCOUNT)
 public record VaultBuyer(
-        @Id(length = 36) String uuid,
+        @Owner @Id(length = 36) String uuid,
         @Column int purchased) {
 }

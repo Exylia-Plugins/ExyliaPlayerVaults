@@ -1,6 +1,7 @@
 package net.exylia.exyliaPlayerVaults.database;
 
 import net.exylia.lib.database.Column;
+import net.exylia.lib.database.DataKind;
 import net.exylia.lib.database.Id;
 import net.exylia.lib.database.Index;
 import net.exylia.lib.database.Table;
@@ -14,7 +15,7 @@ import org.bukkit.inventory.ItemStack;
  * @param actorName who caused it, for the list
  * @param createdAt when, in epoch milliseconds
  */
-@Table("playervaults_history")
+@Table(value = "playervaults_history", data = DataKind.HISTORY)
 @Index(columns = {"vault", "created_at"}, descending = {"created_at"})
 public record VaultSnapshot(
         @Id(generated = true) long id,

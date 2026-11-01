@@ -1,6 +1,7 @@
 package net.exylia.exyliaPlayerVaults.database;
 
 import net.exylia.lib.database.Column;
+import net.exylia.lib.database.DataKind;
 import net.exylia.lib.database.Id;
 import net.exylia.lib.database.Table;
 
@@ -8,7 +9,7 @@ import net.exylia.lib.database.Table;
  * The same row as {@link VaultSnapshot}, read without its contents: what the
  * history list and the pruning need.
  */
-@Table("playervaults_history")
+@Table(value = "playervaults_history", data = DataKind.HISTORY)
 public record VaultSnapshotSummary(
         @Id(generated = true) long id,
         @Column(length = 48) String vault,

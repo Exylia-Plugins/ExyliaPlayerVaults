@@ -1,6 +1,8 @@
 package net.exylia.exyliaPlayerVaults.database;
 
 import net.exylia.lib.database.Column;
+import net.exylia.lib.database.DataKind;
+import net.exylia.lib.database.Owner;
 import net.exylia.lib.database.Id;
 import net.exylia.lib.database.Indexed;
 import net.exylia.lib.database.Table;
@@ -29,10 +31,10 @@ import java.util.UUID;
  * write in the row when the answer to it never came back. {@code null} on rows
  * from before the column, until their next write.
  */
-@Table("sc_vaults")
+@Table(value = "sc_vaults", data = DataKind.PROGRESS)
 public record VaultEntity(
         @Id(length = 48) String id,
-        @Indexed @Column(length = 36) String ownerUuid,
+        @Owner @Indexed @Column(length = 36) String ownerUuid,
         @Column("vault_number") int number,
         @Column(length = Column.UNBOUNDED) ItemStack[] contents,
         @Column Integer used,

@@ -1,6 +1,8 @@
 package net.exylia.exyliaPlayerVaults.database;
 
 import net.exylia.lib.database.Column;
+import net.exylia.lib.database.DataKind;
+import net.exylia.lib.database.Owner;
 import net.exylia.lib.database.Id;
 import net.exylia.lib.database.Indexed;
 import net.exylia.lib.database.Table;
@@ -17,10 +19,10 @@ import net.exylia.lib.database.Table;
  * @param used how many slots hold something, or {@code null} for a row written
  *             before the column existed, whose contents have to be counted
  */
-@Table("sc_vaults")
+@Table(value = "sc_vaults", data = DataKind.PROGRESS)
 public record VaultSummary(
         @Id(length = 48) String id,
-        @Indexed @Column(length = 36) String ownerUuid,
+        @Owner @Indexed @Column(length = 36) String ownerUuid,
         @Column("vault_number") int number,
         @Column Integer used) {
 }
