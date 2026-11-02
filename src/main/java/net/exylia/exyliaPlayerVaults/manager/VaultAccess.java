@@ -8,6 +8,7 @@ import net.exylia.exyliaPlayerVaults.database.VaultBuyer;
 import net.exylia.lib.database.PluginDatabase;
 import net.exylia.lib.database.Repository;
 import net.exylia.lib.economy.Economy;
+import net.exylia.lib.economy.Transaction;
 import net.exylia.lib.text.Values;
 import net.exylia.lib.util.PermissionNumbers;
 import net.exylia.lib.util.TimeFormats;
@@ -159,7 +160,7 @@ public final class VaultAccess {
             return;
         }
         String currency = currency();
-        if (!Economy.of(currency).charge(id, price)) {
+        if (!Economy.of(currency).charge(id, price, Transaction.of("playervaults:buy").by(id))) {
             buying.remove(id);
             core.getMessages().send(player, VaultMessages.get().buyTooPoor(), values);
             return;
@@ -189,13 +190,13 @@ public final class VaultAccess {
                                 "vault #" + values.map().get("number") + " for " + Economy.info(currency).format(price));
                         after.run();
                     } else {
-                        Economy.of(currency).pay(id, price);
+                        Economy.of(currency).pay(id, price, Transaction.of("playervaults:refund"));
                         core.getMessages().send(player, VaultMessages.get().buyFailed());
                         load(id);
                     }
                 }, () -> {
                     buying.remove(id);
-                    if (failure == null && !Boolean.TRUE.equals(won)) Economy.of(currency).pay(id, price);
+                    if (failure == null && !Boolean.TRUE.equals(won)) Economy.of(currency).pay(id, price, Transaction.of("playervaults:refund"));
                 }));
     }
 
