@@ -81,3 +81,18 @@ items:
       - " {letters_black}▎ {letters}Открой чьи угодно хранилища так:"
       - " {letters_black}▎ {highlight}/pvadmin list <player>"
       - ""
+
+  settings:
+    slot: 45
+    material: COMPARATOR
+    name: "{primary}&lНАСТРОЙКИ"
+    lore:
+      - ""
+      - "{secondary}Информация:"
+      - " {letters_black}▎ {letters}Меняйте настройки плагина"
+      - " {letters_black}▎ {letters}без правки его {highlight}файлов{letters}."
+      - ""
+      - "{warning}➥ Клик {letters_black}» {letters}Открыть настройки"
+      - ""
+    actions:
+      - "exyliaplayervaults:settings"

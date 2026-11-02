@@ -81,3 +81,18 @@ items:
       - " {letters_black}▎ {letters}Ouvre les coffres de n'importe qui avec :"
       - " {letters_black}▎ {highlight}/pvadmin list <player>"
       - ""
+
+  settings:
+    slot: 45
+    material: COMPARATOR
+    name: "{primary}&lRÉGLAGES"
+    lore:
+      - ""
+      - "{secondary}Informations :"
+      - " {letters_black}▎ {letters}Modifiez les réglages du plugin"
+      - " {letters_black}▎ {letters}sans éditer ses {highlight}fichiers{letters}."
+      - ""
+      - "{warning}➥ Clic {letters_black}» {letters}Ouvrir les réglages"
+      - ""
+    actions:
+      - "exyliaplayervaults:settings"

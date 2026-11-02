@@ -8,11 +8,13 @@ import net.exylia.exyliaPlayerVaults.database.VaultSnapshot;
 import net.exylia.exyliaPlayerVaults.manager.ReadOnlyHolder;
 import net.exylia.exyliaPlayerVaults.manager.VaultHistory;
 import net.exylia.exyliaPlayerVaults.menu.HistoryMenu;
+import net.exylia.exyliaPlayerVaults.menu.PlayersMenu;
 import net.exylia.exyliaPlayerVaults.menu.SearchMenu;
 import net.exylia.exyliaPlayerVaults.menu.VaultListMenu;
 import net.exylia.lib.action.ActionArguments;
 import net.exylia.lib.action.ActionResult;
 import net.exylia.lib.action.PluginActions;
+import net.exylia.lib.config.ConfigMenus;
 import net.exylia.lib.format.Formats;
 import net.exylia.lib.text.Values;
 import net.exylia.lib.util.PermissionNumbers;
@@ -81,6 +83,11 @@ public final class VaultActions {
         });
         actions.registerSync("search", (ctx, args) -> {
             target(args).ifPresent(owner -> search(ctx.player(), owner));
+            return ActionResult.success();
+        });
+        actions.registerSync("settings", Permissions.ADMIN, (ctx, args) -> {
+            ConfigMenus.of(core.getPlugin()).permission(Permissions.ADMIN)
+                    .back(PlayersMenu::open).open(ctx.player());
             return ActionResult.success();
         });
         actions.registerSync("history", Permissions.ADMIN_HISTORY, (ctx, args) -> {
