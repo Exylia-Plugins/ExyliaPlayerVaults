@@ -9,6 +9,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import net.exylia.exyliaPlayerVaults.manager.ReadOnlyHolder;
 import net.exylia.exyliaPlayerVaults.manager.VaultHolder;
 import net.exylia.exyliaPlayerVaults.manager.VaultsManager;
+import net.exylia.exyliaPlayerVaults.menu.VaultListMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -18,6 +19,8 @@ import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
 import org.bukkit.event.inventory.InventoryDragEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.inventory.Inventory;
@@ -55,6 +58,22 @@ public final class VaultsListener implements Listener {
     public void onQuit(PlayerQuitEvent event) {
         core.getVaults().releaseViewer(event.getPlayer().getUniqueId());
         core.getAccess().forget(event.getPlayer().getUniqueId());
+    }
+
+    /**
+     * A player's own ender chest opens the vault list instead, when the owner
+     * turned that on. Last word on the open, so a plugin that refuses the chest
+     * (a region, a combat tag) still refuses it; another player's ender chest
+     * opened by staff is left alone. The list opens a tick later on its own.
+     */
+    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    public void onEnderChest(InventoryOpenEvent event) {
+        if (event.getInventory().getType() != InventoryType.ENDER_CHEST) return;
+        if (!VaultSettings.get().replaceEnderChests()) return;
+        if (!(event.getPlayer() instanceof Player player) || !player.hasPermission(Permissions.USE)) return;
+        if (!event.getInventory().equals(player.getEnderChest())) return;
+        event.setCancelled(true);
+        VaultListMenu.open(player);
     }
 
     /**

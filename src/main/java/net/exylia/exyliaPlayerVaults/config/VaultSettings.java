@@ -40,11 +40,17 @@ public record VaultSettings(
         Customization customization,
 
         @Comment("")
+        @Comment("Opens the vault list instead of the ender chest, whichever way one is opened: the block, or")
+        @Comment("another plugin's command such as /enderchest. Only for players with exyliaplayervaults.use, and")
+        @Comment("only their own ender chest; what it already holds stays there, out of reach while this is on.")
+        boolean replaceEnderChests,
+
+        @Comment("")
         Sounds sounds) {
 
     public VaultSettings() {
         this(Languages.DEFAULT, new Vaults(), new Restrictions(), new Purchase(), new History(),
-                new Customization(), new Sounds());
+                new Customization(), false, new Sounds());
     }
 
     /** What happens to the slots of a vault that became smaller than what it holds. */
