@@ -10,7 +10,7 @@
 # Каждое хранилище: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #                   %vault_free% %vault_owner% и, у продаваемого, %vault_price%
 
-menu-version: 1
+menu-version: 2
 
 title: "{primary}&lХРАНИЛИЩА {letters_black}» {highlight}%owner_name% {muted}%current_page%/%total_pages%"
 size: 54
@@ -31,9 +31,7 @@ filler:
     material: LIGHT_GRAY_STAINED_GLASS_PANE
     name: "{muted}Больше хранилищ нет"
     lore:
-      - ""
-      - " {letters_black}▎ {letters}Ранг выше открывает больше."
-      - ""
+      - "{letters_black}Ранг выше открывает больше."
     hide_tooltip: false
 
 pagination:
@@ -41,17 +39,17 @@ pagination:
 
   item_template:
     material: "%vault_icon%"
-    name: "{primary}&lХРАНИЛИЩЕ {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    name: "{letters}Хранилище {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient> &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
     lore:
+      - "{letters_black}Твоё хранилище"
       - ""
-      - "{secondary}Состояние:"
-      - " {letters_black}▎ {letters}Занято {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
-      - " {letters_black}▎ {letters}Свободно {letters_black}» {success}%vault_free%"
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:iron} {letters}Занято{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - "  {letters_black}· {success}{icon:check} {letters}Свободно{letters_black}: {success}%vault_free%"
       - ""
-      - "{warning}➥ ЛКМ {letters_black}» {letters}открыть"
-      - "{warning}➥ ПКМ {letters_black}» {letters}переименовать"
-      - "{warning}➥ Shift+ПКМ {letters_black}» {letters}сменить значок"
-      - ""
+      - "{primary}» ЛКМ {letters_black}· {letters}открыть"
+      - "{primary}» ПКМ {letters_black}· {letters}переименовать"
+      - "{primary}» Shift+ПКМ {letters_black}· {letters}сменить значок"
     actions:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
@@ -60,20 +58,20 @@ pagination:
   # Администрация смотрит чужие хранилища: каждое сохранённое хранилище, с инструментами администрации.
   admin_template:
     material: "%vault_icon%"
-    name: "{primary}&lХРАНИЛИЩЕ {highlight}%vault_name% &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    name: "{letters}Хранилище {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient> &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
     lore:
+      - "{letters_black}Хранилище игрока"
       - ""
-      - "{secondary}Состояние:"
-      - " {letters_black}▎ {letters}Занято {letters_black}» {info}%vault_used%{letters_black}/{info}%vault_size%"
-      - " {letters_black}▎ {letters}Свободно {letters_black}» {success}%vault_free%"
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:iron} {letters}Занято{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - "  {letters_black}· {success}{icon:check} {letters}Свободно{letters_black}: {success}%vault_free%"
       - ""
-      - "{warning}➥ ЛКМ {letters_black}» {letters}открыть"
-      - "{warning}➥ ПКМ {letters_black}» {letters}переименовать"
-      - "{warning}➥ Выбросить (Q) {letters_black}» {letters}сменить значок"
-      - "{warning}➥ Shift+ЛКМ {letters_black}» {letters}история"
-      - "{error}➥ Shift+ПКМ {letters_black}» {letters}очистить"
-      - " {letters_black}Потребуется подтверждение."
-      - ""
+      - "{primary}» ЛКМ {letters_black}· {letters}открыть"
+      - "{primary}» ПКМ {letters_black}· {letters}переименовать"
+      - "{primary}» Выбросить (Q) {letters_black}· {letters}сменить значок"
+      - "{primary}» Shift+ЛКМ {letters_black}· {letters}история"
+      - "{error}» Shift+ПКМ {letters_black}· {letters}очистить"
+      - "{letters_black}Потребуется подтверждение."
     actions:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
@@ -83,50 +81,47 @@ pagination:
 
   buy_template:
     material: GOLD_INGOT
-    name: "{success}&lКУПИТЬ ХРАНИЛИЩЕ {highlight}#%vault_number%"
+    name: "{letters}Хранилище {letters_black}▸ <gradient:{success}:{success_light}>Купить #%vault_number%</gradient>"
     lore:
+      - "{letters_black}Новое хранилище"
       - ""
-      - "{secondary}Информация:"
-      - " {letters_black}▎ {letters}Ещё одно хранилище, твоё навсегда."
+      - "{success}✎ Информация"
+      - " {letters}Ещё одно хранилище, твоё навсегда."
       - ""
-      - "{secondary}Состояние:"
-      - " {letters_black}▎ {letters}Цена {letters_black}» {highlight}%vault_price%"
+      - "{success}✦ Состояние"
+      - "  {letters_black}· {highlight}{icon:gold} {letters}Цена{letters_black}: {highlight}%vault_price%"
       - ""
-      - "{warning}➥ Нажми, чтобы купить"
-      - ""
+      - "{success}» Нажми, чтобы купить"
     actions:
       - "left: exyliaplayervaults:buy"
 
   locked_template:
     material: GRAY_DYE
-    name: "{muted}&lХРАНИЛИЩЕ #%vault_number%"
+    name: "{letters}Хранилище {letters_black}▸ <gradient:{warning}:{warning_light}>#%vault_number%</gradient>"
     lore:
+      - "{letters_black}Закрытое хранилище"
       - ""
-      - " {letters_black}▎ {letters_black}Закрыто."
-      - " {letters_black}▎ {letters_black}Ранг выше открывает его."
-      - ""
+      - "{warning}✎ Информация"
+      - " {letters}Закрыто."
+      - " {letters}Ранг выше открывает его."
 
   navigation:
     previous:
       slot: 48
       sound: "minecraft:item.book.page_turn|1.0|1.0"
       material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
-      name: "{error}&l← ПРЕДЫДУЩАЯ СТРАНИЦА"
+      name: "{letters}Страница {letters_black}▸ <gradient:{error}:{error_light}>← Предыдущая</gradient>"
       lore:
-        - ""
-        - " {letters_black}▎ {letters}Страница {info}%current_page%{letters_black}/{info}%total_pages%"
-        - ""
+        - "  {letters_black}· {letters}Страница{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
       actions:
         - "previous_page"
     next:
       slot: 50
       sound: "minecraft:item.book.page_turn|1.0|1.0"
       material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
-      name: "{success}&lСЛЕДУЮЩАЯ СТРАНИЦА →"
+      name: "{letters}Страница {letters_black}▸ <gradient:{success}:{success_light}>Следующая →</gradient>"
       lore:
-        - ""
-        - " {letters_black}▎ {letters}Страница {info}%current_page%{letters_black}/{info}%total_pages%"
-        - ""
+        - "  {letters_black}· {letters}Страница{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
       actions:
         - "next_page"
 
@@ -134,31 +129,33 @@ items:
   search:
     slot: 45
     material: SPYGLASS
-    name: "{primary}&lПОИСК"
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{info}:{info_light}>Поиск</gradient>"
     lore:
+      - "{letters_black}Поиск по хранилищам"
       - ""
-      - "{secondary}Информация:"
-      - " {letters_black}▎ {letters}Найди, в каком хранилище лежит"
-      - " {letters_black}▎ {letters}предмет, по названию или материалу,"
-      - " {letters_black}▎ {letters}включая шалкеры и мешки."
+      - "{info}✎ Информация"
+      - " {letters}Найди, в каком хранилище"
+      - " {letters}лежит предмет, по"
+      - " {letters}названию или материалу,"
+      - " {letters}включая шалкеры и мешки."
       - ""
-      - "{warning}➥ Нажми, чтобы искать"
-      - ""
+      - "{info}» Нажми, чтобы искать"
     actions:
       - "exyliaplayervaults:search %owner_id%"
 
   header:
     slot: 49
     material: "playerhead-%owner_name%"
-    name: "{primary}&l%owner_name%"
+    name: "<gradient:{info}:{info_light}>%owner_name%</gradient>"
     lore:
+      - "{letters_black}Твои хранилища"
       - ""
-      - "{secondary}Информация:"
-      - " {letters_black}▎ {letters}Хранилище открыто только в одном месте"
-      - " {letters_black}▎ {letters}и сохраняется, как только ты его закроешь."
+      - "{info}✎ Информация"
+      - " {letters}Хранилище открыто только в"
+      - " {letters}одном месте и сохраняется,"
+      - " {letters}как только ты его закроешь."
       - ""
-      - "{secondary}Состояние:"
-      - " {letters_black}▎ {letters}Открыто {letters_black}» {info}%vaults_unlocked%{letters_black}/{info}%vaults_max%"
-      - " {letters_black}▎ {letters}Куплено {letters_black}» {info}%vaults_bought%"
-      - " {letters_black}▎ {letters}Рядов {letters_black}» {info}%vaults_rows%"
-      - ""
+      - "{info}✦ Состояние"
+      - "  {letters_black}· {info}{icon:key} {letters}Открыто{letters_black}: {info}%vaults_unlocked%{letters_black}/{info}%vaults_max%"
+      - "  {letters_black}· {info}{icon:gold} {letters}Куплено{letters_black}: {info}%vaults_bought%"
+      - "  {letters_black}· {info}{icon:iron} {letters}Рядов{letters_black}: {info}%vaults_rows%"

@@ -23,9 +23,7 @@ filler:
     material: LIGHT_GRAY_STAINED_GLASS_PANE
     name: "{muted}No more players"
     lore:
-      - ""
-      - " {letters_black}▎ {letters}Players online here show up here."
-      - ""
+      - "{letters_black}Players online here show up here."
     hide_tooltip: false
 
 pagination:
@@ -33,15 +31,15 @@ pagination:
 
   item_template:
     material: "playerhead-%player_name%"
-    name: "{primary}&l%player_name%"
+    name: "{letters}Player {letters_black}▸ <gradient:{info}:{info_light}>%player_name%</gradient>"
     lore:
+      - "{letters_black}Online player"
       - ""
-      - "{secondary}Information:"
-      - " {letters_black}▎ {letters}Look at, edit, clear or restore"
-      - " {letters_black}▎ {letters}any of their vaults."
+      - "{info}✎ Information"
+      - " {letters}Look at, edit, clear or"
+      - " {letters}restore any of their vaults."
       - ""
-      - "{warning}➥ Click to open"
-      - ""
+      - "{info}» Click to open"
     actions:
       - "exyliaplayervaults:list %player_id%"
 
@@ -50,22 +48,18 @@ pagination:
       slot: 48
       sound: "minecraft:item.book.page_turn|1.0|1.0"
       material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
-      name: "{error}&l← PREVIOUS PAGE"
+      name: "{letters}Page {letters_black}▸ <gradient:{error}:{error_light}>← Previous</gradient>"
       lore:
-        - ""
-        - " {letters_black}▎ {letters}Page {info}%current_page%{letters_black}/{info}%total_pages%"
-        - ""
+        - "  {letters_black}· {letters}Page{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
       actions:
         - "previous_page"
     next:
       slot: 50
       sound: "minecraft:item.book.page_turn|1.0|1.0"
       material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
-      name: "{success}&lNEXT PAGE →"
+      name: "{letters}Page {letters_black}▸ <gradient:{success}:{success_light}>Next →</gradient>"
       lore:
-        - ""
-        - " {letters_black}▎ {letters}Page {info}%current_page%{letters_black}/{info}%total_pages%"
-        - ""
+        - "  {letters_black}· {letters}Page{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
       actions:
         - "next_page"
 
@@ -73,26 +67,26 @@ items:
   info:
     slot: 49
     material: COMPASS
-    name: "{primary}&lOTHER PLAYERS"
+    name: "<gradient:{info}:{info_light}>Other players</gradient>"
     lore:
+      - "{letters_black}Overview"
       - ""
-      - "{secondary}Information:"
-      - " {letters_black}▎ {letters}Offline or on another server?"
-      - " {letters_black}▎ {letters}Open anybody's vaults with:"
-      - " {letters_black}▎ {highlight}/pvadmin list <player>"
-      - ""
+      - "{info}✎ Information"
+      - " {letters}Offline or on another server?"
+      - " {letters}Open anybody's vaults with:"
+      - " {highlight}/pvadmin list <player>"
 
   settings:
     slot: 45
     material: COMPARATOR
-    name: "{primary}&lSETTINGS"
+    name: "{letters}Vaults {letters_black}▸ <gradient:{primary}:{secondary_light}>Settings</gradient>"
     lore:
+      - "{letters_black}Plugin settings"
       - ""
-      - "{secondary}Information:"
-      - " {letters_black}▎ {letters}Change this plugin's settings"
-      - " {letters_black}▎ {letters}without editing its {highlight}files{letters}."
+      - "{primary}✎ Information"
+      - " {letters}Change this plugin's settings"
+      - " {letters}without editing its {highlight}files{letters}."
       - ""
-      - "{warning}➥ Click {letters_black}» {letters}Open settings"
-      - ""
+      - "{primary}» Click {letters_black}· {letters}Open settings"
     actions:
       - "exyliaplayervaults:settings"

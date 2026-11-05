@@ -25,9 +25,7 @@ filler:
     material: LIGHT_GRAY_STAINED_GLASS_PANE
     name: "{muted}Não há mais cópias"
     lore:
-      - ""
-      - " {letters_black}▎ {letters}Uma cópia é guardada sempre que o baú muda."
-      - ""
+      - "{letters_black}Uma cópia é guardada sempre que o baú muda."
     hide_tooltip: false
 
 pagination:
@@ -35,21 +33,21 @@ pagination:
 
   item_template:
     material: CHEST
-    name: "{primary}&lCÓPIA {highlight}%snapshot_when% &8[{info}%snapshot_used%&8]"
+    name: "{letters}Cópia {letters_black}▸ <gradient:{primary}:{secondary_light}>%snapshot_when%</gradient> &8[{info}%snapshot_used%&8]"
     lore:
+      - "{letters_black}Cópia do baú"
       - ""
-      - "{secondary}Informação:"
-      - " {letters_black}▎ {letters}O que o baú guardava antes de ser"
-      - " {letters_black}▎ {highlight}%snapshot_cause% {letters}por {highlight}%snapshot_actor%{letters}."
+      - "{primary}✎ Informação"
+      - " {letters}O que o baú guardava antes de ser"
+      - " {highlight}%snapshot_cause% {letters}por {highlight}%snapshot_actor%{letters}."
       - ""
-      - "{secondary}Status:"
-      - " {letters_black}▎ {letters}Data {letters_black}» {info}%snapshot_date%"
-      - " {letters_black}▎ {letters}Pilhas {letters_black}» {info}%snapshot_used%"
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:clock} {letters}Data{letters_black}: {info}%snapshot_date%"
+      - "  {letters_black}· {info}{icon:iron} {letters}Pilhas{letters_black}: {info}%snapshot_used%"
       - ""
-      - "{warning}➥ Clique esquerdo {letters_black}» {letters}ver conteúdo"
-      - "{error}➥ Shift + clique direito {letters_black}» {letters}restaurar esta cópia"
-      - " {letters_black}Será pedida uma confirmação."
-      - ""
+      - "{primary}» Clique esquerdo {letters_black}· {letters}ver conteúdo"
+      - "{error}» Shift + clique direito {letters_black}· {letters}restaurar esta cópia"
+      - "{letters_black}Será pedida uma confirmação."
     actions:
       - "left: exyliaplayervaults:snapshot_view %snapshot_id%"
       - "shift_right: exyliaplayervaults:snapshot_restore %snapshot_id%"
@@ -59,22 +57,18 @@ pagination:
       slot: 48
       sound: "minecraft:item.book.page_turn|1.0|1.0"
       material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
-      name: "{error}&l← PÁGINA ANTERIOR"
+      name: "{letters}Página {letters_black}▸ <gradient:{error}:{error_light}>← Anterior</gradient>"
       lore:
-        - ""
-        - " {letters_black}▎ {letters}Página {info}%current_page%{letters_black}/{info}%total_pages%"
-        - ""
+        - "  {letters_black}· {letters}Página{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
       actions:
         - "previous_page"
     next:
       slot: 50
       sound: "minecraft:item.book.page_turn|1.0|1.0"
       material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
-      name: "{success}&lPRÓXIMA PÁGINA →"
+      name: "{letters}Página {letters_black}▸ <gradient:{success}:{success_light}>Próxima →</gradient>"
       lore:
-        - ""
-        - " {letters_black}▎ {letters}Página {info}%current_page%{letters_black}/{info}%total_pages%"
-        - ""
+        - "  {letters_black}· {letters}Página{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
       actions:
         - "next_page"
 
@@ -82,14 +76,15 @@ items:
   header:
     slot: 49
     material: BARREL
-    name: "{primary}&lBAÚ {highlight}#%vault_number%"
+    name: "<gradient:{primary}:{secondary_light}>Baú #%vault_number%</gradient>"
     lore:
+      - "{letters_black}Histórico do baú"
       - ""
-      - "{secondary}Informação:"
-      - " {letters_black}▎ {letters}Dono {letters_black}» {highlight}%owner_name%"
-      - " {letters_black}▎ {letters}Restaurar uma cópia guarda o"
-      - " {letters_black}▎ {letters}conteúdo atual como uma nova cópia."
+      - "{primary}✎ Informação"
+      - " {letters}Restaurar uma cópia"
+      - " {letters}guarda o conteúdo atual"
+      - " {letters}como uma nova cópia."
       - ""
-      - "{secondary}Status:"
-      - " {letters_black}▎ {letters}Cópias {letters_black}» {info}%history_size%"
-      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {highlight}{icon:tag} {letters}Dono{letters_black}: {highlight}%owner_name%"
+      - "  {letters_black}· {info}{icon:book} {letters}Cópias{letters_black}: {info}%history_size%"
