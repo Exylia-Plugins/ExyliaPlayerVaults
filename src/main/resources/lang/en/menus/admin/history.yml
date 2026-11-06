@@ -27,6 +27,15 @@ filler:
     lore:
       - "{letters_black}A copy is kept each time the vault changes."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← First page"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Last page →"
 
 pagination:
   slots: '0-35'
@@ -45,8 +54,8 @@ pagination:
       - "  {letters_black}· {info}{icon:clock} {letters}Date{letters_black}: {info}%snapshot_date%"
       - "  {letters_black}· {info}{icon:iron} {letters}Stacks{letters_black}: {info}%snapshot_used%"
       - ""
-      - "{primary}» Left-click {letters_black}· {letters}look inside"
-      - "{error}» Shift-right-click {letters_black}· {letters}put this copy back"
+      - "{primary}{icon:click} Left-click {letters_black}· {letters}look inside"
+      - "{error}{icon:right_click} Shift-right-click {letters_black}· {letters}put this copy back"
       - "{letters_black}You will be asked to confirm."
     actions:
       - "left: exyliaplayervaults:snapshot_view %snapshot_id%"

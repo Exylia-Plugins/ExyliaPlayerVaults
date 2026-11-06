@@ -27,6 +27,15 @@ filler:
     lore:
       - "{letters_black}Uma cópia é guardada sempre que o baú muda."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Primeira página"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Última página →"
 
 pagination:
   slots: '0-35'
@@ -45,8 +54,8 @@ pagination:
       - "  {letters_black}· {info}{icon:clock} {letters}Data{letters_black}: {info}%snapshot_date%"
       - "  {letters_black}· {info}{icon:iron} {letters}Pilhas{letters_black}: {info}%snapshot_used%"
       - ""
-      - "{primary}» Clique esquerdo {letters_black}· {letters}ver conteúdo"
-      - "{error}» Shift + clique direito {letters_black}· {letters}restaurar esta cópia"
+      - "{primary}{icon:click} Clique esquerdo {letters_black}· {letters}ver conteúdo"
+      - "{error}{icon:right_click} Shift + clique direito {letters_black}· {letters}restaurar esta cópia"
       - "{letters_black}Será pedida uma confirmação."
     actions:
       - "left: exyliaplayervaults:snapshot_view %snapshot_id%"

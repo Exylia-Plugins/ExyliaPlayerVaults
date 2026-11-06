@@ -27,6 +27,15 @@ filler:
     lore:
       - "{letters_black}Копия сохраняется при каждом изменении."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Первая страница"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Последняя страница →"
 
 pagination:
   slots: '0-35'
@@ -45,8 +54,8 @@ pagination:
       - "  {letters_black}· {info}{icon:clock} {letters}Дата{letters_black}: {info}%snapshot_date%"
       - "  {letters_black}· {info}{icon:iron} {letters}Стаков{letters_black}: {info}%snapshot_used%"
       - ""
-      - "{primary}» ЛКМ {letters_black}· {letters}посмотреть"
-      - "{error}» Shift+ПКМ {letters_black}· {letters}вернуть эту копию"
+      - "{primary}{icon:click} ЛКМ {letters_black}· {letters}посмотреть"
+      - "{error}{icon:right_click} Shift+ПКМ {letters_black}· {letters}вернуть эту копию"
       - "{letters_black}Потребуется подтверждение."
     actions:
       - "left: exyliaplayervaults:snapshot_view %snapshot_id%"

@@ -25,6 +25,15 @@ filler:
     lore:
       - "{letters_black}Players online here show up here."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← First page"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Last page →"
 
 pagination:
   slots: '0-35'
@@ -39,7 +48,7 @@ pagination:
       - " {letters}Look at, edit, clear or"
       - " {letters}restore any of their vaults."
       - ""
-      - "{info}» Click to open"
+      - "{info}{icon:click} Click to open"
     actions:
       - "exyliaplayervaults:list %player_id%"
 
@@ -87,6 +96,6 @@ items:
       - " {letters}Change this plugin's settings"
       - " {letters}without editing its {highlight}files{letters}."
       - ""
-      - "{primary}» Click {letters_black}· {letters}Open settings"
+      - "{primary}{icon:click} Click {letters_black}· {letters}Open settings"
     actions:
       - "exyliaplayervaults:settings"

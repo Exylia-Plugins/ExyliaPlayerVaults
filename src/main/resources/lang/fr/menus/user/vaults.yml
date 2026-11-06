@@ -10,7 +10,7 @@
 # Chaque coffre : %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #                 %vault_free% %vault_owner% et, sur celui en vente, %vault_price%
 
-menu-version: 2
+menu-version: 3
 
 title: "{primary}&lCOFFRES {letters_black}» {highlight}%owner_name% {muted}%current_page%/%total_pages%"
 size: 54
@@ -33,9 +33,18 @@ filler:
     lore:
       - "{letters_black}Un grade supérieur en débloque plus."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Première page"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Dernière page →"
 
 pagination:
-  slots: '0-35'
+  slots: '10-16,19-25,28-34,37-43'
 
   item_template:
     material: "%vault_icon%"
@@ -47,9 +56,9 @@ pagination:
       - "  {letters_black}· {info}{icon:iron} {letters}Utilisé{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
       - "  {letters_black}· {success}{icon:check} {letters}Libre{letters_black}: {success}%vault_free%"
       - ""
-      - "{primary}» Clic gauche {letters_black}· {letters}ouvrir"
-      - "{primary}» Clic droit {letters_black}· {letters}renommer"
-      - "{primary}» Shift + clic droit {letters_black}· {letters}changer l'icône"
+      - "{primary}{icon:click} Clic gauche {letters_black}· {letters}ouvrir"
+      - "{primary}{icon:right_click} Clic droit {letters_black}· {letters}renommer"
+      - "{primary}{icon:right_click} Shift + clic droit {letters_black}· {letters}changer l'icône"
     actions:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
@@ -66,11 +75,11 @@ pagination:
       - "  {letters_black}· {info}{icon:iron} {letters}Utilisé{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
       - "  {letters_black}· {success}{icon:check} {letters}Libre{letters_black}: {success}%vault_free%"
       - ""
-      - "{primary}» Clic gauche {letters_black}· {letters}ouvrir"
-      - "{primary}» Clic droit {letters_black}· {letters}renommer"
-      - "{primary}» Jeter (Q) {letters_black}· {letters}changer l'icône"
-      - "{primary}» Shift + clic gauche {letters_black}· {letters}historique"
-      - "{error}» Shift + clic droit {letters_black}· {letters}vider"
+      - "{primary}{icon:click} Clic gauche {letters_black}· {letters}ouvrir"
+      - "{primary}{icon:right_click} Clic droit {letters_black}· {letters}renommer"
+      - "{primary}{icon:click} Jeter (Q) {letters_black}· {letters}changer l'icône"
+      - "{primary}{icon:click} Shift + clic gauche {letters_black}· {letters}historique"
+      - "{error}{icon:right_click} Shift + clic droit {letters_black}· {letters}vider"
       - "{letters_black}Une confirmation te sera demandée."
     actions:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
@@ -92,7 +101,7 @@ pagination:
       - "{success}✦ Statut"
       - "  {letters_black}· {highlight}{icon:gold} {letters}Prix{letters_black}: {highlight}%vault_price%"
       - ""
-      - "{success}» Clique pour acheter"
+      - "{success}{icon:click} Clique pour acheter"
     actions:
       - "left: exyliaplayervaults:buy"
 
@@ -128,7 +137,7 @@ pagination:
 
 items:
   search:
-    slot: 45
+    slot: 46
     material: SPYGLASS
     name: "{letters}Coffres {letters_black}▸ <gradient:{info}:{info_light}>Chercher</gradient>"
     lore:
@@ -139,7 +148,7 @@ items:
       - " {letters}objet, par nom ou matériau, boîtes"
       - " {letters}de shulker et sacs compris."
       - ""
-      - "{info}» Clique pour chercher"
+      - "{info}{icon:click} Clique pour chercher"
     actions:
       - "exyliaplayervaults:search %owner_id%"
 

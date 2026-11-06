@@ -25,6 +25,15 @@ filler:
     lore:
       - "{letters_black}Aquí aparecen los jugadores conectados."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Primera página"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Última página →"
 
 pagination:
   slots: '0-35'
@@ -39,7 +48,7 @@ pagination:
       - " {letters}Mira, edita, vacía o restaura"
       - " {letters}cualquiera de sus baúles."
       - ""
-      - "{info}» Clic para abrir"
+      - "{info}{icon:click} Clic para abrir"
     actions:
       - "exyliaplayervaults:list %player_id%"
 
@@ -87,6 +96,6 @@ items:
       - " {letters}Cambia los ajustes del plugin"
       - " {letters}sin editar sus {highlight}archivos{letters}."
       - ""
-      - "{primary}» Clic {letters_black}· {letters}Abrir ajustes"
+      - "{primary}{icon:click} Clic {letters_black}· {letters}Abrir ajustes"
     actions:
       - "exyliaplayervaults:settings"

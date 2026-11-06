@@ -10,7 +10,7 @@
 # Каждое хранилище: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
 #                   %vault_free% %vault_owner% и, у продаваемого, %vault_price%
 
-menu-version: 2
+menu-version: 3
 
 title: "{primary}&lХРАНИЛИЩА {letters_black}» {highlight}%owner_name% {muted}%current_page%/%total_pages%"
 size: 54
@@ -33,9 +33,18 @@ filler:
     lore:
       - "{letters_black}Ранг выше открывает больше."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Первая страница"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Последняя страница →"
 
 pagination:
-  slots: '0-35'
+  slots: '10-16,19-25,28-34,37-43'
 
   item_template:
     material: "%vault_icon%"
@@ -47,9 +56,9 @@ pagination:
       - "  {letters_black}· {info}{icon:iron} {letters}Занято{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
       - "  {letters_black}· {success}{icon:check} {letters}Свободно{letters_black}: {success}%vault_free%"
       - ""
-      - "{primary}» ЛКМ {letters_black}· {letters}открыть"
-      - "{primary}» ПКМ {letters_black}· {letters}переименовать"
-      - "{primary}» Shift+ПКМ {letters_black}· {letters}сменить значок"
+      - "{primary}{icon:click} ЛКМ {letters_black}· {letters}открыть"
+      - "{primary}{icon:right_click} ПКМ {letters_black}· {letters}переименовать"
+      - "{primary}{icon:right_click} Shift+ПКМ {letters_black}· {letters}сменить значок"
     actions:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
       - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
@@ -66,11 +75,11 @@ pagination:
       - "  {letters_black}· {info}{icon:iron} {letters}Занято{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
       - "  {letters_black}· {success}{icon:check} {letters}Свободно{letters_black}: {success}%vault_free%"
       - ""
-      - "{primary}» ЛКМ {letters_black}· {letters}открыть"
-      - "{primary}» ПКМ {letters_black}· {letters}переименовать"
-      - "{primary}» Выбросить (Q) {letters_black}· {letters}сменить значок"
-      - "{primary}» Shift+ЛКМ {letters_black}· {letters}история"
-      - "{error}» Shift+ПКМ {letters_black}· {letters}очистить"
+      - "{primary}{icon:click} ЛКМ {letters_black}· {letters}открыть"
+      - "{primary}{icon:right_click} ПКМ {letters_black}· {letters}переименовать"
+      - "{primary}{icon:click} Выбросить (Q) {letters_black}· {letters}сменить значок"
+      - "{primary}{icon:click} Shift+ЛКМ {letters_black}· {letters}история"
+      - "{error}{icon:right_click} Shift+ПКМ {letters_black}· {letters}очистить"
       - "{letters_black}Потребуется подтверждение."
     actions:
       - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
@@ -91,7 +100,7 @@ pagination:
       - "{success}✦ Состояние"
       - "  {letters_black}· {highlight}{icon:gold} {letters}Цена{letters_black}: {highlight}%vault_price%"
       - ""
-      - "{success}» Нажми, чтобы купить"
+      - "{success}{icon:click} Нажми, чтобы купить"
     actions:
       - "left: exyliaplayervaults:buy"
 
@@ -127,7 +136,7 @@ pagination:
 
 items:
   search:
-    slot: 45
+    slot: 46
     material: SPYGLASS
     name: "{letters}Хранилища {letters_black}▸ <gradient:{info}:{info_light}>Поиск</gradient>"
     lore:
@@ -139,7 +148,7 @@ items:
       - " {letters}названию или материалу,"
       - " {letters}включая шалкеры и мешки."
       - ""
-      - "{info}» Нажми, чтобы искать"
+      - "{info}{icon:click} Нажми, чтобы искать"
     actions:
       - "exyliaplayervaults:search %owner_id%"
 

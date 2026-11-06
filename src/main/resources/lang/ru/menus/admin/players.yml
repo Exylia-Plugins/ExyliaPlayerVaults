@@ -25,6 +25,15 @@ filler:
     lore:
       - "{letters_black}Здесь появляются игроки на сервере."
     hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Первая страница"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Последняя страница →"
 
 pagination:
   slots: '0-35'
@@ -39,7 +48,7 @@ pagination:
       - " {letters}Смотри, изменяй, очищай или"
       - " {letters}восстанавливай любое их хранилище."
       - ""
-      - "{info}» Нажми, чтобы открыть"
+      - "{info}{icon:click} Нажми, чтобы открыть"
     actions:
       - "exyliaplayervaults:list %player_id%"
 
@@ -87,6 +96,6 @@ items:
       - " {letters}Меняйте настройки плагина"
       - " {letters}без правки его {highlight}файлов{letters}."
       - ""
-      - "{primary}» Клик {letters_black}· {letters}Открыть настройки"
+      - "{primary}{icon:click} Клик {letters_black}· {letters}Открыть настройки"
     actions:
       - "exyliaplayervaults:settings"
