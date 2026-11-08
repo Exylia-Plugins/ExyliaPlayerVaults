@@ -1,0 +1,27 @@
+# Textes de l'écran des coffres (screens/vaults.html), un par t="clé". Les couleurs comme {info} fonctionnent ici ;
+# gardez les %placeholders%. Les lignes d'une infobulle sont séparées par <nl>.
+title: '{highlight}Coffres'
+subtitle: '{letters_black}Sauvegardé à la fermeture · ouvert à un seul endroit à la fois'
+own:
+  tooltip: '%vault_name%<nl>{letters_black}Utilisé {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}ouvrir<nl>{primary}Clic droit {letters_black}· {letters}renommer<nl>{primary}Sprint + clic {letters_black}· {letters}changer l''icône'
+admin:
+  tooltip: '%vault_name%<nl>{letters_black}Utilisé {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}ouvrir<nl>{primary}Clic droit {letters_black}· {letters}renommer<nl>{primary}Sprint + clic {letters_black}· {letters}historique'
+  icon: 'Icône'
+  clear: 'Vider'
+buy:
+  name: '{success}Acheter #%vault_number%'
+  tooltip: '{success}Acheter le coffre #%vault_number%<nl>{letters_black}Un coffre de plus, à vous pour toujours.<nl>{letters_black}Prix {highlight}%vault_price%<nl>{success}Clic {letters_black}· {letters}acheter'
+locked:
+  name: '{muted}Verrouillé'
+  tooltip: '{warning}Coffre #%vault_number%<nl>{letters_black}Un grade supérieur le débloque.'
+empty:
+  title: 'Aucun coffre pour l''instant'
+  hint: 'Un grade supérieur en débloque plus'
+foot: '{letters_black}Survolez un coffre pour voir ce que fait chaque clic'
+owner: '{letters_black}Propriétaire'
+unlocked: '{letters}Débloqués'
+bought: '{letters}Achetés'
+rows: '{letters}Lignes chacun'
+search:
+  hint: '{letters_black}Quel coffre contient un objet ?'
+  button: 'Rechercher'

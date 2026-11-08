@@ -1,0 +1,27 @@
+# Words of the vault list screen (screens/vaults.html), one per t="key" there. Colour tokens such as {info} work
+# here; keep the %placeholders%. Lines of a tooltip are split by <nl>. Edits show on open screens within seconds.
+title: '{highlight}Vaults'
+subtitle: '{letters_black}Saved the moment you close one · open in one place at a time'
+own:
+  tooltip: '%vault_name%<nl>{letters_black}Used {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · free {success}%vault_free%<nl>{primary}Click {letters_black}· {letters}open<nl>{primary}Right-click {letters_black}· {letters}rename<nl>{primary}Sprint + click {letters_black}· {letters}change icon'
+admin:
+  tooltip: '%vault_name%<nl>{letters_black}Used {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · free {success}%vault_free%<nl>{primary}Click {letters_black}· {letters}open<nl>{primary}Right-click {letters_black}· {letters}rename<nl>{primary}Sprint + click {letters_black}· {letters}history'
+  icon: 'Icon'
+  clear: 'Empty'
+buy:
+  name: '{success}Buy #%vault_number%'
+  tooltip: '{success}Buy vault #%vault_number%<nl>{letters_black}One more vault, yours for good.<nl>{letters_black}Price {highlight}%vault_price%<nl>{success}Click {letters_black}· {letters}buy'
+locked:
+  name: '{muted}Locked'
+  tooltip: '{warning}Vault #%vault_number%<nl>{letters_black}A higher rank unlocks it.'
+empty:
+  title: 'No vaults yet'
+  hint: 'A higher rank unlocks more'
+foot: '{letters_black}Hover a vault to see what each click does'
+owner: '{letters_black}Vault owner'
+unlocked: '{letters}Unlocked'
+bought: '{letters}Bought'
+rows: '{letters}Rows each'
+search:
+  hint: '{letters_black}Which vault holds an item?'
+  button: 'Search'

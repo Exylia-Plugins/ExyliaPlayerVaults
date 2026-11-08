@@ -1,0 +1,27 @@
+# Textos da tela de baús (screens/vaults.html), um por t="chave". Cores como {info} funcionam aqui; mantenha os
+# %placeholders%. As linhas de uma dica são separadas por <nl>.
+title: '{highlight}Baús'
+subtitle: '{letters_black}Salvo ao fechar · aberto em um só lugar por vez'
+own:
+  tooltip: '%vault_name%<nl>{letters_black}Usado {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · livre {success}%vault_free%<nl>{primary}Clique {letters_black}· {letters}abrir<nl>{primary}Clique direito {letters_black}· {letters}renomear<nl>{primary}Correr + clique {letters_black}· {letters}mudar ícone'
+admin:
+  tooltip: '%vault_name%<nl>{letters_black}Usado {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · livre {success}%vault_free%<nl>{primary}Clique {letters_black}· {letters}abrir<nl>{primary}Clique direito {letters_black}· {letters}renomear<nl>{primary}Correr + clique {letters_black}· {letters}histórico'
+  icon: 'Ícone'
+  clear: 'Esvaziar'
+buy:
+  name: '{success}Comprar #%vault_number%'
+  tooltip: '{success}Comprar baú #%vault_number%<nl>{letters_black}Mais um baú, seu para sempre.<nl>{letters_black}Preço {highlight}%vault_price%<nl>{success}Clique {letters_black}· {letters}comprar'
+locked:
+  name: '{muted}Bloqueado'
+  tooltip: '{warning}Baú #%vault_number%<nl>{letters_black}Um cargo superior o desbloqueia.'
+empty:
+  title: 'Nenhum baú ainda'
+  hint: 'Um cargo superior desbloqueia mais'
+foot: '{letters_black}Passe o cursor num baú para ver o que cada clique faz'
+owner: '{letters_black}Dono dos baús'
+unlocked: '{letters}Desbloqueados'
+bought: '{letters}Comprados'
+rows: '{letters}Linhas cada'
+search:
+  hint: '{letters_black}Qual baú tem um item?'
+  button: 'Buscar'

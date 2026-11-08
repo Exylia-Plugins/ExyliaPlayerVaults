@@ -1,0 +1,27 @@
+# Тексты экрана хранилищ (screens/vaults.html), по одному на каждый t="ключ". Цвета вроде {info} здесь работают;
+# сохраняйте %placeholders%. Строки подсказки разделяются <nl>.
+title: '{highlight}Хранилища'
+subtitle: '{letters_black}Сохраняется при закрытии · открыто только в одном месте'
+own:
+  tooltip: '%vault_name%<nl>{letters_black}Занято {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · свободно {success}%vault_free%<nl>{primary}Клик {letters_black}· {letters}открыть<nl>{primary}ПКМ {letters_black}· {letters}переименовать<nl>{primary}Бег + клик {letters_black}· {letters}сменить иконку'
+admin:
+  tooltip: '%vault_name%<nl>{letters_black}Занято {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · свободно {success}%vault_free%<nl>{primary}Клик {letters_black}· {letters}открыть<nl>{primary}ПКМ {letters_black}· {letters}переименовать<nl>{primary}Бег + клик {letters_black}· {letters}история'
+  icon: 'Иконка'
+  clear: 'Очистить'
+buy:
+  name: '{success}Купить #%vault_number%'
+  tooltip: '{success}Купить хранилище #%vault_number%<nl>{letters_black}Ещё одно хранилище, навсегда ваше.<nl>{letters_black}Цена {highlight}%vault_price%<nl>{success}Клик {letters_black}· {letters}купить'
+locked:
+  name: '{muted}Закрыто'
+  tooltip: '{warning}Хранилище #%vault_number%<nl>{letters_black}Открывается более высоким рангом.'
+empty:
+  title: 'Хранилищ пока нет'
+  hint: 'Более высокий ранг открывает больше'
+foot: '{letters_black}Наведите на хранилище, чтобы увидеть действия кликов'
+owner: '{letters_black}Владелец'
+unlocked: '{letters}Открыто'
+bought: '{letters}Куплено'
+rows: '{letters}Рядов в каждом'
+search:
+  hint: '{letters_black}В каком хранилище предмет?'
+  button: 'Поиск'

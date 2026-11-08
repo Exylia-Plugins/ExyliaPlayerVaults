@@ -1,0 +1,95 @@
+<!--
+  Your vaults in the SCREEN menu style: every vault as a card with its icon, name and how full it is, the next one
+  for sale and the locked ones after it, your totals and the search beside them. It stands for the chest menu
+  lang/<code>/menus/user/vaults.yml and reads that menu's values and rows, so it needs no code of its own.
+  Staff opening somebody's vaults (/pvadmin list) get the same screen with the staff tools on each card.
+
+  One file for every language: the words come from lang/<code>/screens/vaults.yml (t="key"). The look is in
+  theme.css; put your own rules in custom.css next to it and this file keeps updating with the plugin.
+  /exylialib screens check lists anything wrong with file:line:col; edits show on open screens within seconds.
+
+  Values: owner_name, owner_id, vaults_unlocked, vaults_max, vaults_bought, vaults_rows.
+  Rows (source="main"): vault_number, vault_name, vault_icon, vault_used, vault_size, vault_free, vault_owner and,
+  on the one for sale, vault_price. row_template is "" (your own), "admin" (staff), "buy" or "locked".
+  Actions: exyliaplayervaults:open|rename|icon|history|clear <owner> <number>, exyliaplayervaults:buy,
+  exyliaplayervaults:search <owner>.
+-->
+<screen backdrop="linear-gradient(to bottom, {primary}14, {info}06)" routes="menus/user/vaults">
+  <row class="frame">
+    <column class="main">
+      <row class="head">
+        <item material="ender_chest" class="head-icon"/>
+        <column class="heading">
+          <h1 t="title">{highlight}Vaults</h1>
+          <small t="subtitle">{letters_black}Saved the moment you close one · open in one place at a time</small>
+        </column>
+      </row>
+
+      <grid source="main" columns="5" rows="3" class="fill">
+        <switch on="row_template">
+          <case value="buy">
+            <card class="vault buy" action="exyliaplayervaults:buy" t-tooltip="buy.tooltip">
+              <item row material="gold_ingot"/>
+              <b t="buy.name">{success}Buy #%vault_number%</b>
+              <small>{highlight}%vault_price%</small>
+            </card>
+          </case>
+          <case value="locked">
+            <card class="vault locked" disabled t-tooltip="locked.tooltip">
+              <item row material="gray_dye"/>
+              <b>{muted}#%vault_number%</b>
+              <small t="locked.name">{muted}Locked</small>
+            </card>
+          </case>
+          <case value="admin">
+            <card class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%"
+                  action-right="exyliaplayervaults:rename %vault_owner% %vault_number%"
+                  action-shift="exyliaplayervaults:history %vault_owner% %vault_number%" t-tooltip="admin.tooltip">
+              <item row material="chest"/>
+              <b>%vault_name%</b>
+              <progress value="%vault_used%" max="%vault_size%"/>
+              <row class="tools">
+                <button class="tool" action="exyliaplayervaults:icon %vault_owner% %vault_number%" t="admin.icon">Icon</button>
+                <button class="tool danger" action="exyliaplayervaults:clear %vault_owner% %vault_number%" t="admin.clear">Empty</button>
+              </row>
+            </card>
+          </case>
+          <default>
+            <card class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%"
+                  action-right="exyliaplayervaults:rename %vault_owner% %vault_number%"
+                  action-shift="exyliaplayervaults:icon %vault_owner% %vault_number%" t-tooltip="own.tooltip">
+              <item row material="chest"/>
+              <b>%vault_name%</b>
+              <progress value="%vault_used%" max="%vault_size%"/>
+              <small>{info}%vault_used%{letters_black}/{info}%vault_size%</small>
+            </card>
+          </default>
+        </switch>
+        <empty><text t="empty.title">No vaults yet</text><small t="empty.hint">A higher rank unlocks more</small></empty>
+      </grid>
+
+      <row class="foot">
+        <small t="foot">{letters_black}Hover a vault to see what each click does</small>
+        <box class="spacer"/>
+        <pager for="main" keys="a d"/>
+      </row>
+    </column>
+
+    <column class="side">
+      <row class="owner">
+        <img face="%owner_name%" class="face"/>
+        <column class="who">
+          <b>{info}%owner_name%</b>
+          <small t="owner">{letters_black}Vault owner</small>
+        </column>
+      </row>
+      <box class="rule"/>
+      <row class="stat"><small t="unlocked">{letters}Unlocked</small><box class="spacer"/><b>{info}%vaults_unlocked%{letters_black}/{info}%vaults_max%</b></row>
+      <row class="stat"><small t="bought">{letters}Bought</small><box class="spacer"/><b>{highlight}%vaults_bought%</b></row>
+      <row class="stat"><small t="rows">{letters}Rows each</small><box class="spacer"/><b>{info}%vaults_rows%</b></row>
+      <box class="spacer"/>
+      <small t="search.hint">{letters_black}Which vault holds an item?</small>
+      <button class="search small" action="exyliaplayervaults:search %owner_id%" t="search.button">Search</button>
+    </column>
+  </row>
+</screen>

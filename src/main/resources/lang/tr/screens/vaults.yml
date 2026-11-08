@@ -1,0 +1,27 @@
+# Kasa ekranının metinleri (screens/vaults.html), her t="anahtar" için bir tane. {info} gibi renkler burada
+# çalışır; %placeholders% olduğu gibi kalsın. Bir ipucunun satırları <nl> ile ayrılır.
+title: '{highlight}Kasalar'
+subtitle: '{letters_black}Kapatınca kaydedilir · aynı anda tek yerde açık'
+own:
+  tooltip: '%vault_name%<nl>{letters_black}Dolu {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · boş {success}%vault_free%<nl>{primary}Tıkla {letters_black}· {letters}aç<nl>{primary}Sağ tık {letters_black}· {letters}yeniden adlandır<nl>{primary}Koşu + tık {letters_black}· {letters}simgeyi değiştir'
+admin:
+  tooltip: '%vault_name%<nl>{letters_black}Dolu {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · boş {success}%vault_free%<nl>{primary}Tıkla {letters_black}· {letters}aç<nl>{primary}Sağ tık {letters_black}· {letters}yeniden adlandır<nl>{primary}Koşu + tık {letters_black}· {letters}geçmiş'
+  icon: 'Simge'
+  clear: 'Boşalt'
+buy:
+  name: '{success}Satın al #%vault_number%'
+  tooltip: '{success}Kasa #%vault_number% satın al<nl>{letters_black}Bir kasa daha, sonsuza dek senin.<nl>{letters_black}Fiyat {highlight}%vault_price%<nl>{success}Tıkla {letters_black}· {letters}satın al'
+locked:
+  name: '{muted}Kilitli'
+  tooltip: '{warning}Kasa #%vault_number%<nl>{letters_black}Daha yüksek bir rütbe açar.'
+empty:
+  title: 'Henüz kasa yok'
+  hint: 'Daha yüksek bir rütbe daha fazlasını açar'
+foot: '{letters_black}Her tıklamanın ne yaptığını görmek için bir kasanın üstüne gel'
+owner: '{letters_black}Kasa sahibi'
+unlocked: '{letters}Açılan'
+bought: '{letters}Satın alınan'
+rows: '{letters}Her birinde satır'
+search:
+  hint: '{letters_black}Eşya hangi kasada?'
+  button: 'Ara'
