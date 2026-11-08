@@ -1,95 +1,116 @@
 <!--
-  Your vaults in the SCREEN menu style: every vault as a card with its icon, name and how full it is, the next one
-  for sale and the locked ones after it, your totals and the search beside them. It stands for the chest menu
-  lang/<code>/menus/user/vaults.yml and reads that menu's values and rows, so it needs no code of its own.
-  Staff opening somebody's vaults (/pvadmin list) get the same screen with the staff tools on each card.
+  Your vaults in the SCREEN menu style: every vault as a row with its icon, name and how full it is, the next one for
+  sale and the locked ones after it, your totals beside them, and search results as a page of the same screen. A vault's
+  contents stay a chest window. It stands for the chest menus lang/<code>/menus/user/vaults.yml and search.yml and reads
+  their values and rows, so it needs no code of its own. Staff opening somebody's vaults (/pvadmin list) get the same
+  screen with the staff tools on each row.
 
   One file for every language: the words come from lang/<code>/screens/vaults.yml (t="key"). The look is in
   theme.css; put your own rules in custom.css next to it and this file keeps updating with the plugin.
   /exylialib screens check lists anything wrong with file:line:col; edits show on open screens within seconds.
 
-  Values: owner_name, owner_id, vaults_unlocked, vaults_max, vaults_bought, vaults_rows.
-  Rows (source="main"): vault_number, vault_name, vault_icon, vault_used, vault_size, vault_free, vault_owner and,
-  on the one for sale, vault_price. row_template is "" (your own), "admin" (staff), "buy" or "locked".
+  Values: owner_name, owner_id, vaults_unlocked, vaults_max, vaults_bought, vaults_rows (search also: search_query,
+  search_hits; the list's numbers are not known there, so the side bar leaves them out).
+  Rows (source="main") on the list: vault_number, vault_name, vault_icon, vault_used, vault_size, vault_free, vault_owner
+  and, on the one for sale, vault_price. row_template is "" (your own), "admin" (staff), "buy" or "locked".
+  Rows on search: vault_number, vault_name, vault_icon, vault_owner, vault_amount.
   Actions: exyliaplayervaults:open|rename|icon|history|clear <owner> <number>, exyliaplayervaults:buy,
-  exyliaplayervaults:search <owner>.
+  exyliaplayervaults:list <owner>, exyliaplayervaults:search <owner>.
 -->
-<screen backdrop="linear-gradient(to bottom, {primary}14, {info}06)" routes="menus/user/vaults">
-  <row class="frame">
-    <column class="main">
-      <row class="head">
-        <item material="ender_chest" class="head-icon"/>
-        <column class="heading">
-          <h1 t="title">{highlight}Vaults</h1>
-          <small t="subtitle">{letters_black}Saved the moment you close one · open in one place at a time</small>
-        </column>
+<screen version="2" backdrop="linear-gradient(to bottom, {primary}14, {info}06)" routes="menus/user/vaults:view=list,scroll.main=0 menus/user/search:view=search,scroll.main=0">
+  <row class="app">
+    <column class="side">
+      <row class="ident">
+        <img face="%owner_name%" class="ident-icon"/>
+        <column class="tight"><b class="ident-name">{info}%owner_name%</b><small t="owner">{letters_black}Vault owner</small></column>
       </row>
-
-      <grid source="main" columns="5" rows="3" class="fill">
-        <switch on="row_template">
-          <case value="buy">
-            <card class="vault buy" action="exyliaplayervaults:buy" t-tooltip="buy.tooltip">
-              <item row material="gold_ingot"/>
-              <b t="buy.name">{success}Buy #%vault_number%</b>
-              <small>{highlight}%vault_price%</small>
-            </card>
-          </case>
-          <case value="locked">
-            <card class="vault locked" disabled t-tooltip="locked.tooltip">
-              <item row material="gray_dye"/>
-              <b>{muted}#%vault_number%</b>
-              <small t="locked.name">{muted}Locked</small>
-            </card>
-          </case>
-          <case value="admin">
-            <card class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%"
-                  action-right="exyliaplayervaults:rename %vault_owner% %vault_number%"
-                  action-shift="exyliaplayervaults:history %vault_owner% %vault_number%" t-tooltip="admin.tooltip">
-              <item row material="chest"/>
-              <b>%vault_name%</b>
-              <progress value="%vault_used%" max="%vault_size%"/>
-              <row class="tools">
-                <button class="tool" action="exyliaplayervaults:icon %vault_owner% %vault_number%" t="admin.icon">Icon</button>
-                <button class="tool danger" action="exyliaplayervaults:clear %vault_owner% %vault_number%" t="admin.clear">Empty</button>
-              </row>
-            </card>
-          </case>
-          <default>
-            <card class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%"
-                  action-right="exyliaplayervaults:rename %vault_owner% %vault_number%"
-                  action-shift="exyliaplayervaults:icon %vault_owner% %vault_number%" t-tooltip="own.tooltip">
-              <item row material="chest"/>
-              <b>%vault_name%</b>
-              <progress value="%vault_used%" max="%vault_size%"/>
-              <small>{info}%vault_used%{letters_black}/{info}%vault_size%</small>
-            </card>
-          </default>
-        </switch>
-        <empty><text t="empty.title">No vaults yet</text><small t="empty.hint">A higher rank unlocks more</small></empty>
-      </grid>
-
-      <row class="foot">
-        <small t="foot">{letters_black}Hover a vault to see what each click does</small>
-        <box class="spacer"/>
-        <pager for="main" keys="a d"/>
-      </row>
+      <column class="nav">
+        <row class="nav-item" selected="${view != 'search'}" action="exyliaplayervaults:list %owner_id%"><box class="mark"/><item material="ender_chest"/><text t="nav.vaults">Vaults</text></row>
+        <row class="nav-item" selected="${view == 'search'}" action="exyliaplayervaults:search %owner_id%"><box class="mark"/><item material="spyglass"/><text t="search.button">Search</text></row>
+      </column>
+      <fragment if="view != 'search'">
+        <box class="rule"/>
+        <row class="stat"><small t="unlocked">{letters}Unlocked</small><box class="spacer"/><b>{info}%vaults_unlocked%{letters_black}/{info}%vaults_max%</b></row>
+        <row class="stat"><small t="bought">{letters}Bought</small><box class="spacer"/><b>{highlight}%vaults_bought%</b></row>
+        <row class="stat"><small t="rows">{letters}Rows each</small><box class="spacer"/><b>{info}%vaults_rows%</b></row>
+      </fragment>
+      <box class="spacer"/>
+      <p class="note" t="search.hint">{letters_black}Which vault holds an item?</p>
     </column>
 
-    <column class="side">
-      <row class="owner">
-        <img face="%owner_name%" class="face"/>
-        <column class="who">
-          <b>{info}%owner_name%</b>
-          <small t="owner">{letters_black}Vault owner</small>
-        </column>
-      </row>
-      <box class="rule"/>
-      <row class="stat"><small t="unlocked">{letters}Unlocked</small><box class="spacer"/><b>{info}%vaults_unlocked%{letters_black}/{info}%vaults_max%</b></row>
-      <row class="stat"><small t="bought">{letters}Bought</small><box class="spacer"/><b>{highlight}%vaults_bought%</b></row>
-      <row class="stat"><small t="rows">{letters}Rows each</small><box class="spacer"/><b>{info}%vaults_rows%</b></row>
-      <box class="spacer"/>
-      <small t="search.hint">{letters_black}Which vault holds an item?</small>
-      <button class="search small" action="exyliaplayervaults:search %owner_id%" t="search.button">Search</button>
+    <column class="main">
+      <switch on="view">
+        <case value="search"><column id="page-search" class="page">
+          <row class="head">
+            <column class="title"><h1 t="found.title">{highlight}Search</h1>
+              <small t="found.subtitle">{info}%search_hits% {letters_black}· {highlight}%search_query%</small></column>
+            <box class="spacer"/>
+            <button class="ghost small" action="exyliaplayervaults:list %owner_id%" t="found.back">‹ Vaults</button>
+          </row>
+          <grid source="main" columns="2" rows="7" class="fill" track="%vault_number%">
+            <row class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%">
+              <item row material="%vault_icon%" class="row-icon"/>
+              <column class="tight grow"><b>%vault_name%</b>
+                <small t="found.holds">{letters_black}Holds {info}%vault_amount%</small></column>
+              <small t="found.go">{info}Open ›</small>
+            </row>
+            <empty><text t="found.empty">Nothing holds that</text></empty>
+          </grid>
+          <row class="foot"><box class="spacer"/><pager for="main" keys="a d"/></row>
+        </column></case>
+
+        <default><column id="page-list" class="page">
+          <row class="head">
+            <column class="title"><h1 t="title">{highlight}Vaults</h1>
+              <small t="subtitle">{letters_black}Saved the moment you close one · open in one place at a time</small></column>
+          </row>
+          <grid source="main" columns="2" rows="7" class="fill" track="%vault_number%">
+            <switch on="row_template">
+              <case value="buy">
+                <row class="vault buy" action="exyliaplayervaults:buy" t-tooltip="buy.tooltip">
+                  <item row material="gold_ingot" class="row-icon"/>
+                  <column class="tight grow"><b t="buy.name">{success}Buy #%vault_number%</b>
+                    <small>{highlight}%vault_price%</small></column>
+                </row>
+              </case>
+              <case value="locked">
+                <row class="vault locked" disabled="disabled" t-tooltip="locked.tooltip">
+                  <item row material="gray_dye" class="row-icon"/>
+                  <column class="tight grow"><b>{muted}#%vault_number%</b>
+                    <small t="locked.name">{muted}Locked</small></column>
+                </row>
+              </case>
+              <case value="admin">
+                <row class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%"
+                     action-right="exyliaplayervaults:rename %vault_owner% %vault_number%"
+                     action-shift="exyliaplayervaults:history %vault_owner% %vault_number%" t-tooltip="admin.tooltip">
+                  <item row material="chest" class="row-icon"/>
+                  <column class="tight grow"><b>%vault_name%</b>
+                    <row class="tools"><progress value="%vault_used%" max="%vault_size%" class="bar short"/>
+                      <button class="tool" action="exyliaplayervaults:icon %vault_owner% %vault_number%" t="admin.icon">Icon</button>
+                      <button class="tool danger" action="exyliaplayervaults:clear %vault_owner% %vault_number%" t="admin.clear">Empty</button></row></column>
+                </row>
+              </case>
+              <default>
+                <row class="vault" action="exyliaplayervaults:open %vault_owner% %vault_number%"
+                     action-right="exyliaplayervaults:rename %vault_owner% %vault_number%"
+                     action-shift="exyliaplayervaults:icon %vault_owner% %vault_number%" t-tooltip="own.tooltip">
+                  <item row material="chest" class="row-icon"/>
+                  <column class="tight grow"><b>%vault_name%</b>
+                    <progress value="%vault_used%" max="%vault_size%" class="bar"/></column>
+                  <small>{info}%vault_used%{letters_black}/{info}%vault_size%</small>
+                </row>
+              </default>
+            </switch>
+            <empty><text t="empty.title">No vaults yet</text><small t="empty.hint">A higher rank unlocks more</small></empty>
+          </grid>
+          <row class="foot">
+            <small class="keys" t="keys">{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}icon</small>
+            <box class="spacer"/>
+            <pager for="main" keys="a d"/>
+          </row>
+        </column></default>
+      </switch>
     </column>
   </row>
 </screen>

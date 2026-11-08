@@ -25,3 +25,13 @@ rows: '{letters}Lignes chacun'
 search:
   hint: '{letters_black}Quel coffre contient un objet ?'
   button: 'Rechercher'
+nav:
+  vaults: 'Coffres'
+keys: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}Sprint {letters_black}icône'
+found:
+  title: '{highlight}Recherche'
+  subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
+  back: '‹ Coffres'
+  holds: '{letters_black}Contient {info}%vault_amount%'
+  go: '{info}Ouvrir ›'
+  empty: 'Aucun ne le contient'

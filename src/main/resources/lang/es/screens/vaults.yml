@@ -25,3 +25,13 @@ rows: '{letters}Filas cada uno'
 search:
   hint: '{letters_black}¿Qué baúl tiene un objeto?'
   button: 'Buscar'
+nav:
+  vaults: 'Baúles'
+keys: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}Sprint {letters_black}icono'
+found:
+  title: '{highlight}Buscar'
+  subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
+  back: '‹ Baúles'
+  holds: '{letters_black}Guarda {info}%vault_amount%'
+  go: '{info}Abrir ›'
+  empty: 'Ninguno lo guarda'

@@ -25,3 +25,13 @@ rows: '{letters}Linhas cada'
 search:
   hint: '{letters_black}Qual baú tem um item?'
   button: 'Buscar'
+nav:
+  vaults: 'Cofres'
+keys: '{highlight}Clique {letters_black}abrir   {highlight}Direito {letters_black}renomear   {highlight}Sprint {letters_black}ícone'
+found:
+  title: '{highlight}Busca'
+  subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
+  back: '‹ Cofres'
+  holds: '{letters_black}Guarda {info}%vault_amount%'
+  go: '{info}Abrir ›'
+  empty: 'Nenhum guarda isso'

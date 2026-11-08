@@ -25,3 +25,13 @@ rows: '{letters}Рядов в каждом'
 search:
   hint: '{letters_black}В каком хранилище предмет?'
   button: 'Поиск'
+nav:
+  vaults: 'Хранилища'
+keys: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}Бег {letters_black}значок'
+found:
+  title: '{highlight}Поиск'
+  subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
+  back: '‹ Хранилища'
+  holds: '{letters_black}Хранит {info}%vault_amount%'
+  go: '{info}Открыть ›'
+  empty: 'Ничего не найдено'

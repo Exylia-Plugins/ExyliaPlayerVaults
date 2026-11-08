@@ -25,3 +25,13 @@ rows: '{letters}Rows each'
 search:
   hint: '{letters_black}Which vault holds an item?'
   button: 'Search'
+nav:
+  vaults: 'Vaults'
+keys: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}icon'
+found:
+  title: '{highlight}Search'
+  subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
+  back: '‹ Vaults'
+  holds: '{letters_black}Holds {info}%vault_amount%'
+  go: '{info}Open ›'
+  empty: 'Nothing holds that'
