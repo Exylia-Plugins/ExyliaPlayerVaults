@@ -157,12 +157,14 @@ public final class VaultAccess {
         // The price was shown for this count; a purchase in between changes both.
         if (purchased(id) != bought || buying.putIfAbsent(id, true) != null) {
             core.getMessages().send(player, VaultMessages.get().buyFailed());
+            after.run();
             return;
         }
         String currency = currency();
         if (!Economy.of(currency).charge(id, price, Transaction.of("playervaults:buy").by(id))) {
             buying.remove(id);
             core.getMessages().send(player, VaultMessages.get().buyTooPoor(), values);
+            after.run();
             return;
         }
         buyers.updateIf(new VaultBuyer(id.toString(), bought + 1), "purchased", bought)

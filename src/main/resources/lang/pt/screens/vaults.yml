@@ -28,6 +28,7 @@ search:
 nav:
   vaults: 'Cofres'
 keys: '{highlight}Clique {letters_black}abrir   {highlight}Direito {letters_black}renomear   {highlight}Sprint {letters_black}ícone'
+keys_staff: '{highlight}Clique {letters_black}abrir   {highlight}Direito {letters_black}renomear   {highlight}Sprint {letters_black}histórico'
 found:
   title: '{highlight}Busca'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

@@ -28,6 +28,7 @@ search:
 nav:
   vaults: 'Baúles'
 keys: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}Sprint {letters_black}icono'
+keys_staff: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}Sprint {letters_black}historial'
 found:
   title: '{highlight}Buscar'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

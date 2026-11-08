@@ -28,6 +28,7 @@ search:
 nav:
   vaults: 'Хранилища'
 keys: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}Бег {letters_black}значок'
+keys_staff: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}Бег {letters_black}история'
 found:
   title: '{highlight}Поиск'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

@@ -28,6 +28,7 @@ search:
 nav:
   vaults: 'Coffres'
 keys: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}Sprint {letters_black}icône'
+keys_staff: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}Sprint {letters_black}historique'
 found:
   title: '{highlight}Recherche'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

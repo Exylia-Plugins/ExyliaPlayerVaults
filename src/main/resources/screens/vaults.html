@@ -105,7 +105,8 @@
             <empty><text t="empty.title">No vaults yet</text><small t="empty.hint">A higher rank unlocks more</small></empty>
           </grid>
           <row class="foot">
-            <small class="keys" t="keys">{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}icon</small>
+            <small class="keys" if="!staff_view" t="keys">{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}icon</small>
+            <small class="keys" if="staff_view" t="keys_staff">{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}history</small>
             <box class="spacer"/>
             <pager for="main" keys="a d"/>
           </row>

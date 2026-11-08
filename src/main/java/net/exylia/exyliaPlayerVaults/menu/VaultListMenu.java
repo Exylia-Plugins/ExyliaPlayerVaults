@@ -91,6 +91,7 @@ public final class VaultListMenu {
         }
 
         Values context = Values.of()
+                .put("staff_view", !own)
                 .put("owner_name", ownerName)
                 .put("owner_id", owner.toString())
                 .put("vaults_unlocked", unlocked)

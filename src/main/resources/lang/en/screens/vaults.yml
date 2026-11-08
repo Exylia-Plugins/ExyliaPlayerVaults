@@ -28,6 +28,7 @@ search:
 nav:
   vaults: 'Vaults'
 keys: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}icon'
+keys_staff: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}history'
 found:
   title: '{highlight}Search'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
