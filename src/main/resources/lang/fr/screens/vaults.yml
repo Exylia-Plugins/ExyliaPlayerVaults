@@ -3,9 +3,9 @@
 title: '{highlight}Coffres'
 subtitle: '{letters_black}Sauvegardé à la fermeture · ouvert à un seul endroit à la fois'
 own:
-  tooltip: '%vault_name%<nl>{letters_black}Utilisé {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}ouvrir<nl>{primary}Clic droit {letters_black}· {letters}renommer<nl>{primary}Sprint + clic {letters_black}· {letters}changer l''icône'
+  tooltip: '%vault_name%<nl>{letters_black}Utilisé {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}ouvrir<nl>{primary}Clic droit {letters_black}· {letters}renommer<nl>{primary}<key:key.sprint> + clic {letters_black}· {letters}changer l''icône'
 admin:
-  tooltip: '%vault_name%<nl>{letters_black}Utilisé {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}ouvrir<nl>{primary}Clic droit {letters_black}· {letters}renommer<nl>{primary}Sprint + clic {letters_black}· {letters}historique'
+  tooltip: '%vault_name%<nl>{letters_black}Utilisé {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}ouvrir<nl>{primary}Clic droit {letters_black}· {letters}renommer<nl>{primary}<key:key.sprint> + clic {letters_black}· {letters}historique'
   icon: 'Icône'
   clear: 'Vider'
 buy:
@@ -27,8 +27,8 @@ search:
   button: 'Rechercher'
 nav:
   vaults: 'Coffres'
-keys: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}Sprint {letters_black}icône'
-keys_staff: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}Sprint {letters_black}historique'
+keys: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}<key:key.sprint> {letters_black}icône'
+keys_staff: '{highlight}Clic {letters_black}ouvrir   {highlight}Droit {letters_black}renommer   {highlight}<key:key.sprint> {letters_black}historique'
 found:
   title: '{highlight}Recherche'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

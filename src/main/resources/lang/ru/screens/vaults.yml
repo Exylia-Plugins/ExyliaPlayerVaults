@@ -3,9 +3,9 @@
 title: '{highlight}Хранилища'
 subtitle: '{letters_black}Сохраняется при закрытии · открыто только в одном месте'
 own:
-  tooltip: '%vault_name%<nl>{letters_black}Занято {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · свободно {success}%vault_free%<nl>{primary}Клик {letters_black}· {letters}открыть<nl>{primary}ПКМ {letters_black}· {letters}переименовать<nl>{primary}Бег + клик {letters_black}· {letters}сменить иконку'
+  tooltip: '%vault_name%<nl>{letters_black}Занято {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · свободно {success}%vault_free%<nl>{primary}Клик {letters_black}· {letters}открыть<nl>{primary}ПКМ {letters_black}· {letters}переименовать<nl>{primary}<key:key.sprint> + клик {letters_black}· {letters}сменить иконку'
 admin:
-  tooltip: '%vault_name%<nl>{letters_black}Занято {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · свободно {success}%vault_free%<nl>{primary}Клик {letters_black}· {letters}открыть<nl>{primary}ПКМ {letters_black}· {letters}переименовать<nl>{primary}Бег + клик {letters_black}· {letters}история'
+  tooltip: '%vault_name%<nl>{letters_black}Занято {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · свободно {success}%vault_free%<nl>{primary}Клик {letters_black}· {letters}открыть<nl>{primary}ПКМ {letters_black}· {letters}переименовать<nl>{primary}<key:key.sprint> + клик {letters_black}· {letters}история'
   icon: 'Иконка'
   clear: 'Очистить'
 buy:
@@ -27,8 +27,8 @@ search:
   button: 'Поиск'
 nav:
   vaults: 'Хранилища'
-keys: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}Бег {letters_black}значок'
-keys_staff: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}Бег {letters_black}история'
+keys: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}<key:key.sprint> {letters_black}значок'
+keys_staff: '{highlight}Клик {letters_black}открыть   {highlight}Правый {letters_black}имя   {highlight}<key:key.sprint> {letters_black}история'
 found:
   title: '{highlight}Поиск'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

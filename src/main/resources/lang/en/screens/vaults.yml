@@ -3,9 +3,9 @@
 title: '{highlight}Vaults'
 subtitle: '{letters_black}Saved the moment you close one · open in one place at a time'
 own:
-  tooltip: '%vault_name%<nl>{letters_black}Used {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · free {success}%vault_free%<nl>{primary}Click {letters_black}· {letters}open<nl>{primary}Right-click {letters_black}· {letters}rename<nl>{primary}Sprint + click {letters_black}· {letters}change icon'
+  tooltip: '%vault_name%<nl>{letters_black}Used {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · free {success}%vault_free%<nl>{primary}Click {letters_black}· {letters}open<nl>{primary}Right-click {letters_black}· {letters}rename<nl>{primary}<key:key.sprint> + click {letters_black}· {letters}change icon'
 admin:
-  tooltip: '%vault_name%<nl>{letters_black}Used {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · free {success}%vault_free%<nl>{primary}Click {letters_black}· {letters}open<nl>{primary}Right-click {letters_black}· {letters}rename<nl>{primary}Sprint + click {letters_black}· {letters}history'
+  tooltip: '%vault_name%<nl>{letters_black}Used {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · free {success}%vault_free%<nl>{primary}Click {letters_black}· {letters}open<nl>{primary}Right-click {letters_black}· {letters}rename<nl>{primary}<key:key.sprint> + click {letters_black}· {letters}history'
   icon: 'Icon'
   clear: 'Empty'
 buy:
@@ -27,8 +27,8 @@ search:
   button: 'Search'
 nav:
   vaults: 'Vaults'
-keys: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}icon'
-keys_staff: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}Sprint {letters_black}history'
+keys: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}<key:key.sprint> {letters_black}icon'
+keys_staff: '{highlight}Click {letters_black}open   {highlight}Right {letters_black}rename   {highlight}<key:key.sprint> {letters_black}history'
 found:
   title: '{highlight}Search'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'

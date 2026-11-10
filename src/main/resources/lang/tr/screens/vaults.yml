@@ -3,9 +3,9 @@
 title: '{highlight}Kasalar'
 subtitle: '{letters_black}Kapatınca kaydedilir · aynı anda tek yerde açık'
 own:
-  tooltip: '%vault_name%<nl>{letters_black}Dolu {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · boş {success}%vault_free%<nl>{primary}Tıkla {letters_black}· {letters}aç<nl>{primary}Sağ tık {letters_black}· {letters}yeniden adlandır<nl>{primary}Koşu + tık {letters_black}· {letters}simgeyi değiştir'
+  tooltip: '%vault_name%<nl>{letters_black}Dolu {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · boş {success}%vault_free%<nl>{primary}Tıkla {letters_black}· {letters}aç<nl>{primary}Sağ tık {letters_black}· {letters}yeniden adlandır<nl>{primary}<key:key.sprint> + tık {letters_black}· {letters}simgeyi değiştir'
 admin:
-  tooltip: '%vault_name%<nl>{letters_black}Dolu {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · boş {success}%vault_free%<nl>{primary}Tıkla {letters_black}· {letters}aç<nl>{primary}Sağ tık {letters_black}· {letters}yeniden adlandır<nl>{primary}Koşu + tık {letters_black}· {letters}geçmiş'
+  tooltip: '%vault_name%<nl>{letters_black}Dolu {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · boş {success}%vault_free%<nl>{primary}Tıkla {letters_black}· {letters}aç<nl>{primary}Sağ tık {letters_black}· {letters}yeniden adlandır<nl>{primary}<key:key.sprint> + tık {letters_black}· {letters}geçmiş'
   icon: 'Simge'
   clear: 'Boşalt'
 buy:

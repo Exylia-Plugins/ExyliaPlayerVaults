@@ -3,9 +3,9 @@
 title: '{highlight}Baúles'
 subtitle: '{letters_black}Se guardan al cerrarlos · abiertos en un solo sitio a la vez'
 own:
-  tooltip: '%vault_name%<nl>{letters_black}Usado {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}abrir<nl>{primary}Clic derecho {letters_black}· {letters}renombrar<nl>{primary}Correr + clic {letters_black}· {letters}cambiar icono'
+  tooltip: '%vault_name%<nl>{letters_black}Usado {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}abrir<nl>{primary}Clic derecho {letters_black}· {letters}renombrar<nl>{primary}<key:key.sprint> + clic {letters_black}· {letters}cambiar icono'
 admin:
-  tooltip: '%vault_name%<nl>{letters_black}Usado {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}abrir<nl>{primary}Clic derecho {letters_black}· {letters}renombrar<nl>{primary}Correr + clic {letters_black}· {letters}historial'
+  tooltip: '%vault_name%<nl>{letters_black}Usado {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · libre {success}%vault_free%<nl>{primary}Clic {letters_black}· {letters}abrir<nl>{primary}Clic derecho {letters_black}· {letters}renombrar<nl>{primary}<key:key.sprint> + clic {letters_black}· {letters}historial'
   icon: 'Icono'
   clear: 'Vaciar'
 buy:
@@ -27,8 +27,8 @@ search:
   button: 'Buscar'
 nav:
   vaults: 'Baúles'
-keys: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}Sprint {letters_black}icono'
-keys_staff: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}Sprint {letters_black}historial'
+keys: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}<key:key.sprint> {letters_black}icono'
+keys_staff: '{highlight}Clic {letters_black}abrir   {highlight}Derecho {letters_black}renombrar   {highlight}<key:key.sprint> {letters_black}historial'
 found:
   title: '{highlight}Buscar'
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
