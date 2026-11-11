@@ -8,20 +8,20 @@ small { font-size: 7px; }
 .fill, .grow { flex-grow: 1; }
 .tight { gap: 1px; }
 
-.app { flex-direction: row; gap: 0px; width: 400px; height: 225px; outline: 1px {primary}40;
-       background: linear-gradient(to bottom, {primary}0c, {info}05); }
+.app { flex-direction: row; gap: 0px; width: 400px; height: 225px; outline: 1px var(--primary)40;
+       background: linear-gradient(to bottom, var(--primary)0c, var(--info)05); }
 
 /* Side bar */
-.side { width: 108px; padding: 9px 7px; gap: 5px; align-items: stretch; background: {primary}0a; }
+.side { width: 108px; padding: 9px 7px; gap: 5px; align-items: stretch; background: var(--primary)0a; }
 .ident { flex-direction: row; align-items: center; gap: 4px; }
 .ident-icon { width: 14px; height: 14px; }
 .ident-name { font-size: 7px; }
 .ident small { font-size: 6px; }
-.stat { flex-direction: row; align-items: center; gap: 3px; padding: 2px 5px; background: {letters_black}0c; }
+.stat { flex-direction: row; align-items: center; gap: 3px; padding: 2px 5px; background: var(--letters-black)0c; }
 .stat small { font-size: 6px; }
 .stat b { font-size: 7px; }
 .note { font-size: 6px; max-width: 92px; }
-.rule { height: 1px; background: {letters_black}30; margin: 2px 0px; }
+.rule { height: 1px; background: var(--letters-black)30; margin: 2px 0px; }
 
 /* The open page */
 .main { flex-grow: 1; padding: 9px 10px 5px 10px; gap: 4px; }
@@ -35,32 +35,32 @@ small { font-size: 7px; }
 grid { gap: 3px; }
 
 button.small { padding: 3px 6px; font-size: 7px; justify-content: center; }
-.ghost { background: {letters_black}14; }
-.ghost:hover { background: {primary}40; }
+.ghost { background: var(--letters-black)14; }
+.ghost:hover { background: var(--primary)40; }
 
 .page { flex-grow: 1; gap: 4px; enter: translate(0, 6px) 4t ease-out; }
 .nav { gap: 2px; }
-.nav-item { flex-direction: row; align-items: center; gap: 5px; padding: 2px 6px 2px 0px; font-size: 8px; color: {letters_black};
+.nav-item { flex-direction: row; align-items: center; gap: 5px; padding: 2px 6px 2px 0px; font-size: 8px; color: var(--letters-black);
             transition: transform 2t ease-out; }
 .nav-item .mark { width: 2px; height: 10px; }
 .nav-item item { width: 10px; height: 10px; }
-.nav-item:hover { background: {primary}26; color: {letters}; transform: translateX(1px); }
-.nav-item[selected] { background: {primary}45; color: {letters}; }
-.nav-item[selected] .mark { background: {secondary_light}; }
+.nav-item:hover { background: var(--primary)26; color: var(--letters); transform: translateX(1px); }
+.nav-item[selected] { background: var(--primary)45; color: var(--letters); }
+.nav-item[selected] .mark { background: var(--secondary-light); }
 
-.vault { flex-direction: row; align-items: center; gap: 4px; padding: 3px 5px; background: {primary}0c; }
-.vault:hover { background: {primary}26; outline: 1px {primary}; }
+.vault { flex-direction: row; align-items: center; gap: 4px; padding: 3px 5px; background: var(--primary)0c; }
+.vault:hover { background: var(--primary)26; outline: 1px var(--primary); }
 .vault b { font-size: 7px; }
 .vault small { font-size: 6px; }
 .row-icon { width: 14px; height: 14px; }
-.bar { width: 58px; height: 2px; color: {info}; }
+.bar { width: 58px; height: 2px; color: var(--info); }
 .bar.short { width: 30px; }
 .tools { flex-direction: row; align-items: center; gap: 2px; }
-.vault.buy { background: {success}14; outline: 1px {success}50; }
-.vault.buy:hover { background: {success}30; outline: 1px {success}; }
-.vault.locked { background: {neutral}0c; }
-.vault.locked:hover { background: {neutral}0c; outline: 0px; }
-button.tool { padding: 1px 3px; font-size: 5px; background: {primary}30; }
-button.tool:hover { background: {primary}; }
-button.tool.danger { background: {error}30; }
-button.tool.danger:hover { background: {error}; }
+.vault.buy { background: var(--success)14; outline: 1px var(--success)50; }
+.vault.buy:hover { background: var(--success)30; outline: 1px var(--success); }
+.vault.locked { background: var(--neutral)0c; }
+.vault.locked:hover { background: var(--neutral)0c; outline: 0px; }
+button.tool { padding: 1px 3px; font-size: 5px; background: var(--primary)30; }
+button.tool:hover { background: var(--primary); }
+button.tool.danger { background: var(--error)30; }
+button.tool.danger:hover { background: var(--error); }
