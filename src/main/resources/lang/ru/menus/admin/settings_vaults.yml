@@ -1,0 +1,177 @@
+# НЕ РЕДАКТИРОВАТЬ — ПЕРЕСОЗДАЁТСЯ ПРИ КАЖДОМ ЗАПУСКЕ.
+#
+# Настройки хранилищ, которые меняет админ. Остальное в config.yml.
+
+title: "{primary}&lНАСТРОЙКИ {letters_black}» {highlight}Хранилища"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: BARREL
+    name: "<gradient:{primary}:{secondary_light}>Хранилища</gradient>"
+    lore:
+      - "{letters_black}Настройки хранилищ"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Сколько хранилищ у игрока,"
+      - " {letters}их размер и что в них класть."
+
+  vaults-default-amount:
+    slot: 10
+    material: BARREL
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Базовое число</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Сколько хранилищ у игрока без"
+      - " {letters}собственного права."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Хранилища{letters_black}: %vaults_vaults_default_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_vaults_default_amount_default%"
+      - ""
+      - "%vaults_vaults_default_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-amount"
+
+  vaults-max-amount:
+    slot: 11
+    material: CHEST
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Лимит хранилищ</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Максимум хранилищ у игрока,"
+      - " {letters}включая купленные."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Лимит{letters_black}: %vaults_vaults_max_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_vaults_max_amount_default%"
+      - ""
+      - "%vaults_vaults_max_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.max-amount"
+
+  vaults-default-rows:
+    slot: 12
+    material: LADDER
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Базовые ряды</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Сколько рядов (1-6) у хранилища"
+      - " {letters}по умолчанию."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:book} {letters}Ряды{letters_black}: %vaults_vaults_default_rows%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_vaults_default_rows_default%"
+      - ""
+      - "%vaults_vaults_default_rows_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-rows"
+
+  vaults-hidden-slots:
+    slot: 13
+    material: ENDER_CHEST
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Скрытые слоты</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Что делать с предметами, которые"
+      - " {letters}меньшее хранилище не вмещает:"
+      - " {letters}хранить или вернуть."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:book} {letters}Режим{letters_black}: %vaults_vaults_hidden_slots%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_vaults_hidden_slots_default%"
+      - ""
+      - "%vaults_vaults_hidden_slots_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.hidden-slots"
+
+  vaults-blocked-materials:
+    slot: 14
+    material: BARRIER
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Запрещённые предметы</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Предметы, которые нельзя класть."
+      - " {letters}Шалкеры и bundle с ними"
+      - " {letters}тоже отклоняются."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:book} {letters}Предметы{letters_black}: %vaults_vaults_blocked_materials%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_vaults_blocked_materials_default%"
+      - ""
+      - "%vaults_vaults_blocked_materials_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.blocked-materials"
+
+  history-keep:
+    slot: 15
+    material: CLOCK
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Копии истории</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Прежние копии каждого хранилища"
+      - " {letters}для восстановления персоналом."
+      - " {letters}0 — не хранить."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:clock} {letters}Копии{letters_black}: %vaults_history_keep%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_history_keep_default%"
+      - ""
+      - "%vaults_history_keep_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults history.keep"
+
+  customization-name-max-length:
+    slot: 16
+    material: NAME_TAG
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Длина названия</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Самое длинное название, которое"
+      - " {letters}игрок даёт хранилищу."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:book} {letters}Длина{letters_black}: %vaults_customization_name_max_length%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_customization_name_max_length_default%"
+      - ""
+      - "%vaults_customization_name_max_length_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults customization.name-max-length"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Назад {letters_black}▸ <gradient:{error}:{error_light}>Настройки</gradient>"
+    lore:
+      - "{error}{icon:click} Нажмите, чтобы вернуться"
+    actions:
+      - "exyliaplayervaults:settings_hub"

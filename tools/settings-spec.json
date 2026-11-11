@@ -1,0 +1,56 @@
+{
+ "namespace": "exyliaplayervaults",
+ "menu": "menus/admin/settings",
+ "title": "VAULTS",
+ "back": {"label": "Player vaults", "action": "exyliaplayervaults:admin_hub"},
+ "hub": {"about": ["The settings worth changing in", "game, grouped by theme. The", "rest stays in the files."]},
+ "pages": [
+  {
+   "id": "vaults", "title": "Vaults", "context": "Vaults", "icon": "BARREL",
+   "comment": ["The vault settings an admin tunes. Everything else is in config.yml."],
+   "about": ["How many vaults a player has,", "how big they are and what", "they may hold."],
+   "hub": {"about": ["Amounts, rows, blocked items", "and history."],
+           "stats": [["hopper", "Vaults", "vaults.default-amount"], ["book", "Rows", "vaults.default-rows"]],
+           "next": "Each setting, explained."},
+   "cards": [
+    ["vaults.default-amount", "Default vaults", "BARREL", "hopper", "Vaults", ["How many vaults a player has", "with no permission of their own."]],
+    ["vaults.max-amount", "Vault cap", "CHEST", "hopper", "Cap", ["The most vaults anybody may have,", "bought ones included."]],
+    ["vaults.default-rows", "Default rows", "LADDER", "book", "Rows", ["How many rows (1 to 6) a vault", "has by default."]],
+    ["vaults.hidden-slots", "Hidden slots", "ENDER_CHEST", "book", "Mode", ["What happens to items a smaller", "vault can no longer show: kept", "out of sight or handed back."]],
+    ["vaults.blocked-materials", "Blocked items", "BARRIER", "book", "Items", ["Items that cannot be put into", "a vault. Shulker boxes and", "bundles holding one are refused."]],
+    ["history.keep", "History copies", "CLOCK", "clock", "Copies", ["Earlier copies kept of each", "vault for staff to restore.", "0 keeps none."]],
+    ["customization.name-max-length", "Name length", "NAME_TAG", "book", "Length", ["The longest name a player may", "give a vault, before ranks."]]
+   ]
+  },
+  {
+   "id": "access", "title": "Access", "context": "Access", "icon": "IRON_DOOR",
+   "comment": ["Where and when a vault may be opened. Everything else is in config.yml."],
+   "about": ["Where and when a vault may", "be opened, and the ender chest."],
+   "hub": {"about": ["Cooldown, combat, worlds and", "game modes."],
+           "stats": [["clock", "Cooldown", "restrictions.open-cooldown"], ["kills", "Combat block", "restrictions.block-in-combat"]],
+           "next": "Each setting, explained."},
+   "cards": [
+    ["restrictions.open-cooldown", "Open cooldown", "CLOCK", "clock", "Wait", ["How long a player waits between", "opening two vaults. 0 is off."]],
+    ["restrictions.block-in-combat", "Block in combat", "IRON_SWORD", "kills", "Blocked", ["Refuses to open a vault while", "the player is in combat."]],
+    ["restrictions.disabled-worlds", "Disabled worlds", "GRASS_BLOCK", "book", "Worlds", ["Worlds where vaults cannot", "be opened, by name."]],
+    ["restrictions.disabled-game-modes", "Disabled modes", "COMPASS", "book", "Modes", ["Game modes where vaults cannot", "be opened, such as SPECTATOR."]],
+    ["replace-ender-chests", "Replace ender chests", "ENDER_CHEST", "book", "Replaced", ["Opens the vault list instead of", "a player's ender chest."]]
+   ]
+  },
+  {
+   "id": "purchase", "title": "Purchase", "context": "Purchase", "icon": "GOLD_INGOT",
+   "comment": ["Extra vaults bought with money. Everything else is in config.yml."],
+   "about": ["Extra vaults players buy from", "the vault list with money."],
+   "hub": {"about": ["Whether vaults can be bought,", "and what the first one costs."],
+           "stats": [["star", "Buying", "purchase.enabled"], ["gold", "First price", "purchase.base-price"]],
+           "next": "Each setting, explained."},
+   "cards": [
+    ["purchase.enabled", "Buying", "EMERALD", "star", "Buying", ["Lets players buy vaults past", "what their rank gives them."]],
+    ["purchase.currency", "Currency", "SUNFLOWER", "gold", "Currency", ["What vaults are paid in.", "Empty uses the default one."]],
+    ["purchase.base-price", "Base price", "GOLD_INGOT", "gold", "Price", ["What the first bought vault", "costs."]],
+    ["purchase.price-multiplier", "Price multiplier", "GOLD_NUGGET", "gold", "Multiplier", ["Each later vault costs this", "many times the one before.", "1.0 keeps one price."]],
+    ["purchase.max-purchases", "Purchase limit", "HOPPER", "star", "Limit", ["The most vaults one player", "may buy."]]
+   ]
+  }
+ ]
+}

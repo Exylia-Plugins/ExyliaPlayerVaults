@@ -1,0 +1,136 @@
+# NÃO EDITE — REGENERADO A CADA INÍCIO.
+#
+# Onde e quando um baú pode ser aberto. O resto está em config.yml.
+
+title: "{primary}&lAJUSTES {letters_black}» {highlight}Acesso"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: IRON_DOOR
+    name: "<gradient:{primary}:{secondary_light}>Acesso</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Acesso"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Onde e quando um baú pode ser"
+      - " {letters}aberto, e o ender chest."
+
+  restrictions-open-cooldown:
+    slot: 11
+    material: CLOCK
+    name: "{letters}Acesso {letters_black}▸ <gradient:{primary}:{secondary_light}>Espera ao abrir</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Acesso"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Quanto um jogador espera entre"
+      - " {letters}abrir dois baús. 0 desliga."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:clock} {letters}Espera{letters_black}: %access_restrictions_open_cooldown%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %access_restrictions_open_cooldown_default%"
+      - ""
+      - "%access_restrictions_open_cooldown_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.open-cooldown"
+
+  restrictions-block-in-combat:
+    slot: 12
+    material: IRON_SWORD
+    name: "{letters}Acesso {letters_black}▸ <gradient:{primary}:{secondary_light}>Bloquear em combate</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Acesso"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Não deixa abrir um baú enquanto"
+      - " {letters}o jogador está em combate."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:kills} {letters}Bloqueio{letters_black}: %access_restrictions_block_in_combat%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %access_restrictions_block_in_combat_default%"
+      - ""
+      - "%access_restrictions_block_in_combat_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.block-in-combat"
+
+  restrictions-disabled-worlds:
+    slot: 13
+    material: GRASS_BLOCK
+    name: "{letters}Acesso {letters_black}▸ <gradient:{primary}:{secondary_light}>Mundos desativados</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Acesso"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Mundos onde baús não podem"
+      - " {letters}ser abertos, por nome."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Mundos{letters_black}: %access_restrictions_disabled_worlds%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %access_restrictions_disabled_worlds_default%"
+      - ""
+      - "%access_restrictions_disabled_worlds_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.disabled-worlds"
+
+  restrictions-disabled-game-modes:
+    slot: 14
+    material: COMPASS
+    name: "{letters}Acesso {letters_black}▸ <gradient:{primary}:{secondary_light}>Modos desativados</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Acesso"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Modos de jogo sem baús,"
+      - " {letters}como SPECTATOR."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Modos{letters_black}: %access_restrictions_disabled_game_modes%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %access_restrictions_disabled_game_modes_default%"
+      - ""
+      - "%access_restrictions_disabled_game_modes_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.disabled-game-modes"
+
+  replace-ender-chests:
+    slot: 15
+    material: ENDER_CHEST
+    name: "{letters}Acesso {letters_black}▸ <gradient:{primary}:{secondary_light}>Substituir ender chests</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Acesso"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Abre a lista de baús no lugar"
+      - " {letters}do ender chest do jogador."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Substituído{letters_black}: %access_replace_ender_chests%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %access_replace_ender_chests_default%"
+      - ""
+      - "%access_replace_ender_chests_click%"
+    actions:
+      - "exyliaplayervaults:setting access replace-ender-chests"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Voltar {letters_black}▸ <gradient:{error}:{error_light}>Ajustes</gradient>"
+    lore:
+      - "{error}{icon:click} Clique para voltar"
+    actions:
+      - "exyliaplayervaults:settings_hub"

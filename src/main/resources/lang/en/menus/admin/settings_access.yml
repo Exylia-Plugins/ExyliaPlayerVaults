@@ -1,0 +1,136 @@
+# DO NOT EDIT — REGENERATED ON EVERY STARTUP.
+#
+# Where and when a vault may be opened. Everything else is in config.yml.
+
+title: "{primary}&lSETTINGS {letters_black}» {highlight}Access"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: IRON_DOOR
+    name: "<gradient:{primary}:{secondary_light}>Access</gradient>"
+    lore:
+      - "{letters_black}Access settings"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Where and when a vault may"
+      - " {letters}be opened, and the ender chest."
+
+  restrictions-open-cooldown:
+    slot: 11
+    material: CLOCK
+    name: "{letters}Access {letters_black}▸ <gradient:{primary}:{secondary_light}>Open cooldown</gradient>"
+    lore:
+      - "{letters_black}Access setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}How long a player waits between"
+      - " {letters}opening two vaults. 0 is off."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:clock} {letters}Wait{letters_black}: %access_restrictions_open_cooldown%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %access_restrictions_open_cooldown_default%"
+      - ""
+      - "%access_restrictions_open_cooldown_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.open-cooldown"
+
+  restrictions-block-in-combat:
+    slot: 12
+    material: IRON_SWORD
+    name: "{letters}Access {letters_black}▸ <gradient:{primary}:{secondary_light}>Block in combat</gradient>"
+    lore:
+      - "{letters_black}Access setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Refuses to open a vault while"
+      - " {letters}the player is in combat."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:kills} {letters}Blocked{letters_black}: %access_restrictions_block_in_combat%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %access_restrictions_block_in_combat_default%"
+      - ""
+      - "%access_restrictions_block_in_combat_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.block-in-combat"
+
+  restrictions-disabled-worlds:
+    slot: 13
+    material: GRASS_BLOCK
+    name: "{letters}Access {letters_black}▸ <gradient:{primary}:{secondary_light}>Disabled worlds</gradient>"
+    lore:
+      - "{letters_black}Access setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Worlds where vaults cannot"
+      - " {letters}be opened, by name."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:book} {letters}Worlds{letters_black}: %access_restrictions_disabled_worlds%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %access_restrictions_disabled_worlds_default%"
+      - ""
+      - "%access_restrictions_disabled_worlds_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.disabled-worlds"
+
+  restrictions-disabled-game-modes:
+    slot: 14
+    material: COMPASS
+    name: "{letters}Access {letters_black}▸ <gradient:{primary}:{secondary_light}>Disabled modes</gradient>"
+    lore:
+      - "{letters_black}Access setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Game modes where vaults cannot"
+      - " {letters}be opened, such as SPECTATOR."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:book} {letters}Modes{letters_black}: %access_restrictions_disabled_game_modes%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %access_restrictions_disabled_game_modes_default%"
+      - ""
+      - "%access_restrictions_disabled_game_modes_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.disabled-game-modes"
+
+  replace-ender-chests:
+    slot: 15
+    material: ENDER_CHEST
+    name: "{letters}Access {letters_black}▸ <gradient:{primary}:{secondary_light}>Replace ender chests</gradient>"
+    lore:
+      - "{letters_black}Access setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Opens the vault list instead of"
+      - " {letters}a player's ender chest."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:book} {letters}Replaced{letters_black}: %access_replace_ender_chests%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %access_replace_ender_chests_default%"
+      - ""
+      - "%access_replace_ender_chests_click%"
+    actions:
+      - "exyliaplayervaults:setting access replace-ender-chests"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Back {letters_black}▸ <gradient:{error}:{error_light}>Settings</gradient>"
+    lore:
+      - "{error}{icon:click} Click to go back"
+    actions:
+      - "exyliaplayervaults:settings_hub"

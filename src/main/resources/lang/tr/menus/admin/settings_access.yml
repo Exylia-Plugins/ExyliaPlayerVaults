@@ -1,0 +1,136 @@
+# DÜZENLEME — HER BAŞLANGIÇTA YENİDEN OLUŞTURULUR.
+#
+# Bir kasanın nerede ve ne zaman açılabileceği. Gerisi config.yml içinde.
+
+title: "{primary}&lAYARLAR {letters_black}» {highlight}Erişim"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: IRON_DOOR
+    name: "<gradient:{primary}:{secondary_light}>Erişim</gradient>"
+    lore:
+      - "{letters_black}Erişim ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Bir kasanın nerede ve ne zaman"
+      - " {letters}açılabileceği, ve ender sandığı."
+
+  restrictions-open-cooldown:
+    slot: 11
+    material: CLOCK
+    name: "{letters}Erişim {letters_black}▸ <gradient:{primary}:{secondary_light}>Açma beklemesi</gradient>"
+    lore:
+      - "{letters_black}Erişim ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}İki kasa açmak arasındaki"
+      - " {letters}bekleme. 0 kapatır."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:clock} {letters}Bekleme{letters_black}: %access_restrictions_open_cooldown%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %access_restrictions_open_cooldown_default%"
+      - ""
+      - "%access_restrictions_open_cooldown_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.open-cooldown"
+
+  restrictions-block-in-combat:
+    slot: 12
+    material: IRON_SWORD
+    name: "{letters}Erişim {letters_black}▸ <gradient:{primary}:{secondary_light}>Savaşta engelle</gradient>"
+    lore:
+      - "{letters_black}Erişim ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Oyuncu savaştayken kasa"
+      - " {letters}açılmasına izin vermez."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:kills} {letters}Engel{letters_black}: %access_restrictions_block_in_combat%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %access_restrictions_block_in_combat_default%"
+      - ""
+      - "%access_restrictions_block_in_combat_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.block-in-combat"
+
+  restrictions-disabled-worlds:
+    slot: 13
+    material: GRASS_BLOCK
+    name: "{letters}Erişim {letters_black}▸ <gradient:{primary}:{secondary_light}>Kapalı dünyalar</gradient>"
+    lore:
+      - "{letters_black}Erişim ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Kasaların açılamadığı dünyalar,"
+      - " {letters}adlarıyla."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Dünyalar{letters_black}: %access_restrictions_disabled_worlds%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %access_restrictions_disabled_worlds_default%"
+      - ""
+      - "%access_restrictions_disabled_worlds_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.disabled-worlds"
+
+  restrictions-disabled-game-modes:
+    slot: 14
+    material: COMPASS
+    name: "{letters}Erişim {letters_black}▸ <gradient:{primary}:{secondary_light}>Kapalı modlar</gradient>"
+    lore:
+      - "{letters_black}Erişim ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Kasaların açılamadığı oyun"
+      - " {letters}modları, örneğin SPECTATOR."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Modlar{letters_black}: %access_restrictions_disabled_game_modes%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %access_restrictions_disabled_game_modes_default%"
+      - ""
+      - "%access_restrictions_disabled_game_modes_click%"
+    actions:
+      - "exyliaplayervaults:setting access restrictions.disabled-game-modes"
+
+  replace-ender-chests:
+    slot: 15
+    material: ENDER_CHEST
+    name: "{letters}Erişim {letters_black}▸ <gradient:{primary}:{secondary_light}>Ender sandığını değiştir</gradient>"
+    lore:
+      - "{letters_black}Erişim ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Oyuncunun ender sandığı yerine"
+      - " {letters}kasa listesini açar."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Değişim{letters_black}: %access_replace_ender_chests%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %access_replace_ender_chests_default%"
+      - ""
+      - "%access_replace_ender_chests_click%"
+    actions:
+      - "exyliaplayervaults:setting access replace-ender-chests"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Geri {letters_black}▸ <gradient:{error}:{error_light}>Ayarlar</gradient>"
+    lore:
+      - "{error}{icon:click} Geri dönmek için tıkla"
+    actions:
+      - "exyliaplayervaults:settings_hub"

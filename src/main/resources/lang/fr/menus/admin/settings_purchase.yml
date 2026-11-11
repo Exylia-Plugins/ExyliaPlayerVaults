@@ -1,0 +1,135 @@
+# NE PAS MODIFIER — RÉGÉNÉRÉ À CHAQUE DÉMARRAGE.
+#
+# Coffres en plus achetés avec de l'argent. Le reste est dans config.yml.
+
+title: "{primary}&lRÉGLAGES {letters_black}» {highlight}Achat"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: GOLD_INGOT
+    name: "<gradient:{primary}:{secondary_light}>Achat</gradient>"
+    lore:
+      - "{letters_black}Réglage : Achat"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Coffres en plus que les joueurs"
+      - " {letters}achètent avec de l'argent."
+
+  purchase-enabled:
+    slot: 11
+    material: EMERALD
+    name: "{letters}Achat {letters_black}▸ <gradient:{primary}:{secondary_light}>Achat de coffres</gradient>"
+    lore:
+      - "{letters_black}Réglage : Achat"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Permet d'acheter des coffres en"
+      - " {letters}plus de ceux de son rang."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:star} {letters}Achat{letters_black}: %purchase_purchase_enabled%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %purchase_purchase_enabled_default%"
+      - ""
+      - "%purchase_purchase_enabled_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.enabled"
+
+  purchase-currency:
+    slot: 12
+    material: SUNFLOWER
+    name: "{letters}Achat {letters_black}▸ <gradient:{primary}:{secondary_light}>Monnaie</gradient>"
+    lore:
+      - "{letters_black}Réglage : Achat"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Avec quoi on paie les coffres."
+      - " {letters}Vide : la monnaie par défaut."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:gold} {letters}Monnaie{letters_black}: %purchase_purchase_currency%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %purchase_purchase_currency_default%"
+      - ""
+      - "%purchase_purchase_currency_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.currency"
+
+  purchase-base-price:
+    slot: 13
+    material: GOLD_INGOT
+    name: "{letters}Achat {letters_black}▸ <gradient:{primary}:{secondary_light}>Prix de base</gradient>"
+    lore:
+      - "{letters_black}Réglage : Achat"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Prix du premier coffre acheté."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:gold} {letters}Prix{letters_black}: %purchase_purchase_base_price%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %purchase_purchase_base_price_default%"
+      - ""
+      - "%purchase_purchase_base_price_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.base-price"
+
+  purchase-price-multiplier:
+    slot: 14
+    material: GOLD_NUGGET
+    name: "{letters}Achat {letters_black}▸ <gradient:{primary}:{secondary_light}>Multiplicateur</gradient>"
+    lore:
+      - "{letters_black}Réglage : Achat"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Chaque coffre suivant coûte autant"
+      - " {letters}de fois le précédent. 1.0 = fixe."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:gold} {letters}Facteur{letters_black}: %purchase_purchase_price_multiplier%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %purchase_purchase_price_multiplier_default%"
+      - ""
+      - "%purchase_purchase_price_multiplier_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.price-multiplier"
+
+  purchase-max-purchases:
+    slot: 15
+    material: HOPPER
+    name: "{letters}Achat {letters_black}▸ <gradient:{primary}:{secondary_light}>Limite d'achats</gradient>"
+    lore:
+      - "{letters_black}Réglage : Achat"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Maximum de coffres qu'un joueur"
+      - " {letters}peut acheter."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:star} {letters}Limite{letters_black}: %purchase_purchase_max_purchases%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %purchase_purchase_max_purchases_default%"
+      - ""
+      - "%purchase_purchase_max_purchases_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.max-purchases"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Retour {letters_black}▸ <gradient:{error}:{error_light}>Réglages</gradient>"
+    lore:
+      - "{error}{icon:click} Cliquez pour revenir"
+    actions:
+      - "exyliaplayervaults:settings_hub"

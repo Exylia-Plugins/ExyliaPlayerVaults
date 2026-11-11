@@ -29,7 +29,9 @@ import java.util.function.Supplier;
  */
 public final class VaultMenus {
 
-    private static final List<String> IDS = List.of(VaultListMenu.ID, HistoryMenu.ID, SearchMenu.ID, PlayersMenu.ID);
+    private static final List<String> IDS = java.util.stream.Stream.concat(
+            java.util.stream.Stream.of(VaultListMenu.ID, HistoryMenu.ID, SearchMenu.ID, PlayersMenu.ID),
+            SettingsMenus.IDS.stream()).toList();
 
     private final ExyliaPlayerVaults core;
     private final PluginMenus menus;
@@ -111,6 +113,11 @@ public final class VaultMenus {
     /** Opens a menu whose list is read again on every redraw, so it follows what changes. */
     public void open(Player player, String id, Map<String, Object> context, Supplier<List<UiEntry>> rows) {
         menus.open(player, id, context, rows);
+    }
+
+    /** Opens a menu with no list, such as a settings page. */
+    public void open(Player player, String id, Map<String, Object> context) {
+        menus.open(player, id, context);
     }
 
     /** Closes whatever menu of this plugin the player has open. */

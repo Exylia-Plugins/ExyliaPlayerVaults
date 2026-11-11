@@ -1,0 +1,137 @@
+# DO NOT EDIT — REGENERATED ON EVERY STARTUP.
+#
+# Extra vaults bought with money. Everything else is in config.yml.
+
+title: "{primary}&lSETTINGS {letters_black}» {highlight}Purchase"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: GOLD_INGOT
+    name: "<gradient:{primary}:{secondary_light}>Purchase</gradient>"
+    lore:
+      - "{letters_black}Purchase settings"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Extra vaults players buy from"
+      - " {letters}the vault list with money."
+
+  purchase-enabled:
+    slot: 11
+    material: EMERALD
+    name: "{letters}Purchase {letters_black}▸ <gradient:{primary}:{secondary_light}>Buying</gradient>"
+    lore:
+      - "{letters_black}Purchase setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Lets players buy vaults past"
+      - " {letters}what their rank gives them."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:star} {letters}Buying{letters_black}: %purchase_purchase_enabled%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %purchase_purchase_enabled_default%"
+      - ""
+      - "%purchase_purchase_enabled_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.enabled"
+
+  purchase-currency:
+    slot: 12
+    material: SUNFLOWER
+    name: "{letters}Purchase {letters_black}▸ <gradient:{primary}:{secondary_light}>Currency</gradient>"
+    lore:
+      - "{letters_black}Purchase setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}What vaults are paid in."
+      - " {letters}Empty uses the default one."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:gold} {letters}Currency{letters_black}: %purchase_purchase_currency%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %purchase_purchase_currency_default%"
+      - ""
+      - "%purchase_purchase_currency_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.currency"
+
+  purchase-base-price:
+    slot: 13
+    material: GOLD_INGOT
+    name: "{letters}Purchase {letters_black}▸ <gradient:{primary}:{secondary_light}>Base price</gradient>"
+    lore:
+      - "{letters_black}Purchase setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}What the first bought vault"
+      - " {letters}costs."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:gold} {letters}Price{letters_black}: %purchase_purchase_base_price%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %purchase_purchase_base_price_default%"
+      - ""
+      - "%purchase_purchase_base_price_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.base-price"
+
+  purchase-price-multiplier:
+    slot: 14
+    material: GOLD_NUGGET
+    name: "{letters}Purchase {letters_black}▸ <gradient:{primary}:{secondary_light}>Price multiplier</gradient>"
+    lore:
+      - "{letters_black}Purchase setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Each later vault costs this"
+      - " {letters}many times the one before."
+      - " {letters}1.0 keeps one price."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:gold} {letters}Multiplier{letters_black}: %purchase_purchase_price_multiplier%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %purchase_purchase_price_multiplier_default%"
+      - ""
+      - "%purchase_purchase_price_multiplier_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.price-multiplier"
+
+  purchase-max-purchases:
+    slot: 15
+    material: HOPPER
+    name: "{letters}Purchase {letters_black}▸ <gradient:{primary}:{secondary_light}>Purchase limit</gradient>"
+    lore:
+      - "{letters_black}Purchase setting"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}The most vaults one player"
+      - " {letters}may buy."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:star} {letters}Limit{letters_black}: %purchase_purchase_max_purchases%"
+      - "  {letters_black}· {info}{icon:book} {letters}Default{letters_black}: %purchase_purchase_max_purchases_default%"
+      - ""
+      - "%purchase_purchase_max_purchases_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.max-purchases"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Back {letters_black}▸ <gradient:{error}:{error_light}>Settings</gradient>"
+    lore:
+      - "{error}{icon:click} Click to go back"
+    actions:
+      - "exyliaplayervaults:settings_hub"

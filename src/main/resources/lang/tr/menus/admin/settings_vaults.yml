@@ -1,0 +1,177 @@
+# DÜZENLEME — HER BAŞLANGIÇTA YENİDEN OLUŞTURULUR.
+#
+# Bir yöneticinin ayarladığı kasa ayarları. Gerisi config.yml içinde.
+
+title: "{primary}&lAYARLAR {letters_black}» {highlight}Kasalar"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: BARREL
+    name: "<gradient:{primary}:{secondary_light}>Kasalar</gradient>"
+    lore:
+      - "{letters_black}Kasa ayarları"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Bir oyuncunun kaç kasası var,"
+      - " {letters}boyutları ve neler tutabilecekleri."
+
+  vaults-default-amount:
+    slot: 10
+    material: BARREL
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Varsayılan kasa</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Kendi izni olmayan bir oyuncunun"
+      - " {letters}kaç kasası olduğu."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Kasalar{letters_black}: %vaults_vaults_default_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_vaults_default_amount_default%"
+      - ""
+      - "%vaults_vaults_default_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-amount"
+
+  vaults-max-amount:
+    slot: 11
+    material: CHEST
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Kasa sınırı</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Bir oyuncunun sahip olabileceği"
+      - " {letters}en çok kasa, alınanlar dahil."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Sınır{letters_black}: %vaults_vaults_max_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_vaults_max_amount_default%"
+      - ""
+      - "%vaults_vaults_max_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.max-amount"
+
+  vaults-default-rows:
+    slot: 12
+    material: LADDER
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Varsayılan satır</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Bir kasanın varsayılan satır"
+      - " {letters}sayısı (1 ile 6)."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Satır{letters_black}: %vaults_vaults_default_rows%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_vaults_default_rows_default%"
+      - ""
+      - "%vaults_vaults_default_rows_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-rows"
+
+  vaults-hidden-slots:
+    slot: 13
+    material: ENDER_CHEST
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Gizli yuvalar</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Küçülen kasanın artık gösteremediği"
+      - " {letters}eşyalar: saklanır ya da"
+      - " {letters}oyuncuya geri verilir."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Mod{letters_black}: %vaults_vaults_hidden_slots%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_vaults_hidden_slots_default%"
+      - ""
+      - "%vaults_vaults_hidden_slots_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.hidden-slots"
+
+  vaults-blocked-materials:
+    slot: 14
+    material: BARRIER
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Yasaklı eşyalar</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Kasaya konamayan eşyalar."
+      - " {letters}İçinde bunlar olan shulker ve"
+      - " {letters}bundle da reddedilir."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Eşyalar{letters_black}: %vaults_vaults_blocked_materials%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_vaults_blocked_materials_default%"
+      - ""
+      - "%vaults_vaults_blocked_materials_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.blocked-materials"
+
+  history-keep:
+    slot: 15
+    material: CLOCK
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Geçmiş kopyaları</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Her kasanın önceki kopyaları,"
+      - " {letters}yetkililer geri yükleyebilsin."
+      - " {letters}0 hiç tutmaz."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:clock} {letters}Kopya{letters_black}: %vaults_history_keep%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_history_keep_default%"
+      - ""
+      - "%vaults_history_keep_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults history.keep"
+
+  customization-name-max-length:
+    slot: 16
+    material: NAME_TAG
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>İsim uzunluğu</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Bir oyuncunun kasasına verebileceği"
+      - " {letters}en uzun isim."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Uzunluk{letters_black}: %vaults_customization_name_max_length%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_customization_name_max_length_default%"
+      - ""
+      - "%vaults_customization_name_max_length_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults customization.name-max-length"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Geri {letters_black}▸ <gradient:{error}:{error_light}>Ayarlar</gradient>"
+    lore:
+      - "{error}{icon:click} Geri dönmek için tıkla"
+    actions:
+      - "exyliaplayervaults:settings_hub"

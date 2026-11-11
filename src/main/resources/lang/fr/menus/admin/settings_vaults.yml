@@ -1,0 +1,177 @@
+# NE PAS MODIFIER — RÉGÉNÉRÉ À CHAQUE DÉMARRAGE.
+#
+# Les réglages de coffres qu'un admin ajuste. Le reste est dans config.yml.
+
+title: "{primary}&lRÉGLAGES {letters_black}» {highlight}Coffres"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: BARREL
+    name: "<gradient:{primary}:{secondary_light}>Coffres</gradient>"
+    lore:
+      - "{letters_black}Réglages des coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Combien de coffres a un joueur,"
+      - " {letters}leur taille et leur contenu."
+
+  vaults-default-amount:
+    slot: 10
+    material: BARREL
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Coffres de base</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Nombre de coffres d'un joueur"
+      - " {letters}sans permission propre."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Coffres{letters_black}: %vaults_vaults_default_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_vaults_default_amount_default%"
+      - ""
+      - "%vaults_vaults_default_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-amount"
+
+  vaults-max-amount:
+    slot: 11
+    material: CHEST
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Limite de coffres</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Maximum de coffres par joueur,"
+      - " {letters}achetés compris."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Limite{letters_black}: %vaults_vaults_max_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_vaults_max_amount_default%"
+      - ""
+      - "%vaults_vaults_max_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.max-amount"
+
+  vaults-default-rows:
+    slot: 12
+    material: LADDER
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Rangées de base</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Nombre de rangées (1 à 6) d'un"
+      - " {letters}coffre par défaut."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:book} {letters}Rangées{letters_black}: %vaults_vaults_default_rows%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_vaults_default_rows_default%"
+      - ""
+      - "%vaults_vaults_default_rows_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-rows"
+
+  vaults-hidden-slots:
+    slot: 13
+    material: ENDER_CHEST
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Cases masquées</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Sort des objets qu'un coffre"
+      - " {letters}réduit ne montre plus : gardés"
+      - " {letters}ou rendus au joueur."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:book} {letters}Mode{letters_black}: %vaults_vaults_hidden_slots%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_vaults_hidden_slots_default%"
+      - ""
+      - "%vaults_vaults_hidden_slots_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.hidden-slots"
+
+  vaults-blocked-materials:
+    slot: 14
+    material: BARRIER
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Objets bloqués</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Objets interdits dans un coffre."
+      - " {letters}Shulkers et bundles qui en"
+      - " {letters}contiennent sont refusés."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:book} {letters}Objets{letters_black}: %vaults_vaults_blocked_materials%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_vaults_blocked_materials_default%"
+      - ""
+      - "%vaults_vaults_blocked_materials_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.blocked-materials"
+
+  history-keep:
+    slot: 15
+    material: CLOCK
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Copies d'historique</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Copies passées de chaque coffre"
+      - " {letters}que le staff peut restaurer."
+      - " {letters}0 n'en garde aucune."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:clock} {letters}Copies{letters_black}: %vaults_history_keep%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_history_keep_default%"
+      - ""
+      - "%vaults_history_keep_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults history.keep"
+
+  customization-name-max-length:
+    slot: 16
+    material: NAME_TAG
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Longueur du nom</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Le nom le plus long qu'un joueur"
+      - " {letters}peut donner à un coffre."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:book} {letters}Longueur{letters_black}: %vaults_customization_name_max_length%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_customization_name_max_length_default%"
+      - ""
+      - "%vaults_customization_name_max_length_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults customization.name-max-length"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Retour {letters_black}▸ <gradient:{error}:{error_light}>Réglages</gradient>"
+    lore:
+      - "{error}{icon:click} Cliquez pour revenir"
+    actions:
+      - "exyliaplayervaults:settings_hub"

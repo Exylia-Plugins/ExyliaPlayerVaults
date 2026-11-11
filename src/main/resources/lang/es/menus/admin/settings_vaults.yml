@@ -1,0 +1,177 @@
+# NO EDITAR — SE REGENERA EN CADA INICIO.
+#
+# Los ajustes de baúles que un admin cambia. Todo lo demás está en config.yml.
+
+title: "{primary}&lAJUSTES {letters_black}» {highlight}Baúles"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: BARREL
+    name: "<gradient:{primary}:{secondary_light}>Baúles</gradient>"
+    lore:
+      - "{letters_black}Ajustes de baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Cuántos baúles tiene un jugador,"
+      - " {letters}su tamaño y qué pueden guardar."
+
+  vaults-default-amount:
+    slot: 10
+    material: BARREL
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Baúles base</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Cuántos baúles tiene un jugador"
+      - " {letters}sin ningún permiso propio."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Baúles{letters_black}: %vaults_vaults_default_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_vaults_default_amount_default%"
+      - ""
+      - "%vaults_vaults_default_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-amount"
+
+  vaults-max-amount:
+    slot: 11
+    material: CHEST
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Límite de baúles</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Máximo de baúles por jugador,"
+      - " {letters}incluidos los comprados."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Límite{letters_black}: %vaults_vaults_max_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_vaults_max_amount_default%"
+      - ""
+      - "%vaults_vaults_max_amount_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.max-amount"
+
+  vaults-default-rows:
+    slot: 12
+    material: LADDER
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Filas base</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Cuántas filas (1 a 6) tiene un"
+      - " {letters}baúl por defecto."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Filas{letters_black}: %vaults_vaults_default_rows%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_vaults_default_rows_default%"
+      - ""
+      - "%vaults_vaults_default_rows_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.default-rows"
+
+  vaults-hidden-slots:
+    slot: 13
+    material: ENDER_CHEST
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Ranuras ocultas</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Qué pasa con los objetos que un"
+      - " {letters}baúl menor ya no muestra:"
+      - " {letters}se guardan o se devuelven."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Modo{letters_black}: %vaults_vaults_hidden_slots%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_vaults_hidden_slots_default%"
+      - ""
+      - "%vaults_vaults_hidden_slots_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.hidden-slots"
+
+  vaults-blocked-materials:
+    slot: 14
+    material: BARRIER
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Objetos bloqueados</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Objetos que no caben en un baúl."
+      - " {letters}Los shulker y bundles que los"
+      - " {letters}lleven también se rechazan."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Objetos{letters_black}: %vaults_vaults_blocked_materials%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_vaults_blocked_materials_default%"
+      - ""
+      - "%vaults_vaults_blocked_materials_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.blocked-materials"
+
+  history-keep:
+    slot: 15
+    material: CLOCK
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Copias del historial</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}Copias anteriores de cada baúl"
+      - " {letters}para que el staff las restaure."
+      - " {letters}0 no guarda ninguna."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:clock} {letters}Copias{letters_black}: %vaults_history_keep%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_history_keep_default%"
+      - ""
+      - "%vaults_history_keep_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults history.keep"
+
+  customization-name-max-length:
+    slot: 16
+    material: NAME_TAG
+    name: "{letters}Baúles {letters_black}▸ <gradient:{primary}:{secondary_light}>Largo del nombre</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baúles"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}El nombre más largo que un"
+      - " {letters}jugador puede dar a un baúl."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Largo{letters_black}: %vaults_customization_name_max_length%"
+      - "  {letters_black}· {info}{icon:book} {letters}Predeterminado{letters_black}: %vaults_customization_name_max_length_default%"
+      - ""
+      - "%vaults_customization_name_max_length_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults customization.name-max-length"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Volver {letters_black}▸ <gradient:{error}:{error_light}>Ajustes</gradient>"
+    lore:
+      - "{error}{icon:click} Clic para volver"
+    actions:
+      - "exyliaplayervaults:settings_hub"

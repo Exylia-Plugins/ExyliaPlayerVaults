@@ -1,0 +1,102 @@
+# DO NOT EDIT — REGENERATED ON EVERY STARTUP.
+#
+# Settings an admin tunes, one card per module. Everything else stays in the files.
+
+title: "{primary}&lVAULTS {letters_black}» {highlight}Settings"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: COMPARATOR
+    name: "<gradient:{primary}:{secondary_light}>Settings</gradient>"
+    lore:
+      - "{letters_black}Vaults settings"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}The settings worth changing in"
+      - " {letters}game, grouped by theme. The"
+      - " {letters}rest stays in the files."
+
+  vaults:
+    slot: 12
+    material: BARREL
+    name: "{letters}Settings {letters_black}▸ <gradient:{primary}:{secondary_light}>Vaults</gradient>"
+    lore:
+      - "{letters_black}Settings page"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Amounts, rows, blocked items"
+      - " {letters}and history."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Vaults{letters_black}: %vaults_vaults_default_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Rows{letters_black}: %vaults_vaults_default_rows%"
+      - ""
+      - "{primary}{icon:click} Click to open"
+      - "{letters_black}Each setting, explained."
+    actions:
+      - "exyliaplayervaults:settings_page vaults"
+
+  access:
+    slot: 13
+    material: IRON_DOOR
+    name: "{letters}Settings {letters_black}▸ <gradient:{primary}:{secondary_light}>Access</gradient>"
+    lore:
+      - "{letters_black}Settings page"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Cooldown, combat, worlds and"
+      - " {letters}game modes."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:clock} {letters}Cooldown{letters_black}: %access_restrictions_open_cooldown%"
+      - "  {letters_black}· {info}{icon:kills} {letters}Combat block{letters_black}: %access_restrictions_block_in_combat%"
+      - ""
+      - "{primary}{icon:click} Click to open"
+      - "{letters_black}Each setting, explained."
+    actions:
+      - "exyliaplayervaults:settings_page access"
+
+  purchase:
+    slot: 14
+    material: GOLD_INGOT
+    name: "{letters}Settings {letters_black}▸ <gradient:{primary}:{secondary_light}>Purchase</gradient>"
+    lore:
+      - "{letters_black}Settings page"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Whether vaults can be bought,"
+      - " {letters}and what the first one costs."
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:star} {letters}Buying{letters_black}: %purchase_purchase_enabled%"
+      - "  {letters_black}· {info}{icon:gold} {letters}First price{letters_black}: %purchase_purchase_base_price%"
+      - ""
+      - "{primary}{icon:click} Click to open"
+      - "{letters_black}Each setting, explained."
+    actions:
+      - "exyliaplayervaults:settings_page purchase"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Back {letters_black}▸ <gradient:{error}:{error_light}>Player vaults</gradient>"
+    lore:
+      - "{error}{icon:click} Click to go back"
+    actions:
+      - "exyliaplayervaults:admin_hub"

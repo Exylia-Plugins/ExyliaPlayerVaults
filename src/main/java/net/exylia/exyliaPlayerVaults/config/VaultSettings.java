@@ -3,6 +3,7 @@ package net.exylia.exyliaPlayerVaults.config;
 import net.exylia.lib.config.Comment;
 import net.exylia.lib.config.ConfigFile;
 import net.exylia.lib.config.Languages;
+import net.exylia.lib.config.Menu;
 
 import java.time.Duration;
 import java.util.List;
@@ -65,13 +66,16 @@ public record VaultSettings(
     public record Vaults(
             @Comment("How many vaults a player has with no permission of their own.")
             @Comment("exyliaplayervaults.amount.<number> raises it; the largest number a player holds wins.")
+            @Menu.Range(min = 1, max = 100)
             int defaultAmount,
 
             @Comment("The most vaults anybody may have, bought ones included, whatever their permissions.")
+            @Menu.Range(min = 1, max = 100)
             int maxAmount,
 
             @Comment("How many rows (1 to 6) each vault has with no permission of its own.")
             @Comment("exyliaplayervaults.rows.<1-6> changes it; the largest number a player holds wins.")
+            @Menu.Range(min = 1, max = 6)
             int defaultRows,
 
             @Comment("A vault holding more than its rows can show, because the player lost a rank or the rows")
@@ -81,6 +85,7 @@ public record VaultSettings(
 
             @Comment("Materials that may not be put into a vault, by name. Shulker boxes and bundles holding")
             @Comment("one are refused too.")
+            @Menu.Material
             List<String> blockedMaterials,
 
             @Comment("How often an open vault is written while it stays open, so a crash costs at most this much.")
@@ -121,15 +126,19 @@ public record VaultSettings(
             boolean enabled,
 
             @Comment("The currency they are paid in, by id. Empty uses the server's default one.")
+            @Menu.Currency
             String currency,
 
             @Comment("What the first bought vault costs.")
+            @Menu.Format(value = Menu.Style.MONEY, currency = "currency") @Menu.Range(min = 0, max = 1e12)
             double basePrice,
 
             @Comment("Each later one costs this many times the one before: 1.0 keeps every vault at base-price.")
+            @Menu.Format(Menu.Style.MULTIPLIER) @Menu.Range(min = 0, max = 100, step = 0.1)
             double priceMultiplier,
 
             @Comment("The most vaults one player may buy. max-amount still caps the total.")
+            @Menu.Range(min = 1, max = 100)
             int maxPurchases) {
 
         public Purchase() {
@@ -147,6 +156,7 @@ public record VaultSettings(
             @Comment("How many earlier copies of each vault are kept, newest first. 0 keeps none.")
             @Comment("A copy is taken when a player closes a vault they changed, and before any admin edit,")
             @Comment("clear or restore.")
+            @Menu.Range(min = 0, max = 100)
             int keep) {
 
         public History() {
@@ -159,6 +169,7 @@ public record VaultSettings(
             @Comment("The longest name a player may give a vault. Names hold letters, digits, spaces")
             @Comment("and - _ ' . ! ? # ( ) only, so a name can never carry colours or placeholders.")
             @Comment("exyliaplayervaults.namelength.<n> sets it per rank; the largest number a player holds wins.")
+            @Menu.Range(min = 1, max = 64)
             int nameMaxLength,
 
             @Comment("What a vault is drawn as in the list until its owner picks an icon: a menu material,")
@@ -189,6 +200,11 @@ public record VaultSettings(
     }
 
     private static ConfigFile<VaultSettings> file;
+
+    /** The loaded file, for the settings screens that edit it. */
+    public static ConfigFile<VaultSettings> file() {
+        return file;
+    }
 
     /** Keeps the loaded file so {@link #get()} reads the current snapshot. */
     public static void install(ConfigFile<VaultSettings> loaded) {

@@ -1,0 +1,102 @@
+# NÃO EDITE — REGENERADO A CADA INÍCIO.
+#
+# Os ajustes que vale mudar no jogo, por tema. O resto fica nos arquivos.
+
+title: "{primary}&lBAÚS {letters_black}» {highlight}Ajustes"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: COMPARATOR
+    name: "<gradient:{primary}:{secondary_light}>Ajustes</gradient>"
+    lore:
+      - "{letters_black}Ajustes dos baús"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Os ajustes que vale mudar no jogo,"
+      - " {letters}por tema. O resto fica nos"
+      - " {letters}arquivos."
+
+  vaults:
+    slot: 12
+    material: BARREL
+    name: "{letters}Ajustes {letters_black}▸ <gradient:{primary}:{secondary_light}>Baús</gradient>"
+    lore:
+      - "{letters_black}Página de ajustes"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Quantidades, linhas, itens"
+      - " {letters}bloqueados e histórico."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:hopper} {letters}Baús{letters_black}: %vaults_vaults_default_amount%"
+      - "  {letters_black}· {info}{icon:book} {letters}Linhas{letters_black}: %vaults_vaults_default_rows%"
+      - ""
+      - "{primary}{icon:click} Clique para abrir"
+      - "{letters_black}Cada ajuste, explicado."
+    actions:
+      - "exyliaplayervaults:settings_page vaults"
+
+  access:
+    slot: 13
+    material: IRON_DOOR
+    name: "{letters}Ajustes {letters_black}▸ <gradient:{primary}:{secondary_light}>Acesso</gradient>"
+    lore:
+      - "{letters_black}Página de ajustes"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Espera, combate, mundos e"
+      - " {letters}modos de jogo."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:clock} {letters}Espera{letters_black}: %access_restrictions_open_cooldown%"
+      - "  {letters_black}· {info}{icon:kills} {letters}Bloqueio em combate{letters_black}: %access_restrictions_block_in_combat%"
+      - ""
+      - "{primary}{icon:click} Clique para abrir"
+      - "{letters_black}Cada ajuste, explicado."
+    actions:
+      - "exyliaplayervaults:settings_page access"
+
+  purchase:
+    slot: 14
+    material: GOLD_INGOT
+    name: "{letters}Ajustes {letters_black}▸ <gradient:{primary}:{secondary_light}>Compra</gradient>"
+    lore:
+      - "{letters_black}Página de ajustes"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Se baús podem ser comprados e"
+      - " {letters}quanto custa o primeiro."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:star} {letters}Compra{letters_black}: %purchase_purchase_enabled%"
+      - "  {letters_black}· {info}{icon:gold} {letters}Primeiro preço{letters_black}: %purchase_purchase_base_price%"
+      - ""
+      - "{primary}{icon:click} Clique para abrir"
+      - "{letters_black}Cada ajuste, explicado."
+    actions:
+      - "exyliaplayervaults:settings_page purchase"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Voltar {letters_black}▸ <gradient:{error}:{error_light}>Baús dos jogadores</gradient>"
+    lore:
+      - "{error}{icon:click} Clique para voltar"
+    actions:
+      - "exyliaplayervaults:admin_hub"

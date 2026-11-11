@@ -1,0 +1,136 @@
+# NÃO EDITE — REGENERADO A CADA INÍCIO.
+#
+# Baús extras comprados com dinheiro. O resto está em config.yml.
+
+title: "{primary}&lAJUSTES {letters_black}» {highlight}Compra"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: GOLD_INGOT
+    name: "<gradient:{primary}:{secondary_light}>Compra</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Compra"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Baús extras que os jogadores"
+      - " {letters}compram com dinheiro."
+
+  purchase-enabled:
+    slot: 11
+    material: EMERALD
+    name: "{letters}Compra {letters_black}▸ <gradient:{primary}:{secondary_light}>Compra de baús</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Compra"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Deixa comprar baús além do que"
+      - " {letters}o rank dá."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:star} {letters}Compra{letters_black}: %purchase_purchase_enabled%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %purchase_purchase_enabled_default%"
+      - ""
+      - "%purchase_purchase_enabled_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.enabled"
+
+  purchase-currency:
+    slot: 12
+    material: SUNFLOWER
+    name: "{letters}Compra {letters_black}▸ <gradient:{primary}:{secondary_light}>Moeda</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Compra"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Com o que os baús são pagos."
+      - " {letters}Vazio usa a moeda padrão."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:gold} {letters}Moeda{letters_black}: %purchase_purchase_currency%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %purchase_purchase_currency_default%"
+      - ""
+      - "%purchase_purchase_currency_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.currency"
+
+  purchase-base-price:
+    slot: 13
+    material: GOLD_INGOT
+    name: "{letters}Compra {letters_black}▸ <gradient:{primary}:{secondary_light}>Preço base</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Compra"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Quanto custa o primeiro baú"
+      - " {letters}comprado."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:gold} {letters}Preço{letters_black}: %purchase_purchase_base_price%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %purchase_purchase_base_price_default%"
+      - ""
+      - "%purchase_purchase_base_price_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.base-price"
+
+  purchase-price-multiplier:
+    slot: 14
+    material: GOLD_NUGGET
+    name: "{letters}Compra {letters_black}▸ <gradient:{primary}:{secondary_light}>Multiplicador</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Compra"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Cada baú seguinte custa tantas"
+      - " {letters}vezes o anterior. 1.0 fixa."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:gold} {letters}Fator{letters_black}: %purchase_purchase_price_multiplier%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %purchase_purchase_price_multiplier_default%"
+      - ""
+      - "%purchase_purchase_price_multiplier_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.price-multiplier"
+
+  purchase-max-purchases:
+    slot: 15
+    material: HOPPER
+    name: "{letters}Compra {letters_black}▸ <gradient:{primary}:{secondary_light}>Limite de compras</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Compra"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}O máximo de baús que um jogador"
+      - " {letters}pode comprar."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:star} {letters}Limite{letters_black}: %purchase_purchase_max_purchases%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %purchase_purchase_max_purchases_default%"
+      - ""
+      - "%purchase_purchase_max_purchases_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.max-purchases"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Voltar {letters_black}▸ <gradient:{error}:{error_light}>Ajustes</gradient>"
+    lore:
+      - "{error}{icon:click} Clique para voltar"
+    actions:
+      - "exyliaplayervaults:settings_hub"

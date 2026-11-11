@@ -1,0 +1,135 @@
+# DÜZENLEME — HER BAŞLANGIÇTA YENİDEN OLUŞTURULUR.
+#
+# Parayla alınan ek kasalar. Gerisi config.yml içinde.
+
+title: "{primary}&lAYARLAR {letters_black}» {highlight}Satın alma"
+size: 27
+type: SIMPLE
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+
+items:
+  header:
+    slot: 4
+    material: GOLD_INGOT
+    name: "<gradient:{primary}:{secondary_light}>Satın alma</gradient>"
+    lore:
+      - "{letters_black}Satın alma ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Oyuncuların parayla aldığı"
+      - " {letters}ek kasalar."
+
+  purchase-enabled:
+    slot: 11
+    material: EMERALD
+    name: "{letters}Satın alma {letters_black}▸ <gradient:{primary}:{secondary_light}>Kasa satın alma</gradient>"
+    lore:
+      - "{letters_black}Satın alma ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Rütbenin verdiğinden fazla"
+      - " {letters}kasa almaya izin verir."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:star} {letters}Satın alma{letters_black}: %purchase_purchase_enabled%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %purchase_purchase_enabled_default%"
+      - ""
+      - "%purchase_purchase_enabled_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.enabled"
+
+  purchase-currency:
+    slot: 12
+    material: SUNFLOWER
+    name: "{letters}Satın alma {letters_black}▸ <gradient:{primary}:{secondary_light}>Para birimi</gradient>"
+    lore:
+      - "{letters_black}Satın alma ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Kasaların ödendiği para birimi."
+      - " {letters}Boşsa varsayılan kullanılır."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:gold} {letters}Para{letters_black}: %purchase_purchase_currency%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %purchase_purchase_currency_default%"
+      - ""
+      - "%purchase_purchase_currency_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.currency"
+
+  purchase-base-price:
+    slot: 13
+    material: GOLD_INGOT
+    name: "{letters}Satın alma {letters_black}▸ <gradient:{primary}:{secondary_light}>Temel fiyat</gradient>"
+    lore:
+      - "{letters_black}Satın alma ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}İlk alınan kasanın fiyatı."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:gold} {letters}Fiyat{letters_black}: %purchase_purchase_base_price%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %purchase_purchase_base_price_default%"
+      - ""
+      - "%purchase_purchase_base_price_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.base-price"
+
+  purchase-price-multiplier:
+    slot: 14
+    material: GOLD_NUGGET
+    name: "{letters}Satın alma {letters_black}▸ <gradient:{primary}:{secondary_light}>Çarpan</gradient>"
+    lore:
+      - "{letters_black}Satın alma ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Sonraki her kasa bir öncekinin"
+      - " {letters}bu kadar katıdır. 1.0 sabit."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:gold} {letters}Çarpan{letters_black}: %purchase_purchase_price_multiplier%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %purchase_purchase_price_multiplier_default%"
+      - ""
+      - "%purchase_purchase_price_multiplier_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.price-multiplier"
+
+  purchase-max-purchases:
+    slot: 15
+    material: HOPPER
+    name: "{letters}Satın alma {letters_black}▸ <gradient:{primary}:{secondary_light}>Satın alma sınırı</gradient>"
+    lore:
+      - "{letters_black}Satın alma ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Bir oyuncunun alabileceği"
+      - " {letters}en çok kasa."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:star} {letters}Sınır{letters_black}: %purchase_purchase_max_purchases%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %purchase_purchase_max_purchases_default%"
+      - ""
+      - "%purchase_purchase_max_purchases_click%"
+    actions:
+      - "exyliaplayervaults:setting purchase purchase.max-purchases"
+
+  back:
+    slot: 22
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
+    name: "{letters}Geri {letters_black}▸ <gradient:{error}:{error_light}>Ayarlar</gradient>"
+    lore:
+      - "{error}{icon:click} Geri dönmek için tıkla"
+    actions:
+      - "exyliaplayervaults:settings_hub"
