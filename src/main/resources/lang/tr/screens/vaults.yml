@@ -34,5 +34,5 @@ found:
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
   back: '‹ Kasalar'
   holds: '{letters_black}İçinde {info}%vault_amount%'
-  go: '{info}Aç ›'
+  go: '{info}Aç »'
   empty: 'Hiçbirinde yok'

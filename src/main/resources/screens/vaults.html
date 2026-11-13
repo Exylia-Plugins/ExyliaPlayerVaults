@@ -52,7 +52,7 @@
               <item row material="%vault_icon%" class="row-icon"/>
               <column class="tight grow"><b>%vault_name%</b>
                 <small t="found.holds">{letters_black}Holds {info}%vault_amount%</small></column>
-              <small t="found.go">{info}Open ›</small>
+              <small t="found.go">{info}Open »</small>
             </row>
             <empty><text t="found.empty">Nothing holds that</text></empty>
           </grid>
@@ -61,7 +61,7 @@
 
         <default><column id="page-list" class="page">
           <row class="head">
-            <column class="title"><h1 t="title">{highlight}Vaults</h1>
+            <column class="title"><h1 class="lib-shimmer" t="title">{highlight}Vaults</h1>
               <small t="subtitle">{letters_black}Saved the moment you close one · open in one place at a time</small></column>
           </row>
           <grid source="main" columns="2" rows="7" class="fill" track="%vault_number%">

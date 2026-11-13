@@ -34,5 +34,5 @@ found:
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
   back: '‹ Хранилища'
   holds: '{letters_black}Хранит {info}%vault_amount%'
-  go: '{info}Открыть ›'
+  go: '{info}Открыть »'
   empty: 'Ничего не найдено'

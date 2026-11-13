@@ -34,5 +34,5 @@ found:
   subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
   back: '‹ Cofres'
   holds: '{letters_black}Guarda {info}%vault_amount%'
-  go: '{info}Abrir ›'
+  go: '{info}Abrir »'
   empty: 'Nenhum guarda isso'
