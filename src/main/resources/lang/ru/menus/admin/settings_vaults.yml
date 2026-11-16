@@ -3,7 +3,7 @@
 # Настройки хранилищ, которые меняет админ. Остальное в config.yml.
 
 title: "{primary}&lНАСТРОЙКИ {letters_black}» {highlight}Хранилища"
-size: 27
+size: 36
 type: SIMPLE
 
 open_sounds:
@@ -31,7 +31,7 @@ items:
       - " {letters}их размер и что в них класть."
 
   vaults-default-amount:
-    slot: 10
+    slot: 11
     material: BARREL
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Базовое число</gradient>"
     lore:
@@ -50,7 +50,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.default-amount"
 
   vaults-max-amount:
-    slot: 11
+    slot: 12
     material: CHEST
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Лимит хранилищ</gradient>"
     lore:
@@ -69,7 +69,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.max-amount"
 
   vaults-default-rows:
-    slot: 12
+    slot: 14
     material: LADDER
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Базовые ряды</gradient>"
     lore:
@@ -87,8 +87,29 @@ items:
     actions:
       - "exyliaplayervaults:setting vaults vaults.default-rows"
 
+  vaults-toolbar:
+    slot: 15
+    material: SPYGLASS
+    name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Панель хранилища</gradient>"
+    lore:
+      - "{letters_black}Настройка: Хранилища"
+      - ""
+      - "{primary}✎ Информация"
+      - " {letters}Ряд кнопок под каждым хранилищем:"
+      - " {letters}назад, вперёд, список, поиск и"
+      - " {letters}переименование. Занимает 6-й ряд;"
+      - " {letters}его предметы сдвигаются вверх."
+      - ""
+      - "{primary}✦ Состояние"
+      - "  {letters_black}· {info}{icon:book} {letters}Показана{letters_black}: %vaults_vaults_toolbar%"
+      - "  {letters_black}· {info}{icon:book} {letters}По умолчанию{letters_black}: %vaults_vaults_toolbar_default%"
+      - ""
+      - "%vaults_vaults_toolbar_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.toolbar"
+
   vaults-hidden-slots:
-    slot: 13
+    slot: 20
     material: ENDER_CHEST
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Скрытые слоты</gradient>"
     lore:
@@ -108,7 +129,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.hidden-slots"
 
   vaults-blocked-materials:
-    slot: 14
+    slot: 21
     material: BARRIER
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Запрещённые предметы</gradient>"
     lore:
@@ -128,7 +149,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.blocked-materials"
 
   history-keep:
-    slot: 15
+    slot: 23
     material: CLOCK
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Копии истории</gradient>"
     lore:
@@ -148,7 +169,7 @@ items:
       - "exyliaplayervaults:setting vaults history.keep"
 
   customization-name-max-length:
-    slot: 16
+    slot: 24
     material: NAME_TAG
     name: "{letters}Хранилища {letters_black}▸ <gradient:{primary}:{secondary_light}>Длина названия</gradient>"
     lore:
@@ -167,7 +188,7 @@ items:
       - "exyliaplayervaults:setting vaults customization.name-max-length"
 
   back:
-    slot: 22
+    slot: 31
     sound: "minecraft:item.bundle.remove_one|1.0|0.5"
     material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
     name: "{letters}Назад {letters_black}▸ <gradient:{error}:{error_light}>Настройки</gradient>"

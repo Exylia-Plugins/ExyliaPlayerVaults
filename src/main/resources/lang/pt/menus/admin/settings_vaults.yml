@@ -3,7 +3,7 @@
 # Os ajustes de baús que um admin muda. O resto está em config.yml.
 
 title: "{primary}&lAJUSTES {letters_black}» {highlight}Baús"
-size: 27
+size: 36
 type: SIMPLE
 
 open_sounds:
@@ -31,7 +31,7 @@ items:
       - " {letters}o tamanho deles e o que guardam."
 
   vaults-default-amount:
-    slot: 10
+    slot: 11
     material: BARREL
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Baús base</gradient>"
     lore:
@@ -50,7 +50,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.default-amount"
 
   vaults-max-amount:
-    slot: 11
+    slot: 12
     material: CHEST
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Limite de baús</gradient>"
     lore:
@@ -69,7 +69,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.max-amount"
 
   vaults-default-rows:
-    slot: 12
+    slot: 14
     material: LADDER
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Linhas base</gradient>"
     lore:
@@ -87,8 +87,29 @@ items:
     actions:
       - "exyliaplayervaults:setting vaults vaults.default-rows"
 
+  vaults-toolbar:
+    slot: 15
+    material: SPYGLASS
+    name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Barra do baú</gradient>"
+    lore:
+      - "{letters_black}Ajuste de Baús"
+      - ""
+      - "{primary}✎ Informação"
+      - " {letters}Uma fileira de botões sob cada"
+      - " {letters}baú: anterior, próximo, lista,"
+      - " {letters}pesquisa e renomear. Ocupa a"
+      - " {letters}6.ª fileira; os itens dela sobem."
+      - ""
+      - "{primary}✦ Estado"
+      - "  {letters_black}· {info}{icon:book} {letters}Exibida{letters_black}: %vaults_vaults_toolbar%"
+      - "  {letters_black}· {info}{icon:book} {letters}Padrão{letters_black}: %vaults_vaults_toolbar_default%"
+      - ""
+      - "%vaults_vaults_toolbar_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.toolbar"
+
   vaults-hidden-slots:
-    slot: 13
+    slot: 20
     material: ENDER_CHEST
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Espaços ocultos</gradient>"
     lore:
@@ -108,7 +129,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.hidden-slots"
 
   vaults-blocked-materials:
-    slot: 14
+    slot: 21
     material: BARRIER
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Itens bloqueados</gradient>"
     lore:
@@ -128,7 +149,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.blocked-materials"
 
   history-keep:
-    slot: 15
+    slot: 23
     material: CLOCK
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Cópias do histórico</gradient>"
     lore:
@@ -148,7 +169,7 @@ items:
       - "exyliaplayervaults:setting vaults history.keep"
 
   customization-name-max-length:
-    slot: 16
+    slot: 24
     material: NAME_TAG
     name: "{letters}Baús {letters_black}▸ <gradient:{primary}:{secondary_light}>Tamanho do nome</gradient>"
     lore:
@@ -167,7 +188,7 @@ items:
       - "exyliaplayervaults:setting vaults customization.name-max-length"
 
   back:
-    slot: 22
+    slot: 31
     sound: "minecraft:item.bundle.remove_one|1.0|0.5"
     material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
     name: "{letters}Voltar {letters_black}▸ <gradient:{error}:{error_light}>Ajustes</gradient>"

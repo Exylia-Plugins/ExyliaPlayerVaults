@@ -67,7 +67,7 @@ public final class VaultListMenu {
         int stored = read.used().keySet().stream().mapToInt(Integer::intValue).max().orElse(0);
         int unlocked = own ? access.unlocked(viewer) : Math.max(stored, settings.vaults().maxAmount());
         int ceiling = Math.max(unlocked, settings.vaults().maxAmount());
-        int size = own ? access.rows(viewer) * 9 : VaultsManager.MAX_SLOTS;
+        int size = own ? access.slots(viewer) : VaultsManager.MAX_SLOTS;
         BigDecimal price = own ? access.nextPrice(viewer) : null;
 
         List<UiEntry> rows = new ArrayList<>(ceiling);

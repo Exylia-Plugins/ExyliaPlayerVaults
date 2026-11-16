@@ -16,6 +16,7 @@
     ["vaults.default-amount", "Default vaults", "BARREL", "hopper", "Vaults", ["How many vaults a player has", "with no permission of their own."]],
     ["vaults.max-amount", "Vault cap", "CHEST", "hopper", "Cap", ["The most vaults anybody may have,", "bought ones included."]],
     ["vaults.default-rows", "Default rows", "LADDER", "book", "Rows", ["How many rows (1 to 6) a vault", "has by default."]],
+    ["vaults.toolbar", "Vault toolbar", "SPYGLASS", "book", "Shown", ["A row of buttons under each", "vault: previous, next, list,", "search and rename. Costs the", "6th row; items there move up."]],
     ["vaults.hidden-slots", "Hidden slots", "ENDER_CHEST", "book", "Mode", ["What happens to items a smaller", "vault can no longer show: kept", "out of sight or handed back."]],
     ["vaults.blocked-materials", "Blocked items", "BARRIER", "book", "Items", ["Items that cannot be put into", "a vault. Shulker boxes and", "bundles holding one are refused."]],
     ["history.keep", "History copies", "CLOCK", "clock", "Copies", ["Earlier copies kept of each", "vault for staff to restore.", "0 keeps none."]],

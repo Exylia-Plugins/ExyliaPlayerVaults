@@ -46,6 +46,42 @@ public final class VaultsListener implements Listener {
     public void onClose(InventoryCloseEvent event) {
         if (event.getInventory().getHolder(false) instanceof VaultHolder holder) {
             core.getVaults().release(holder, false);
+            if (holder.hasToolbar()) removeButtons(event);
+        }
+    }
+
+    /**
+     * A button never leaves its row; were another plugin to carry one out, it
+     * is taken back from the player as the window closes.
+     */
+    private void removeButtons(InventoryCloseEvent event) {
+        if (core.getToolbar().isButton(event.getView().getCursor())) event.getView().setCursor(null);
+        Inventory own = event.getPlayer().getInventory();
+        for (int slot = 0; slot < own.getSize(); slot++) {
+            if (core.getToolbar().isButton(own.getItem(slot))) own.setItem(slot, null);
+        }
+    }
+
+    /**
+     * A click on the toolbar runs its button and moves nothing, whatever the
+     * click: cancelled at the highest priority, after any plugin that might
+     * un-cancel it.
+     */
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onToolbarClick(InventoryClickEvent event) {
+        if (!(event.getView().getTopInventory().getHolder(false) instanceof VaultHolder holder)) return;
+        if (!holder.isToolbar(event.getRawSlot())) return;
+        event.setCancelled(true);
+        if (event.getWhoClicked() instanceof Player player) {
+            core.getToolbar().click(player, holder, event.getRawSlot(), event.getClick());
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGHEST)
+    public void onToolbarDrag(InventoryDragEvent event) {
+        if (event.getView().getTopInventory().getHolder(false) instanceof VaultHolder holder
+                && event.getRawSlots().stream().anyMatch(holder::isToolbar)) {
+            event.setCancelled(true);
         }
     }
 
@@ -125,6 +161,7 @@ public final class VaultsListener implements Listener {
     public void onClick(InventoryClickEvent event) {
         Inventory top = event.getView().getTopInventory();
         if (!(top.getHolder(false) instanceof VaultHolder holder) || holder.admin()) return;
+        if (holder.isToolbar(event.getRawSlot())) return;
         if (!(event.getWhoClicked() instanceof Player player) || player.hasPermission(Permissions.BYPASS_BLOCKED)) return;
 
         ItemStack incoming = incoming(event);

@@ -64,6 +64,7 @@ Aliases: `/playervault`, `/playervaults`, `/vault`, `/vaults`, `/playervaultsadm
 ## Configuration
 
 - **`config.yml`**: vault amounts and rows, hidden slots (`KEEP` or `RETURN`), blocked materials, checkpoint period, saving the player on write, the open cooldown, combat, worlds and game modes, purchases (currency, base price, multiplier, limit), how many history copies to keep, name length, default icon and sounds. `language` picks the language (`default` follows ExyliaLib's).
+- **`vaults.toolbar`** (off by default): the vault's last row becomes buttons (previous, next, list, search, rename), drawn from `lang/<code>/menus/user/toolbar.yml`. A 6-row vault shows 5; turning it on moves what sat in that row into free slots and hands back what does not fit.
 - **`lang/<code>/messages.yml`** and **`lang/<code>/menus/`**: every message and screen. The vault list is yours to restyle; the admin screens are rewritten on every start.
 - **`database.yml`**: where vaults are stored. Tables: `sc_vaults` (the same table ExyliaSurvivalCore used, so a shared database keeps every vault), `playervaults_looks`, `playervaults_buyers`, `playervaults_history`.
 

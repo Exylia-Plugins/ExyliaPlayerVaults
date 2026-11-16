@@ -3,7 +3,7 @@
 # Bir yöneticinin ayarladığı kasa ayarları. Gerisi config.yml içinde.
 
 title: "{primary}&lAYARLAR {letters_black}» {highlight}Kasalar"
-size: 27
+size: 36
 type: SIMPLE
 
 open_sounds:
@@ -31,7 +31,7 @@ items:
       - " {letters}boyutları ve neler tutabilecekleri."
 
   vaults-default-amount:
-    slot: 10
+    slot: 11
     material: BARREL
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Varsayılan kasa</gradient>"
     lore:
@@ -50,7 +50,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.default-amount"
 
   vaults-max-amount:
-    slot: 11
+    slot: 12
     material: CHEST
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Kasa sınırı</gradient>"
     lore:
@@ -69,7 +69,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.max-amount"
 
   vaults-default-rows:
-    slot: 12
+    slot: 14
     material: LADDER
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Varsayılan satır</gradient>"
     lore:
@@ -87,8 +87,29 @@ items:
     actions:
       - "exyliaplayervaults:setting vaults vaults.default-rows"
 
+  vaults-toolbar:
+    slot: 15
+    material: SPYGLASS
+    name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Kasa çubuğu</gradient>"
+    lore:
+      - "{letters_black}Kasalar ayarı"
+      - ""
+      - "{primary}✎ Bilgi"
+      - " {letters}Her kasanın altında bir düğme sırası:"
+      - " {letters}önceki, sonraki, liste, arama ve"
+      - " {letters}yeniden adlandırma. 6. sırayı alır;"
+      - " {letters}oradaki eşyalar yukarı kayar."
+      - ""
+      - "{primary}✦ Durum"
+      - "  {letters_black}· {info}{icon:book} {letters}Gösterim{letters_black}: %vaults_vaults_toolbar%"
+      - "  {letters_black}· {info}{icon:book} {letters}Varsayılan{letters_black}: %vaults_vaults_toolbar_default%"
+      - ""
+      - "%vaults_vaults_toolbar_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.toolbar"
+
   vaults-hidden-slots:
-    slot: 13
+    slot: 20
     material: ENDER_CHEST
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Gizli yuvalar</gradient>"
     lore:
@@ -108,7 +129,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.hidden-slots"
 
   vaults-blocked-materials:
-    slot: 14
+    slot: 21
     material: BARRIER
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Yasaklı eşyalar</gradient>"
     lore:
@@ -128,7 +149,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.blocked-materials"
 
   history-keep:
-    slot: 15
+    slot: 23
     material: CLOCK
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>Geçmiş kopyaları</gradient>"
     lore:
@@ -148,7 +169,7 @@ items:
       - "exyliaplayervaults:setting vaults history.keep"
 
   customization-name-max-length:
-    slot: 16
+    slot: 24
     material: NAME_TAG
     name: "{letters}Kasalar {letters_black}▸ <gradient:{primary}:{secondary_light}>İsim uzunluğu</gradient>"
     lore:
@@ -167,7 +188,7 @@ items:
       - "exyliaplayervaults:setting vaults customization.name-max-length"
 
   back:
-    slot: 22
+    slot: 31
     sound: "minecraft:item.bundle.remove_one|1.0|0.5"
     material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
     name: "{letters}Geri {letters_black}▸ <gradient:{error}:{error_light}>Ayarlar</gradient>"

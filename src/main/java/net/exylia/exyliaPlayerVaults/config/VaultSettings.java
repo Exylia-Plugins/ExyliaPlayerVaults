@@ -78,6 +78,13 @@ public record VaultSettings(
             @Menu.Range(min = 1, max = 6)
             int defaultRows,
 
+            @Comment("Gives every vault a bottom row of buttons (previous and next vault, the list, search, rename),")
+            @Comment("drawn from lang/<code>/menus/user/toolbar.yml. The row is taken from the vault: a vault of up")
+            @Comment("to 5 rows gets one more row for it, a vault of 6 rows shows 5. Turning it on is safe for stored")
+            @Comment("vaults: what a 6-row vault keeps in its last row moves to its free slots when it opens, and")
+            @Comment("whatever does not fit is handed back to its owner.")
+            boolean toolbar,
+
             @Comment("A vault holding more than its rows can show, because the player lost a rank or the rows")
             @Comment("were lowered: KEEP leaves those stacks stored out of sight until the vault grows again,")
             @Comment("RETURN hands them back to the player (into their inventory, or on their next join).")
@@ -96,7 +103,7 @@ public record VaultSettings(
             boolean savePlayerOnWrite) {
 
         public Vaults() {
-            this(1, 9, 6, HiddenSlots.KEEP, List.of(), Duration.ofSeconds(30), true);
+            this(1, 9, 6, false, HiddenSlots.KEEP, List.of(), Duration.ofSeconds(30), true);
         }
     }
 

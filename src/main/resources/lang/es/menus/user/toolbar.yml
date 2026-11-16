@@ -1,0 +1,100 @@
+# La fila de botones bajo un baúl, visible cuando vaults.toolbar está activo en config.yml.
+#
+# Puedes cambiar su estilo: tus cambios se conservan entre actualizaciones.
+#
+# Cada botón ocupa una columna de la fila (ranura 0 a 8); las columnas sin botón
+# muestran el relleno. Los botones son objetos normales con acciones de menú
+# (left:, right:, shift_left:...). Un clic cierra antes el baúl, salvo que
+# todas sus acciones solo abran otro baúl, que cambia la ventana.
+# "previous" y "next" muestran su objeto atenuado si no hay baúl en esa dirección.
+#
+# Valores: %vault_owner% %vault_number% %vault_name% %previous_number%
+#         %next_number% %vaults_unlocked%
+
+menu-version: 1
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  hide_tooltip: true
+
+buttons:
+  search:
+    slot: 1
+    material: SPYGLASS
+    name: "{letters}Baúles {letters_black}▸ <gradient:{info}:{info_light}>Buscar</gradient>"
+    lore:
+      - "{letters_black}Búsqueda de baúles"
+      - ""
+      - "{info}✎ Información"
+      - " {letters}Encuentra qué baúl guarda un"
+      - " {letters}objeto, con shulkers y bolsas."
+      - ""
+      - "{info}{icon:click} Clic para buscar"
+      - "{letters_black}Cierra este baúl antes."
+    actions:
+      - "exyliaplayervaults:search %vault_owner%"
+
+  previous:
+    slot: 3
+    sound: "minecraft:item.book.page_turn|1.0|1.0"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+    name: "{letters}Baúl {letters_black}▸ <gradient:{info}:{info_light}>← #%previous_number%</gradient>"
+    lore:
+      - "  {letters_black}· {letters}Baúl{letters_black}: {info}%vault_number%{letters_black}/{info}%vaults_unlocked%"
+      - ""
+      - "{info}{icon:click} Clic para abrir"
+      - "{letters_black}Guarda este baúl y abre el otro."
+    muted:
+      material: GRAY_DYE
+      name: "{muted}No hay baúl anterior"
+      lore:
+        - "{letters_black}Este es tu primer baúl."
+    actions:
+      - "exyliaplayervaults:open %vault_owner% %previous_number%"
+
+  list:
+    slot: 4
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0="
+    name: "{letters}Volver {letters_black}▸ <gradient:{error}:{error_light}>Baúles</gradient>"
+    lore:
+      - "{error}{icon:click} Clic para volver"
+      - "{letters_black}Todos tus baúles."
+    actions:
+      - "exyliaplayervaults:list %vault_owner%"
+
+  next:
+    slot: 5
+    sound: "minecraft:item.book.page_turn|1.0|1.0"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+    name: "{letters}Baúl {letters_black}▸ <gradient:{info}:{info_light}>#%next_number% →</gradient>"
+    lore:
+      - "  {letters_black}· {letters}Baúl{letters_black}: {info}%vault_number%{letters_black}/{info}%vaults_unlocked%"
+      - ""
+      - "{info}{icon:click} Clic para abrir"
+      - "{letters_black}Guarda este baúl y abre el otro."
+    muted:
+      material: GRAY_DYE
+      name: "{muted}No hay baúl siguiente"
+      lore:
+        - "{letters_black}Un rango superior desbloquea más."
+    actions:
+      - "exyliaplayervaults:open %vault_owner% %next_number%"
+
+  customize:
+    slot: 7
+    material: NAME_TAG
+    name: "{letters}Vault {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient>"
+    lore:
+      - "{letters_black}Aspecto del baúl"
+      - ""
+      - "{primary}✎ Información"
+      - " {letters}El nombre y el icono de este"
+      - " {letters}baúl en tu lista."
+      - ""
+      - "{primary}{icon:click} Clic izquierdo {letters_black}· {letters}renombrar"
+      - "{primary}{icon:right_click} Clic derecho {letters_black}· {letters}cambiar icono"
+      - "{letters_black}Cierra este baúl antes."
+    actions:
+      - "left: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:icon %vault_owner% %vault_number%"

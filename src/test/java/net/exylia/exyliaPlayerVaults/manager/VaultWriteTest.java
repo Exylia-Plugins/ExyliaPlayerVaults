@@ -42,7 +42,7 @@ class VaultWriteTest {
     /** A window on a vault, as it was when its row was read. */
     private static VaultHolder window(UUID owner, boolean exists, Long version) {
         return new VaultHolder(owner, "Owner", 1, UUID.randomUUID(), false, new CompletableFuture<>(),
-                new ItemStack[0], new ItemStack[0], true, exists, version);
+                new ItemStack[0], new ItemStack[0], 0, 0, true, exists, version);
     }
 
     private static VaultEntity row(UUID owner, long version) {

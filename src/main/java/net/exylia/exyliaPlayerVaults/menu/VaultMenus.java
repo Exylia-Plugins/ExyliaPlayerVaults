@@ -50,6 +50,7 @@ public final class VaultMenus {
             YamlConfiguration config = read(id);
             if (config != null) menus.load(id, config);
         }
+        core.getToolbar().load();
     }
 
     /**

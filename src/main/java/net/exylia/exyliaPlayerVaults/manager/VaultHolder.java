@@ -34,8 +34,14 @@ public final class VaultHolder implements InventoryHolder {
     private final UUID viewer;
     private final boolean admin;
     private final CompletableFuture<Boolean> closed;
-    /** The stored slots past the window's size, written back untouched with every write. */
+    /** The stored slots past what the window shows, written back untouched with every write. */
     private final ItemStack[] hidden;
+    /** How many of the window's slots are the vault's; the rest is the toolbar. */
+    private final int storage;
+    /** The stored slot the hidden stacks start at. */
+    private final int hiddenAt;
+    /** What the toolbar was drawn for, or {@code null} for a window without one. */
+    private VaultToolbar.Drawn toolbar;
     /** What the row held when the window opened, for the history taken when it closes changed. */
     private final ItemStack[] opened;
 
@@ -54,7 +60,7 @@ public final class VaultHolder implements InventoryHolder {
 
     VaultHolder(UUID owner, String ownerName, int number, UUID viewer, boolean admin,
                 CompletableFuture<Boolean> closed, ItemStack[] stored, ItemStack[] hidden,
-                boolean counted, boolean exists, Long version) {
+                int storage, int hiddenAt, boolean counted, boolean exists, Long version) {
         this.owner = owner;
         this.ownerName = ownerName;
         this.number = number;
@@ -64,6 +70,8 @@ public final class VaultHolder implements InventoryHolder {
         this.stored = stored;
         this.opened = stored;
         this.hidden = hidden;
+        this.storage = storage;
+        this.hiddenAt = hiddenAt;
         this.counted = counted;
         this.exists = exists;
         this.version = version;
@@ -115,6 +123,32 @@ public final class VaultHolder implements InventoryHolder {
 
     ItemStack[] hidden() {
         return hidden;
+    }
+
+    int storage() {
+        return storage;
+    }
+
+    int hiddenAt() {
+        return hiddenAt;
+    }
+
+    /** Whether the window has a toolbar under the vault's slots. */
+    public boolean hasToolbar() {
+        return toolbar != null;
+    }
+
+    /** Whether a raw slot of the window is a toolbar button rather than one of the vault's slots. */
+    public boolean isToolbar(int rawSlot) {
+        return toolbar != null && rawSlot >= storage && rawSlot < storage + 9;
+    }
+
+    VaultToolbar.Drawn toolbar() {
+        return toolbar;
+    }
+
+    void toolbar(VaultToolbar.Drawn drawn) {
+        this.toolbar = drawn;
     }
 
     ItemStack[] opened() {

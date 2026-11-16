@@ -3,7 +3,7 @@
 # Les réglages de coffres qu'un admin ajuste. Le reste est dans config.yml.
 
 title: "{primary}&lRÉGLAGES {letters_black}» {highlight}Coffres"
-size: 27
+size: 36
 type: SIMPLE
 
 open_sounds:
@@ -31,7 +31,7 @@ items:
       - " {letters}leur taille et leur contenu."
 
   vaults-default-amount:
-    slot: 10
+    slot: 11
     material: BARREL
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Coffres de base</gradient>"
     lore:
@@ -50,7 +50,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.default-amount"
 
   vaults-max-amount:
-    slot: 11
+    slot: 12
     material: CHEST
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Limite de coffres</gradient>"
     lore:
@@ -69,7 +69,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.max-amount"
 
   vaults-default-rows:
-    slot: 12
+    slot: 14
     material: LADDER
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Rangées de base</gradient>"
     lore:
@@ -87,8 +87,29 @@ items:
     actions:
       - "exyliaplayervaults:setting vaults vaults.default-rows"
 
+  vaults-toolbar:
+    slot: 15
+    material: SPYGLASS
+    name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Barre du coffre</gradient>"
+    lore:
+      - "{letters_black}Réglage : Coffres"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Une rangée de boutons sous chaque"
+      - " {letters}coffre : précédent, suivant, liste,"
+      - " {letters}recherche et renommer. Prend la"
+      - " {letters}6e rangée ; ses objets remontent."
+      - ""
+      - "{primary}✦ État"
+      - "  {letters_black}· {info}{icon:book} {letters}Affichée{letters_black}: %vaults_vaults_toolbar%"
+      - "  {letters_black}· {info}{icon:book} {letters}Par défaut{letters_black}: %vaults_vaults_toolbar_default%"
+      - ""
+      - "%vaults_vaults_toolbar_click%"
+    actions:
+      - "exyliaplayervaults:setting vaults vaults.toolbar"
+
   vaults-hidden-slots:
-    slot: 13
+    slot: 20
     material: ENDER_CHEST
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Cases masquées</gradient>"
     lore:
@@ -108,7 +129,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.hidden-slots"
 
   vaults-blocked-materials:
-    slot: 14
+    slot: 21
     material: BARRIER
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Objets bloqués</gradient>"
     lore:
@@ -128,7 +149,7 @@ items:
       - "exyliaplayervaults:setting vaults vaults.blocked-materials"
 
   history-keep:
-    slot: 15
+    slot: 23
     material: CLOCK
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Copies d'historique</gradient>"
     lore:
@@ -148,7 +169,7 @@ items:
       - "exyliaplayervaults:setting vaults history.keep"
 
   customization-name-max-length:
-    slot: 16
+    slot: 24
     material: NAME_TAG
     name: "{letters}Coffres {letters_black}▸ <gradient:{primary}:{secondary_light}>Longueur du nom</gradient>"
     lore:
@@ -167,7 +188,7 @@ items:
       - "exyliaplayervaults:setting vaults customization.name-max-length"
 
   back:
-    slot: 22
+    slot: 31
     sound: "minecraft:item.bundle.remove_one|1.0|0.5"
     material: 'basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0='
     name: "{letters}Retour {letters_black}▸ <gradient:{error}:{error_light}>Réglages</gradient>"

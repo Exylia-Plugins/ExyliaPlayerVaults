@@ -10,6 +10,7 @@ import net.exylia.exyliaPlayerVaults.listener.VaultsListener;
 import net.exylia.exyliaPlayerVaults.manager.VaultAccess;
 import net.exylia.exyliaPlayerVaults.manager.VaultHistory;
 import net.exylia.exyliaPlayerVaults.manager.VaultLooks;
+import net.exylia.exyliaPlayerVaults.manager.VaultToolbar;
 import net.exylia.exyliaPlayerVaults.manager.VaultsManager;
 import net.exylia.exyliaPlayerVaults.menu.VaultMenus;
 import net.exylia.exyliaPlayerVaults.placeholder.VaultPlaceholders;
@@ -62,6 +63,7 @@ public final class ExyliaPlayerVaults {
     private PluginActions actions;
     private Logs logs;
     private VaultMenus menus;
+    private VaultToolbar toolbar;
     private Reloads reloads;
     private VaultsManager vaults;
     private VaultAccess access;
@@ -114,6 +116,7 @@ public final class ExyliaPlayerVaults {
         vaultActions = new VaultActions(this);
         vaultActions.registerAll();
         // After the actions: compiling a menu resolves every action its buttons name.
+        toolbar = new VaultToolbar(this);
         menus = new VaultMenus(this, NAMESPACE);
         menus.load();
 
@@ -179,6 +182,7 @@ public final class ExyliaPlayerVaults {
     public PluginActions getActions() { return actions; }
     public Logs getLogs() { return logs; }
     public VaultMenus getMenus() { return menus; }
+    public VaultToolbar getToolbar() { return toolbar; }
     public VaultsManager getVaults() { return vaults; }
     public VaultAccess getAccess() { return access; }
     public VaultHistory getHistory() { return history; }

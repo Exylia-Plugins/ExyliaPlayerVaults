@@ -253,28 +253,49 @@ public final class VaultsManager {
     /** Builds the window and opens it. Registers it last, so nothing before can leave a half-open vault. */
     private VaultHolder show(Player viewer, UUID owner, String ownerName, int number, boolean admin, String name,
                              VaultEntity stored, CompletableFuture<Boolean> closed, Object click) {
-        int size = admin ? MAX_SLOTS : core.getAccess().rows(viewer) * 9;
+        // reach: the slots the owner's rank gives; storage: the ones the window shows, less the
+        // toolbar's row on a 6-row vault. Both are MAX_SLOTS for staff, who never get a toolbar.
+        boolean bar = !admin && VaultSettings.get().vaults().toolbar();
+        int reach = admin ? MAX_SLOTS : core.getAccess().rows(viewer) * 9;
+        int storage = admin ? MAX_SLOTS : core.getAccess().slots(viewer);
         ItemStack[] contents = stored == null || stored.contents() == null ? new ItemStack[0] : stored.contents();
+        ItemStack[] shown = Arrays.copyOf(contents, storage);
+        List<RewardEntry> pushed = compact(contents, shown, storage, Math.min(reach, contents.length));
 
         boolean keep = VaultSettings.get().vaults().hiddenSlots() == VaultSettings.HiddenSlots.KEEP;
-        ItemStack[] hidden = keep && contents.length > size
-                ? Arrays.copyOfRange(contents, size, contents.length)
+        ItemStack[] hidden = keep && contents.length > reach
+                ? Arrays.copyOfRange(contents, reach, contents.length)
                 : new ItemStack[0];
         if (VaultEntity.count(hidden) == 0) hidden = new ItemStack[0];
 
         VaultHolder holder = new VaultHolder(owner, ownerName, number, viewer.getUniqueId(), admin, closed,
-                contents, hidden, stored != null && stored.used() != null,
+                contents, hidden, storage, reach, stored != null && stored.used() != null,
                 stored != null, stored == null ? null : stored.version());
         VaultMessages text = VaultMessages.get();
+        String shownName = displayName(name, number);
         Values titleValues = Values.of().put("number", number).put("player", ownerName)
-                .putText("name", displayName(name, number));
-        Inventory inventory = Bukkit.createInventory(holder, size,
+                .putText("name", shownName);
+        Inventory inventory = Bukkit.createInventory(holder, bar ? storage + 9 : storage,
                 core.getMessages().text(admin ? text.adminTitle() : text.title(), titleValues).forPlayer(viewer).build());
         holder.bind(inventory);
-        for (int slot = 0; slot < Math.min(size, contents.length); slot++) {
-            inventory.setItem(slot, contents[slot]);
+        for (int slot = 0; slot < storage; slot++) {
+            inventory.setItem(slot, shown[slot]);
         }
-        List<RewardEntry> owed = keep ? List.of() : overflow(contents, size);
+        if (bar) {
+            int unlocked = core.getAccess().unlocked(viewer);
+            Map<String, String> values = Map.of(
+                    "vault_owner", owner.toString(),
+                    "vault_number", String.valueOf(number),
+                    "vault_name", shownName,
+                    "previous_number", String.valueOf(Math.max(1, number - 1)),
+                    "next_number", String.valueOf(Math.min(unlocked, number + 1)),
+                    "vaults_unlocked", String.valueOf(unlocked));
+            VaultToolbar.Drawn drawn = new VaultToolbar.Drawn(values, number > 1, number < unlocked);
+            holder.toolbar(drawn);
+            core.getToolbar().draw(inventory, storage, viewer, values, drawn.hasPrevious(), drawn.hasNext());
+        }
+        List<RewardEntry> owed = new ArrayList<>(keep ? List.of() : overflow(contents, reach));
+        owed.addAll(pushed);
 
         windows.put(holder.key(), holder);
         viewing.put(viewer.getUniqueId(), holder.key());
@@ -311,6 +332,29 @@ public final class VaultsManager {
     public static String displayName(String name, int number) {
         if (name != null && !name.isBlank()) return name;
         return VaultMessages.get().defaultName().replace("%number%", String.valueOf(number));
+    }
+
+    /**
+     * Moves what a vault stores past the window's storage but within its rows
+     * (the last row of a 6-row vault, under the toolbar) into the window's
+     * free slots.
+     *
+     * @return what found no free slot, owed back to the owner like any overflow
+     */
+    static List<RewardEntry> compact(ItemStack[] contents, ItemStack[] shown, int storage, int reach) {
+        List<RewardEntry> left = new ArrayList<>();
+        int free = 0;
+        for (int slot = storage; slot < reach; slot++) {
+            ItemStack stack = contents[slot];
+            if (stack == null || stack.getType().isAir()) continue;
+            while (free < storage && shown[free] != null && !shown[free].getType().isAir()) free++;
+            if (free < storage) {
+                shown[free] = stack;
+            } else {
+                left.add(RewardEntry.item(Rewards.snapshot(stack)).fixedAmount(stack.getAmount()).build());
+            }
+        }
+        return left;
     }
 
     /** What a smaller vault can no longer hold, as rewards. */
@@ -842,12 +886,17 @@ public final class VaultsManager {
 
     /** A deep copy of a window's contents and its hidden slots, safe to write while the window stays open. */
     private static ItemStack[] snapshot(VaultHolder holder) {
+        // Only the vault's slots: the toolbar's row is never stored.
         ItemStack[] shown = holder.getInventory().getContents();
         ItemStack[] hidden = holder.hidden();
-        ItemStack[] contents = Arrays.copyOf(shown, shown.length + hidden.length);
-        System.arraycopy(hidden, 0, contents, shown.length, hidden.length);
-        for (int slot = 0; slot < contents.length; slot++) {
-            if (contents[slot] != null) contents[slot] = contents[slot].clone();
+        int storage = holder.storage();
+        ItemStack[] contents = new ItemStack[hidden.length == 0 ? storage : holder.hiddenAt() + hidden.length];
+        for (int slot = 0; slot < storage; slot++) {
+            ItemStack stack = shown[slot];
+            if (stack != null && !ExyliaPlayerVaults.get().getToolbar().isButton(stack)) contents[slot] = stack.clone();
+        }
+        for (int slot = 0; slot < hidden.length; slot++) {
+            if (hidden[slot] != null) contents[holder.hiddenAt() + slot] = hidden[slot].clone();
         }
         return contents;
     }

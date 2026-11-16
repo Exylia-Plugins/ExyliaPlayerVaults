@@ -60,6 +60,15 @@ public final class VaultAccess {
         return clamp(PermissionNumbers.highest(player, Permissions.ROWS_PREFIX, VaultSettings.get().vaults().defaultRows()), 1, 6);
     }
 
+    /**
+     * How many slots each of this player's vaults stores: its rows, less the
+     * sixth when the toolbar takes the bottom row of the window.
+     */
+    public int slots(Player player) {
+        int rows = rows(player);
+        return (VaultSettings.get().vaults().toolbar() ? Math.min(rows, 5) : rows) * 9;
+    }
+
     /** How many vaults this player bought, as last read; 0 before the read arrives. */
     public int purchased(UUID player) {
         return purchased.getOrDefault(player, 0);

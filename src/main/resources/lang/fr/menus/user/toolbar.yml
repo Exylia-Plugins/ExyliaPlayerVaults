@@ -1,0 +1,100 @@
+# La rangée de boutons sous un coffre, affichée quand vaults.toolbar est activé dans config.yml.
+#
+# Tu peux la restyler : tes changements sont conservés entre les mises à jour.
+#
+# Chaque bouton occupe une colonne de la rangée (case 0 à 8) ; les colonnes sans bouton
+# montrent le remplissage. Les boutons sont des objets ordinaires avec des actions de menu
+# (left:, right:, shift_left:...). Un clic ferme d'abord le coffre, sauf si
+# toutes ses actions ouvrent seulement un autre coffre, ce qui change la fenêtre.
+# "previous" et "next" montrent leur objet grisé quand il n'y a pas de coffre dans ce sens.
+#
+# Valeurs : %vault_owner% %vault_number% %vault_name% %previous_number%
+#         %next_number% %vaults_unlocked%
+
+menu-version: 1
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  hide_tooltip: true
+
+buttons:
+  search:
+    slot: 1
+    material: SPYGLASS
+    name: "{letters}Coffres {letters_black}▸ <gradient:{info}:{info_light}>Rechercher</gradient>"
+    lore:
+      - "{letters_black}Recherche de coffres"
+      - ""
+      - "{info}✎ Informations"
+      - " {letters}Trouve quel coffre contient un"
+      - " {letters}objet, shulkers et sacs inclus."
+      - ""
+      - "{info}{icon:click} Clique pour rechercher"
+      - "{letters_black}Ferme d'abord ce coffre."
+    actions:
+      - "exyliaplayervaults:search %vault_owner%"
+
+  previous:
+    slot: 3
+    sound: "minecraft:item.book.page_turn|1.0|1.0"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+    name: "{letters}Coffre {letters_black}▸ <gradient:{info}:{info_light}>← #%previous_number%</gradient>"
+    lore:
+      - "  {letters_black}· {letters}Coffre{letters_black}: {info}%vault_number%{letters_black}/{info}%vaults_unlocked%"
+      - ""
+      - "{info}{icon:click} Clique pour ouvrir"
+      - "{letters_black}Enregistre ce coffre, puis ouvre l'autre."
+    muted:
+      material: GRAY_DYE
+      name: "{muted}Pas de coffre précédent"
+      lore:
+        - "{letters_black}C'est ton premier coffre."
+    actions:
+      - "exyliaplayervaults:open %vault_owner% %previous_number%"
+
+  list:
+    slot: 4
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0="
+    name: "{letters}Retour {letters_black}▸ <gradient:{error}:{error_light}>Coffres</gradient>"
+    lore:
+      - "{error}{icon:click} Clique pour revenir"
+      - "{letters_black}Tous tes coffres."
+    actions:
+      - "exyliaplayervaults:list %vault_owner%"
+
+  next:
+    slot: 5
+    sound: "minecraft:item.book.page_turn|1.0|1.0"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+    name: "{letters}Coffre {letters_black}▸ <gradient:{info}:{info_light}>#%next_number% →</gradient>"
+    lore:
+      - "  {letters_black}· {letters}Coffre{letters_black}: {info}%vault_number%{letters_black}/{info}%vaults_unlocked%"
+      - ""
+      - "{info}{icon:click} Clique pour ouvrir"
+      - "{letters_black}Enregistre ce coffre, puis ouvre l'autre."
+    muted:
+      material: GRAY_DYE
+      name: "{muted}Pas de coffre suivant"
+      lore:
+        - "{letters_black}Un rang supérieur en débloque plus."
+    actions:
+      - "exyliaplayervaults:open %vault_owner% %next_number%"
+
+  customize:
+    slot: 7
+    material: NAME_TAG
+    name: "{letters}Vault {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient>"
+    lore:
+      - "{letters_black}Apparence du coffre"
+      - ""
+      - "{primary}✎ Informations"
+      - " {letters}Le nom et l'icône de ce coffre"
+      - " {letters}dans ta liste."
+      - ""
+      - "{primary}{icon:click} Clic gauche {letters_black}· {letters}renommer"
+      - "{primary}{icon:right_click} Clic droit {letters_black}· {letters}changer l'icône"
+      - "{letters_black}Ferme d'abord ce coffre."
+    actions:
+      - "left: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:icon %vault_owner% %vault_number%"
