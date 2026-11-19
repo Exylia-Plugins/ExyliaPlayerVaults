@@ -1,0 +1,100 @@
+# Die Button-Leiste unter einem Vault, sichtbar wenn vaults.toolbar in der config.yml aktiv ist.
+#
+# Frei anpassbar: Änderungen bleiben bei Updates erhalten.
+#
+# Jeder Button sitzt in einer Spalte der Reihe (Slot 0 bis 8); Spalten ohne
+# Button zeigen den Filler. Buttons sind normale Items plus Menü-Aktionen
+# (left:, right:, shift_left:...). Ein Klick schließt zuerst den Vault, außer
+# alle Aktionen des Klicks öffnen nur einen anderen Vault, dann wird das Fenster getauscht.
+# "previous" und "next" zeigen ihr gedämpftes Item, wenn es in die Richtung keinen Vault gibt.
+#
+# Werte: %vault_owner% %vault_number% %vault_name% %previous_number%
+#        %next_number% %vaults_unlocked%
+
+menu-version: 1
+
+filler:
+  material: GRAY_STAINED_GLASS_PANE
+  hide_tooltip: true
+
+buttons:
+  search:
+    slot: 1
+    material: SPYGLASS
+    name: "{letters}Vaults {letters_black}▸ <gradient:{info}:{info_light}>Suche</gradient>"
+    lore:
+      - "{letters_black}Vault-Suche"
+      - ""
+      - "{info}✎ Information"
+      - " {letters}Finde heraus, welcher Vault ein Item"
+      - " {letters}enthält, auch in Shulkerboxen und Bundles."
+      - ""
+      - "{info}{icon:click} Klicke zum Suchen"
+      - "{letters_black}Schließt zuerst diesen Vault."
+    actions:
+      - "exyliaplayervaults:search %vault_owner%"
+
+  previous:
+    slot: 3
+    sound: "minecraft:item.book.page_turn|1.0|1.0"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+    name: "{letters}Vault {letters_black}▸ <gradient:{info}:{info_light}>← #%previous_number%</gradient>"
+    lore:
+      - "  {letters_black}· {letters}Vault{letters_black}: {info}%vault_number%{letters_black}/{info}%vaults_unlocked%"
+      - ""
+      - "{info}{icon:click} Klicke zum Öffnen"
+      - "{letters_black}Speichert diesen Vault, dann öffnet er."
+    muted:
+      material: GRAY_DYE
+      name: "{muted}Kein vorheriger Vault"
+      lore:
+        - "{letters_black}Das ist dein erster Vault."
+    actions:
+      - "exyliaplayervaults:open %vault_owner% %previous_number%"
+
+  list:
+    slot: 4
+    sound: "minecraft:item.bundle.remove_one|1.0|0.5"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjIzZmI2NzQyOTcxNmIyMWJjNmU4ZTdkNjY5Y2VkZGY2NWIxM2UwNzkwYTVjZTU1YjJlMDc3YjgyZDE5ZTEyNCJ9fX0="
+    name: "{letters}Zurück {letters_black}▸ <gradient:{error}:{error_light}>Vaults</gradient>"
+    lore:
+      - "{error}{icon:click} Klicke zum Zurückgehen"
+      - "{letters_black}Alle deine Vaults."
+    actions:
+      - "exyliaplayervaults:list %vault_owner%"
+
+  next:
+    slot: 5
+    sound: "minecraft:item.book.page_turn|1.0|1.0"
+    material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+    name: "{letters}Vault {letters_black}▸ <gradient:{info}:{info_light}>#%next_number% →</gradient>"
+    lore:
+      - "  {letters_black}· {letters}Vault{letters_black}: {info}%vault_number%{letters_black}/{info}%vaults_unlocked%"
+      - ""
+      - "{info}{icon:click} Klicke zum Öffnen"
+      - "{letters_black}Speichert diesen Vault, dann öffnet er."
+    muted:
+      material: GRAY_DYE
+      name: "{muted}Kein nächster Vault"
+      lore:
+        - "{letters_black}Ein höherer Rang schaltet mehr frei."
+    actions:
+      - "exyliaplayervaults:open %vault_owner% %next_number%"
+
+  customize:
+    slot: 7
+    material: NAME_TAG
+    name: "{letters}Vault {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient>"
+    lore:
+      - "{letters_black}Vault-Look"
+      - ""
+      - "{primary}✎ Information"
+      - " {letters}Name und Icon, die dieser Vault"
+      - " {letters}in deiner Liste zeigt."
+      - ""
+      - "{primary}{icon:click} Linksklick {letters_black}· {letters}umbenennen"
+      - "{primary}{icon:right_click} Rechtsklick {letters_black}· {letters}Icon ändern"
+      - "{letters_black}Schließt zuerst diesen Vault."
+    actions:
+      - "left: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:icon %vault_owner% %vault_number%"

@@ -1,0 +1,169 @@
+# Deine Vaults und die, die ein Rang oder ein Kauf dazugeben würde. /pv
+#
+# Frei anpassbar: Änderungen bleiben bei Updates erhalten. Muss ein Release
+# das Layout ändern, erhöht es menu-version unten; die Datei wird dann
+# ersetzt und deine bisherige daneben aufbewahrt.
+#
+# Staff öffnet dasselbe Menü mit /pvadmin list für die Vaults eines Spielers.
+#
+# Werte: %owner_name% %owner_id% %vaults_unlocked% %vaults_max% %vaults_bought% %vaults_rows%
+# Pro Vault: %vault_number% %vault_name% %vault_icon% %vault_used% %vault_size%
+#             %vault_free% %vault_owner% und beim Vault im Verkauf %vault_price%
+
+menu-version: 3
+
+title: "{primary}&lVAULTS {letters_black}» {highlight}%owner_name% {muted}%current_page%/%total_pages%"
+size: 54
+type: PAGINATION
+
+open_sounds:
+  - "minecraft:block.ender_chest.open|1.0|1.4"
+click_sounds:
+  - "minecraft:block.note_block.hat|1.0|1.0"
+close_sounds:
+  - "minecraft:block.barrel.close|1.0|0.7"
+
+filler:
+  global:
+    material: GRAY_STAINED_GLASS_PANE
+    hide_tooltip: true
+  pagination:
+    material: LIGHT_GRAY_STAINED_GLASS_PANE
+    name: "{muted}Keine weiteren Vaults"
+    lore:
+      - "{letters_black}Ein höherer Rang schaltet mehr frei."
+    hide_tooltip: false
+  custom:
+    page_first:
+      slots: '48'
+      material: GRAY_DYE
+      name: "{muted}← Erste Seite"
+    page_last:
+      slots: '50'
+      material: GRAY_DYE
+      name: "{muted}Letzte Seite →"
+
+pagination:
+  slots: '10-16,19-25,28-34,37-43'
+
+  item_template:
+    material: "%vault_icon%"
+    name: "{letters}Vault {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient> &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - "{letters_black}Dein Vault"
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:iron} {letters}Belegt{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - "  {letters_black}· {success}{icon:check} {letters}Frei{letters_black}: {success}%vault_free%"
+      - ""
+      - "{primary}{icon:click} Linksklick {letters_black}· {letters}öffnen"
+      - "{primary}{icon:right_click} Rechtsklick {letters_black}· {letters}umbenennen"
+      - "{primary}{icon:right_click} Shift-Rechtsklick {letters_black}· {letters}Icon ändern"
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:icon %vault_owner% %vault_number%"
+
+  # Staff schaut sich die Vaults eines anderen an: jeder gespeicherte Vault, mit den Staff-Tools.
+  admin_template:
+    material: "%vault_icon%"
+    name: "{letters}Vault {letters_black}▸ <gradient:{primary}:{secondary_light}>%vault_name%</gradient> &8[{success}%vault_used%&8/{warning}%vault_size%&8]"
+    lore:
+      - "{letters_black}Spieler-Vault"
+      - ""
+      - "{primary}✦ Status"
+      - "  {letters_black}· {info}{icon:iron} {letters}Belegt{letters_black}: {info}%vault_used%{letters_black}/{info}%vault_size%"
+      - "  {letters_black}· {success}{icon:check} {letters}Frei{letters_black}: {success}%vault_free%"
+      - ""
+      - "{primary}{icon:click} Linksklick {letters_black}· {letters}öffnen"
+      - "{primary}{icon:right_click} Rechtsklick {letters_black}· {letters}umbenennen"
+      - "{primary}{icon:click} Droppen (Q) {letters_black}· {letters}Icon ändern"
+      - "{primary}{icon:click} Shift-Linksklick {letters_black}· {letters}Verlauf"
+      - "{error}{icon:right_click} Shift-Rechtsklick {letters_black}· {letters}leeren"
+      - "{letters_black}Du musst es noch bestätigen."
+    actions:
+      - "left: exyliaplayervaults:open %vault_owner% %vault_number%"
+      - "right: exyliaplayervaults:rename %vault_owner% %vault_number%"
+      - "drop: exyliaplayervaults:icon %vault_owner% %vault_number%"
+      - "shift_left: exyliaplayervaults:history %vault_owner% %vault_number%"
+      - "shift_right: exyliaplayervaults:clear %vault_owner% %vault_number%"
+
+  buy_template:
+    material: GOLD_INGOT
+    name: "{letters}Vault {letters_black}▸ <gradient:{success}:{success_light}>#%vault_number% kaufen</gradient>"
+    lore:
+      - "{letters_black}Neuer Vault"
+      - ""
+      - "{success}✎ Information"
+      - " {letters}Ein weiterer Vault, dauerhaft dein."
+      - ""
+      - "{success}✦ Status"
+      - "  {letters_black}· {highlight}{icon:gold} {letters}Preis{letters_black}: {highlight}%vault_price%"
+      - ""
+      - "{success}{icon:click} Zum Kaufen klicken"
+    actions:
+      - "left: exyliaplayervaults:buy"
+
+  locked_template:
+    material: GRAY_DYE
+    name: "{letters}Vault {letters_black}▸ <gradient:{warning}:{warning_light}>#%vault_number%</gradient>"
+    lore:
+      - "{letters_black}Gesperrter Vault"
+      - ""
+      - "{warning}✎ Information"
+      - " {letters}Gesperrt."
+      - " {letters}Ein höherer Rang schaltet ihn frei."
+
+  navigation:
+    previous:
+      slot: 48
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGExZDU1YjNmOTg5NDEwYTM0NzUyNjUwZTI0OGM5YjZjMTc4M2E3ZWMyYWEzZmQ3Nzg3YmRjNGQwZTYzN2QzOSJ9fX0="
+      name: "{letters}Seite {letters_black}▸ <gradient:{error}:{error_light}>← Zurück</gradient>"
+      lore:
+        - "  {letters_black}· {letters}Seite{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
+      actions:
+        - "previous_page"
+    next:
+      slot: 50
+      sound: "minecraft:item.book.page_turn|1.0|1.0"
+      material: "basehead-eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmE4N2UzZDk2ZTFjZmViOWNjZmIzYmE1M2EyMTdmYWY1MjQ5ZTI4NTUzM2IyNzFhMmZiMjg0YzMwZGJkOTgyOSJ9fX0="
+      name: "{letters}Seite {letters_black}▸ <gradient:{success}:{success_light}>Weiter →</gradient>"
+      lore:
+        - "  {letters_black}· {letters}Seite{letters_black}: {info}%current_page%{letters_black}/{info}%total_pages%"
+      actions:
+        - "next_page"
+
+items:
+  search:
+    slot: 46
+    material: SPYGLASS
+    name: "{letters}Vaults {letters_black}▸ <gradient:{info}:{info_light}>Suche</gradient>"
+    lore:
+      - "{letters_black}Vault-Suche"
+      - ""
+      - "{info}✎ Information"
+      - " {letters}Finde, in welchem Vault ein Item"
+      - " {letters}liegt, per Name oder Material,"
+      - " {letters}auch in Shulkerboxen und Bundles."
+      - ""
+      - "{info}{icon:click} Zum Suchen klicken"
+    actions:
+      - "exyliaplayervaults:search %owner_id%"
+
+  header:
+    slot: 49
+    material: "playerhead-%owner_name%"
+    name: "<gradient:{info}:{info_light}>%owner_name%</gradient>"
+    lore:
+      - "{letters_black}Deine Vaults"
+      - ""
+      - "{info}✎ Information"
+      - " {letters}Ein Vault ist immer nur an"
+      - " {letters}einer Stelle offen und wird"
+      - " {letters}beim Schließen gespeichert."
+      - ""
+      - "{info}✦ Status"
+      - "  {letters_black}· {info}{icon:key} {letters}Freigeschaltet{letters_black}: {info}%vaults_unlocked%{letters_black}/{info}%vaults_max%"
+      - "  {letters_black}· {info}{icon:gold} {letters}Gekauft{letters_black}: {info}%vaults_bought%"
+      - "  {letters_black}· {info}{icon:iron} {letters}Reihen{letters_black}: {info}%vaults_rows%"

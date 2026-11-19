@@ -1,0 +1,38 @@
+# Words of the vault list screen (screens/vaults.html), one per t="key" there. Colour tokens such as {info} work
+# here; keep the %placeholders%. Lines of a tooltip are split by <nl>. Edits show on open screens within seconds.
+title: '{highlight}Vaults'
+subtitle: '{letters_black}Wird beim Schließen sofort gespeichert · immer nur an einem Ort offen'
+own:
+  tooltip: '%vault_name%<nl>{letters_black}Belegt {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · frei {success}%vault_free%<nl>{primary}Klick {letters_black}· {letters}öffnen<nl>{primary}Rechtsklick {letters_black}· {letters}umbenennen<nl>{primary}<key:key.sprint> + Klick {letters_black}· {letters}Icon ändern'
+admin:
+  tooltip: '%vault_name%<nl>{letters_black}Belegt {info}%vault_used%{letters_black}/{info}%vault_size%{letters_black} · frei {success}%vault_free%<nl>{primary}Klick {letters_black}· {letters}öffnen<nl>{primary}Rechtsklick {letters_black}· {letters}umbenennen<nl>{primary}<key:key.sprint> + Klick {letters_black}· {letters}Verlauf'
+  icon: 'Icon'
+  clear: 'Leeren'
+buy:
+  name: '{success}#%vault_number% kaufen'
+  tooltip: '{success}Vault #%vault_number% kaufen<nl>{letters_black}Ein weiterer Vault, für immer deiner.<nl>{letters_black}Preis {highlight}%vault_price%<nl>{success}Klick {letters_black}· {letters}kaufen'
+locked:
+  name: '{muted}Gesperrt'
+  tooltip: '{warning}Vault #%vault_number%<nl>{letters_black}Ein höherer Rang schaltet ihn frei.'
+empty:
+  title: 'Noch keine Vaults'
+  hint: 'Ein höherer Rang schaltet mehr frei'
+foot: '{letters_black}Fahre über einen Vault, um zu sehen, was jeder Klick macht'
+owner: '{letters_black}Vault-Besitzer'
+unlocked: '{letters}Freigeschaltet'
+bought: '{letters}Gekauft'
+rows: '{letters}Reihen pro Vault'
+search:
+  hint: '{letters_black}Welcher Vault enthält ein Item?'
+  button: 'Suchen'
+nav:
+  vaults: 'Vaults'
+keys: '{highlight}Klick {letters_black}öffnen   {highlight}Rechtsklick {letters_black}umbenennen   {highlight}<key:key.sprint> {letters_black}Icon'
+keys_staff: '{highlight}Klick {letters_black}öffnen   {highlight}Rechtsklick {letters_black}umbenennen   {highlight}<key:key.sprint> {letters_black}Verlauf'
+found:
+  title: '{highlight}Suche'
+  subtitle: '{info}%search_hits% {letters_black}· {highlight}%search_query%'
+  back: '‹ Vaults'
+  holds: '{letters_black}Enthält {info}%vault_amount%'
+  go: '{info}Öffnen »'
+  empty: 'Nichts enthält das'
