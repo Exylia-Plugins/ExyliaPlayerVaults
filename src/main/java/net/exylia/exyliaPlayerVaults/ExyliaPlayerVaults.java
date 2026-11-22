@@ -158,7 +158,13 @@ public final class ExyliaPlayerVaults {
      * menus come from.
      */
     private void loadConfigs() {
-        VaultSettings.install(Configs.define(plugin, "config", VaultSettings.class).version(1).load());
+        var settings = Configs.define(plugin, "config", VaultSettings.class).version(1).load();
+        VaultSettings.install(settings);
+        net.exylia.lib.web.WebEditor.of(plugin).subject("config", settings)
+                .group("settings")
+                .title("Vault settings")
+                .permission("exyliaplayervaults.admin")
+                .onApplied(() -> reloads.run());
         VaultMessages.install(Configs.define(plugin, "messages", VaultMessages.class).translated().load());
         applyConfigs();
     }
